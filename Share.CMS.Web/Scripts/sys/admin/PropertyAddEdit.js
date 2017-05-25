@@ -17,7 +17,8 @@ var
                 pageEvents();
             },
             applyValidation = function () {
-                jQuery(function ($) {
+                jQuery(function ($) {
+
                     $('[data-rel=tooltip]').tooltip();
                     $('form').each(function () {
                         $(this).validate({

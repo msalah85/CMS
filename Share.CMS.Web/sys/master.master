@@ -191,15 +191,12 @@
                 </div>
             </div>
         </div>
-
         <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
             <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
         </a>
     </div>
     <script src="/Content/sys/assets/js/bootstrap.min.js"></script>
-    <!--[if lte IE 8]>
-          <script src="/Content/sys/assets/js/excanvas.min.js"></script>
-        <![endif]-->
+    <!--[if lte IE 8]><script src="/Content/sys/assets/js/excanvas.min.js"></script><![endif]-->
     <script src="/Content/sys/assets/js/jquery-ui.custom.min.js"></script>
     <script src="/Content/sys/assets/js/jquery.ui.touch-punch.min.js"></script>
     <script src="/Content/sys/assets/js/jquery.sparkline.min.js"></script>
@@ -207,8 +204,8 @@
     <!-- ace scripts -->
     <script src="/Content/sys/assets/js/ace/elements.scroller.min.js"></script>
     <script src="/Content/sys/assets/js/ace/elements.colorpicker.min.js"></script>
-    <script src="/Content/sys/assets/js/date-time/bootstrap-datepicker.min.js"></script>
     <script src="/Content/sys/assets/js/date-time/moment.min.js"></script>
+    <script src="/Content/sys/assets/js/date-time/bootstrap-datepicker.min.js"></script>
     <script src="/Content/sys/assets/js/date-time/bootstrap-datetimepicker.min.js"></script>
     <script src="/Content/sys/assets/js/ace/elements.fileinput.min.js"></script>
     <script src="/Content/sys/assets/js/ace/elements.spinner.min.js"></script>
@@ -226,6 +223,7 @@
     <script src="/Content/sys/assets/js/ace/ace.settings-rtl.min.js"></script>
     <script src="/Content/sys/assets/js/ace/ace.settings-skin.min.js"></script>
     <script src="/Content/sys/assets/js/autosize.min.js"></script>
+    <script src="/Content/sys/assets/js/bootbox.min.js"></script>
     <script type="text/javascript">
                 jQuery(function ($) {
                     $('[data-rel="tooltip"]').tooltip();

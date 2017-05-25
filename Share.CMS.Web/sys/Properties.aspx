@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-xs-12 widget-container-col">
                 <div class="clearfix">
-                    <a role="button" href="PropertyAddEdit" class="btn btn-white btn-warning btn-bold"
+                    <a href="PropertyAddEdit" class="btn btn-white btn-warning btn-bold"
                         tabindex="0" title="Add new"><i class="fa fa-plus bigger-110"></i>
                         Add new</a>
                     <div class="pull-right tableTools-container"></div>
@@ -47,86 +47,20 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Type</th>
-                                        <th>Name</th>
+                                        <th>Property Type</th>
+                                        <th>Title</th>
                                         <th>Name(Ar)</th>
                                         <th>Mobile</th>
                                         <th>Email</th>
-                                        <th class="hidden-print" style="width: 77px">Options</th>
+                                        <th>Email</th>
+                                        <th class="hidden-print" style="width: 120px">Options</th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
                             </table>
                         </div>
                     </div>
-                </div>
-                <div id="addModal" class="modal fade" tabindex="-1">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header no-padding">
-                                <div class="table-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                        <span class="white">&times;</span>
-                                    </button>
-                                    Add/Edit Contact Person
-                                </div>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-12">
-                                        <form class="form-horizontal" role="form" id="aspnetForm">
-                                            <div>
-                                                <input type="hidden" id="ContactPersonID" value="0" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-3 control-label no-padding-right">Type <span class="text-danger">*</span></label>
-                                                <div class="col-sm-9">
-                                                    <select class="col-sm-10 select2" id="ContactPersonTypeID" name="ContactPersonTypeID" data-fn-name="ContactPersonTypes_Names" data-placeholder="Contact type" data-allow-clear="true">
-                                                        <option value=""></option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="ContactName" class="col-sm-3 control-label no-padding-right">Name <span class="text-danger">*</span></label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="col-sm-10 required" required id="ContactName" name="ContactName" placeholder="Contact person name" />
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="ContactNameAr" class="col-sm-3 control-label no-padding-right">Name (Ar) <span class="text-danger">*</span></label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="col-sm-10 required" required id="ContactNameAr" name="ContactNameAr" placeholder="Arabic name" />
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="ContactMobile" class="col-sm-3 control-label no-padding-right">Mobile</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="col-sm-10" id="ContactMobile" name="ContactMobile" placeholder="05012345678" />
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="ContactEmail" class="col-sm-3 control-label no-padding-right">Email</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="col-sm-10" id="ContactEmail" name="ContactEmail" placeholder="example@domain.com" />
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer no-margin-top">
-                                <button class="btn btn-sm btn-primary" id="btnSave">
-                                    <i class="ace-icon fa fa-check"></i>
-                                    Save
-                                </button>
-                                <button class="btn btn-sm btn-danger" data-dismiss="modal">
-                                    <i class="ace-icon fa fa-times"></i>
-                                    Close
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div>                
                 <div id="deleteModal" class="modal fade" tabindex="-1">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -172,8 +106,7 @@
     </style>
     <script src="/Scripts/sys/DefaultGridManager.js"></script>
     <script src="/Scripts/sys/numeral.min.js"></script>
-    <script src="/Scripts/util/validationForm.js"></script>
-    <script src="/Scripts/sys/admin/ContactPersonsManager.js?v=1.2"></script>
+    <script src="/Scripts/sys/admin/PropertiesManager.js?v=1.3"></script>
     <link href="/Scripts/select2/css/select2.min.css" rel="stylesheet" />
     <link href="/Scripts/select2/css/select2-optional.css" rel="stylesheet" />
     <script src="/Scripts/select2/js/select2.min.js"></script>
