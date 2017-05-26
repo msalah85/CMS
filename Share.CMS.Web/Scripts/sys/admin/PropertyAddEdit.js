@@ -1,7 +1,9 @@
-﻿//=======================================
+﻿
+//=======================================
 // Developer: M. Salah (09-02-2016)
 // Email: eng.msalah.abdullah@gmail.com
 //=======================================
+
 var
     pageManager = pageManager || {},
     pageManager = function () {
@@ -13,11 +15,12 @@ var
             Init = function () {
                 // set buyers and shippers lists for binding.            
                 applyValidation();
-                //setFormProperties();
+                setFormProperties();
                 pageEvents();
             },
             applyValidation = function () {
-                jQuery(function ($) {
+                jQuery(function ($) {
+
                     $('[data-rel=tooltip]').tooltip();
                     $('form').each(function () {
                         $(this).validate({
@@ -114,60 +117,42 @@ var
                     commonManger.showMessage('Error!', 'Error occured!:' + data.message);
                 }
             },
-            bindFormControls = function (d) {
-                var xml = $.parseXML(d.d),
-                    jsn = $.xml2json(xml).list,
-                    jsn1 = $.xml2json(xml).list1,
-                    jsn2 = $.xml2json(xml).list2,
-                    jsn3 = $.xml2json(xml).list3;
-
-                // expenses
-                if (jsn) {
-                    var _options = $(jsn).map(function (i, v) { return $('<option />').val(v.ExpenseID).text(v.ExpenseName); });
-                    $('#ExpenseID').append(_options).trigger('chosen:updated').trigger("liszt:updated");
-
-                    // fill grid with default expenses   
-                    // for edit bill or new bill.
-                    var detailData = (_id) ? jsn3 : jsn,
-                        rows = $(detailData).map(function (i, v) {
-                            return $('<tr><td data-inv-details-id="' + (v.InvoiceDetailsID ? v.InvoiceDetailsID : 0) + '">' + v.ExpenseID + '</td><td>' + v.ExpenseName + '</td>\
-                             <td><input type="number" value="' + numeral(v.Cost ? v.Cost : v.DefaultValue).format('0.0') + '" /></td><td><input type="number" value="' + numeral(v.Amount ? v.Amount : v.DefaultValue).format('0.0') + '" /></td>\
-                             <td><button class="btn btn-minier btn-danger remove" data-rel="tooltip" data-placement="top" data-original-title="Delete" title="Delete"><i class="fa fa-remove icon-only"></i></button></td></tr>');
-                        }).get(),
-                        _tbl = $('#listItems tbody');
-
-                    _tbl.append(rows);
-
-                    // show payments total amount.
-                    showPaymentsTotal();
-                }
-
-                // clients
-                if (jsn1) {
-                    var options = $(jsn1).map(function (i, v) { return $('<option />').val(v.ClientID).text(v.ClientName); }).get();
-                    $('#ClientID').append(options).trigger('chosen:updated').trigger("liszt:updated");
-                }
-
-                // master invoice for edit
-                if (jsn2) {
-                    $.each(jsn2, function (k, v) {
-                        $('#masterForm #' + k).val(v);
-                    });
-
-                    $('.date-picker').text(function () {
-                        return commonManger.formatJSONDateCal($(this).text());
-                    });
-                }
-
-
-            },
             setFormProperties = function () {
                 // Edit invoice
-                var
-                    acName = 'Invoices_Properties', // function name
-                    DTO = _id ? { 'actionName': acName, value: _id } : { actionName: acName }; // set paramers for edit only.
+                var bindFormControls = function (d) {
+                    var d = commonManger.decoData(d),
+                        jsn = d.list;
+                    // jsn1 should called propery features
+                    // jas2 should called contact person
 
-                dataService.callAjax('Post', JSON.stringify(DTO), sUrl + 'GetData' + (_id ? '' : 'Direct'), bindFormControls, commonManger.errorException);
+
+                    if (jsn) {
+                        $.each(jsn, function (k, v) {
+                            var $element = $('#' + k);
+                            if ($element.hasClass('select2')) {
+                                var vl = v.split('|');
+                                $element.select2("trigger", "select", {
+                                    data: { id: vl[0], text: vl[1] }
+                                });
+                            } else
+                                $element.val(v);
+                        });
+
+
+                        $('.date-picker').val(function () {
+                            return moment($(this).val()).format('MM/DD/YYYY');
+                        });
+                    }
+
+                },
+                    DTO = {
+                        actionName: 'Properties_Row',
+                        value: _id
+                    };
+
+
+                dataService.callAjax('GET', DTO, sUrl + 'GetData',
+                    bindFormControls, commonManger.errorException);
             },
             BindGrid = function () {
                 var jsn = {
