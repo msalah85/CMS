@@ -738,10 +738,12 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\sys\addPost.js" />
     <Content Include="Scripts\sys\addPost.min.js" />
+    <Content Include="Scripts\sys\admin\PropertiesManager.js" />
     <Content Include="Scripts\sys\admin\PropertyAddEdit.js" />
     <Content Include="Scripts\sys\admin\UrlRecordsManager.js" />
     <Content Include="Scripts\sys\admin\ContactPersonsManager.js" />
     <Content Include="Scripts\sys\featuresManager.js" />
+    <Content Include="Scripts\sys\imagesManager.js" />
     <Content Include="Scripts\sys\regionsManager.js" />
     <Content Include="Scripts\sys\citiesManager.min.js" />
     <Content Include="Scripts\sys\clientsManager.js" />
@@ -1061,6 +1063,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
+    <Folder Include="Public\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -19,7 +19,7 @@
     </div>
     <div class="page-content">
         <div class="page-header">
-            <h1>Upload Property Images</h1>
+            <h1>Upload Property Images <span class="title text-success"></span></h1>
         </div>
         <div class="row">
             <form class="form-horizontal" role="form" id="masterForm">
@@ -34,7 +34,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="image">Image(s) <span class="text-danger">*</span></label>
                         <div class="col-sm-7">
                             <div id="picture"></div>
-                            <input type="file" id="image" multiple name="image" required class="form-control" />
+                            <input type="file" id="image" multiple name="image" required class="form-control required" />
                         </div>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                     <div class="form-group">
                         <div class="col-sm-3"></div>
                         <div class="col-sm-7 text-center">
-                            <button class="btn btn-app btn-success" id="SendAll" type="submit">
+                            <button class="btn btn-app btn-success" id="uploadAll" type="submit">
                                 <span class="ace-icon glyphicon glyphicon-cloud"></span>
                                 Upload
                             </button>
@@ -52,6 +52,11 @@
             </form>
         </div>
         <hr class="hr-10" />
+        <div class="row">
+            <input type="hidden" id="hfMainImage" value="" />
+            <ul class="ace-thumbnails clearfix" id="divIMagesList">
+            </ul>
+        </div>
     </div>
 </asp:Content>
 <asp:Content runat="server" ContentPlaceHolderID="ContentPlaceHolder2">
@@ -62,5 +67,5 @@
     <script src="/Scripts/sys/utilities.min.js"></script>
     <script src="/Content/sys/assets/js/autosize.min.js"></script>
     <script src="/Content/sys/assets/js/jquery.inputlimiter.1.3.1.min.js"></script>
-    <script src="/Scripts/sys/addPost.js?v=1.4"></script>
+    <script src="/Scripts/sys/imagesManager.js?v=1.8"></script>
 </asp:Content>
