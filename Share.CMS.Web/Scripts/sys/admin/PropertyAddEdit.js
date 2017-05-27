@@ -109,8 +109,6 @@ var
                 return true;
             },
             successSaved = function (data) {
-                console.log(data);
-
                 if (data.Status) {
                     window.location.href = 'Images.aspx?id=' + data.ID; //upload photos
                 } else {
@@ -121,21 +119,23 @@ var
                 // Edit invoice
                 var bindFormControls = function (d) {
                     var d = commonManger.decoData(d),
-                        jsn = d.list;
-                    // jsn1 should called propery features
+                        jsn = d.list,
+                        // jsn1 should called propery features
+                        jsn1 = d.list1;
                     // jas2 should called contact person
 
 
                     if (jsn) {
                         $.each(jsn, function (k, v) {
-                            var $element = $('#' + k);
-                            if ($element.hasClass('select2')) {
+                            var $el = $('#' + k);
+
+                            if ($el.hasClass('select2')) {
                                 var vl = v.split('|');
-                                $element.select2("trigger", "select", {
+                                $el.select2("trigger", "select", {
                                     data: { id: vl[0], text: vl[1] }
                                 });
                             } else
-                                $element.val(v);
+                                $el.val(v);
                         });
 
 
@@ -144,11 +144,23 @@ var
                         });
                     }
 
+
+                    if (jsn1) {
+                        $(jsn1).each(function (i, item) {
+                            $('[name="FeatureID"]').select2("trigger", "select", {
+                                data: { id: item.FeatureID, text: item.FeatureName }
+                            });
+                        });
+                    }
                 },
                     DTO = {
                         actionName: 'Properties_Row',
                         value: _id
                     };
+
+                // new property
+                if (!_id)
+                    return;
 
 
                 dataService.callAjax('GET', DTO, sUrl + 'GetData',
