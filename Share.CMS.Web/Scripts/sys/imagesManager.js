@@ -49,14 +49,21 @@ var newPostManager = newPostManager || {},
 
                     };
 
+                if (!$id)
+                    return;
+
+                // to go edit
+                $('.edit-me').attr('href', `PropertyAddEdit?id=${$id}`);
+
+
                 dataService.callAjax('GET', data, uRL, settingCallBack,
                     commonManger.errorException);
             },
             enableCTRL = function (ctrl, isEnabled) {
                 if (isEnabled)
-                    ctrl.removeAttr("disabled").text('Upload');
+                    ctrl.removeAttr("disabled").html('<span class="ace-icon glyphicon glyphicon-cloud"></span> Upload');
                 else
-                    ctrl.prop('disabled', 'disabled').text('Loading...');
+                    ctrl.prop('disabled', 'disabled').text('Processing...');
             },
             resetSelection = function () {
                 $('.ace-file-input a.remove').click();
@@ -114,6 +121,7 @@ var newPostManager = newPostManager || {},
                         }).get(),
                         postedSocialCallBack: function (d) {
                             showMessage(1, 'Successfully uploaded images.');
+                            getProperties(); // refresh
                         }
                     },
                     _data = {
@@ -248,47 +256,46 @@ var newPostManager = newPostManager || {},
                 reader.readAsDataURL($image);
             },
             OnDeleteSuccess = function (data) {
-                data = data.d;
                 if (data == "1") {
-                    showMessage('success', 'تم الحذف', 'تمت عملية الحذف بنجاح.');
-                    getMainImage();  //GetImages(); // refresh list
+                    showMessage(1, 'The selected image has been deleted.');
+                    getProperties();
                 }
                 else
-                    showMessage('danger', 'خطأ', 'لم تتم عملية الحذف.');
+                    showMessage(3, 'Error! while deleting image.');
 
                 // enable uploading
                 enableCTRL(btnUpload, true);
             },
             deletePicture = function (name) {
                 var
-                    _url = sUrl + "Remove",
-                    data = { id: name };
+                    _url = `${sUrl}Del`,
+                    dta = { id: name };
 
 
-                dataService.callAjax('GET', data,
-                    _url, OnDeleteSuccess, commonManger.errorException);
+                dataService.callAjax('GET', dta, _url,
+                    OnDeleteSuccess, commonManger.errorException);
             },
-            onSetMainSuccess = function (d, p) {
+            onSetMainSuccess = function (d) {
                 if (d == "1") {
-
-                    $('#hfMainImage').val(p);
-                    $('#divIMagesList li a.hidden').removeClass('hidden').closest('li').find('div.text span').html('ترتيب: ').removeClass('red');
-                    $('#divIMagesList li a[data-id="' + p + '"]').attr('title', 'Main').addClass('hidden').closest('li').find('div.text span').html("<span class='red'>Main</span>");
+                    //$('#divIMagesList li a.hidden').removeClass('hidden').closest('li').find('div.text span').html('').removeClass('red');
+                    //$('#divIMagesList li a[data-id="' + p + '"]').attr('title', 'Main').addClass('hidden').closest('li').find('div.text span').html("<span class='red'>Main</span>");
 
                     // show success message
-                    showMessage('success', 'The main image has been done.');
+                    showMessage(1, 'The main image has been selected.');
+
+                    getProperties(); // refresh
                 } else
-                    showMessage('danger', 'Error occured while setting main image');
+                    showMessage(2, 'Error occured while setting main image');
 
                 // enable uploading
                 enableCTRL(btnUpload, true);
             },
             setMainPicture = function (name) {
-                var _url = sUrl + "Main", data = { ID: name };
+                var _url = sUrl + "Main", data = { id: name };
 
 
                 dataService.callAjax('GET', data, _url,
-                    success = function (data) { onSetMainSuccess(data, name); },
+                    onSetMainSuccess,
                     commonManger.errorException);
             };
 
