@@ -49,10 +49,10 @@
                                         <th>#</th>
                                         <th>Property Type</th>
                                         <th>Title</th>
-                                        <th>Name(Ar)</th>
-                                        <th>Mobile</th>
-                                        <th>Email</th>
-                                        <th>Email</th>
+                                        <th>Price</th>
+                                        <th>Date</th>
+                                        <th>Location</th>
+                                        <th>Active</th>
                                         <th class="hidden-print" style="width: 120px">Options</th>
                                     </tr>
                                 </thead>
@@ -106,7 +106,7 @@
     </style>
     <script src="/Scripts/sys/DefaultGridManager.js"></script>
     <script src="/Scripts/sys/numeral.min.js"></script>
-    <script src="/Scripts/sys/admin/PropertiesManager.js?v=1.3"></script>
+    <script src="/Scripts/sys/admin/PropertiesManager.js?v=1.4"></script>
     <link href="/Scripts/select2/css/select2.min.css" rel="stylesheet" />
     <link href="/Scripts/select2/css/select2-optional.css" rel="stylesheet" />
     <script src="/Scripts/select2/js/select2.min.js"></script>

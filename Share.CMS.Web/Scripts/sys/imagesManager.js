@@ -262,7 +262,7 @@ var newPostManager = newPostManager || {},
             deletePicture = function (name) {
                 var
                     _url = sUrl + "Remove",
-                    data = { ID: name };
+                    data = { id: name };
 
 
                 dataService.callAjax('GET', data,

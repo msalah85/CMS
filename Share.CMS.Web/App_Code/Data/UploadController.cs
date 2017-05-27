@@ -182,8 +182,7 @@ namespace Share.CMS.Web
 
             return result.ToString();
         }
-
-
+        
         [ActionName("Index")]
         public static string UpdateImagesIndexes(string[] values)
         {

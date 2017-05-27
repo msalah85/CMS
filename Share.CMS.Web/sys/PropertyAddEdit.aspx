@@ -215,13 +215,12 @@
     <script src="/Scripts/sys/jquery.xml2json.min.js"></script>
     <script src="/Scripts/sys/numeral.min.js"></script>
     <script src="/Scripts/sys/DefaultMasterDetailsManager.js"></script>
-    <script src="/Scripts/sys/admin/PropertyAddEdit.js?v=1.3"></script>
+    <script src="/Scripts/sys/admin/PropertyAddEdit.js?v=1.5"></script>
     <script>pageManager.Init();</script>
     <link href="/Scripts/select2/css/select2.min.css" rel="stylesheet" />
     <link href="/Scripts/select2/css/select2-optional.css" rel="stylesheet" />
     <script src="/Scripts/select2/js/select2.min.js"></script>
-    <script src="/Scripts/select2/js/select2-optinal.js"></script>
-    
+    <script src="/Scripts/select2/js/select2-optinal.js"></script>    
     <style>
         .error {
             border-color: #f2a696!important;

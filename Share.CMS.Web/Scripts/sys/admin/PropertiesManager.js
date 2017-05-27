@@ -67,13 +67,12 @@ var pageManager =
                     }];
 
                 DefaultGridManager.Init();
-
             },
             pageEvents = function () {
-                $('#btnSave').click(function (e) {
-                    e.preventDefault();
-                    $('#aspnetForm').submit();
-                });
+                //$('#btnSave').click(function (e) {
+                //    e.preventDefault();
+                //    $('#aspnetForm').submit();
+                //});
 
                 //// bind contact type option for edit
                 //$.fn.afterLoadDatawithdata = function (data) {
