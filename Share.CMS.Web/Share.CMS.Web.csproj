@@ -210,6 +210,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\maskn.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\sys\assets\avatars\avatar.png" />
     <Content Include="Content\sys\assets\avatars\avatar1.png" />
@@ -671,6 +672,7 @@
     <Content Include="Content\sys\assets\js\x-editable\bootstrap-editable.min.js.map" />
     <Content Include="Scripts\datatable\Arabic.min.js.map" />
     <None Include="bundleconfig.json" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -736,13 +738,14 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\sys\addPost.js" />
-    <Content Include="Scripts\sys\addPost.min.js" />
     <Content Include="Scripts\sys\admin\PropertiesManager.js" />
     <Content Include="Scripts\sys\admin\PropertyAddEdit.js" />
     <Content Include="Scripts\sys\admin\UrlRecordsManager.js" />
     <Content Include="Scripts\sys\admin\ContactPersonsManager.js" />
     <Content Include="Scripts\sys\featuresManager.js" />
+    <Content Include="Scripts\sys\featuresManager.min.js">
+      <DependentUpon>featuresManager.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\sys\imagesManager.js" />
     <Content Include="Scripts\sys\regionsManager.js" />
     <Content Include="Scripts\sys\citiesManager.min.js" />

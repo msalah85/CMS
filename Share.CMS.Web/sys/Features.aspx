@@ -177,9 +177,9 @@
     <script src="/Scripts/sys/DefaultGridManager.js"></script>
     <script src="/Scripts/sys/numeral.min.js"></script>
     <script src="/Scripts/util/validationForm.js"></script>
-    <script src="/Scripts/sys/featuresManager.js"></script>
     <link href="/Scripts/select2/css/select2.min.css" rel="stylesheet" />
     <link href="/Scripts/select2/css/select2-optional.css" rel="stylesheet" />
     <script src="/Scripts/select2/js/select2.min.js"></script>
     <script src="/Scripts/select2/js/select2-optinal.js"></script>
+    <script src="/Scripts/sys/featuresManager.js"></script>
 </asp:Content>

@@ -34,8 +34,8 @@
                         <div class="center">
                             <h1>
                                 <i class="ace-icon fa fa-th green"></i>
-                                <span class="red">SMS</span>
-                                <span class="grey" id="id-text2">System</span>
+                                <span class="red">Maskn</span>
+                                <span class="grey" id="id-text2">CMS</span>
                             </h1>
                             <h4 class="blue" id="id-company-text">&copy; Basher Systems <a title="Open website" target="_blank" class="blue" href="http://share-web-design.com"><i class="fa fa-external-link"></i></a></h4>
                         </div>
@@ -103,18 +103,15 @@
         </div>
         <!-- /.main-content -->
     </div>
-
     <!--[if !IE]> -->
     <script src="/Content/sys/assets/js/jquery.min.js"></script>
     <!-- <![endif]-->
-
     <!--[if IE]>
 <script src="/Content/sys/assets/js/jquery1x.min.js"></script>
 <![endif]-->
     <script type="text/javascript">
         if ('ontouchstart' in document.documentElement) document.write("<script src='/Content/sys/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
     </script>
-
     <!-- inline scripts related to this page -->
     <script type="text/javascript">
         jQuery(function ($) {
