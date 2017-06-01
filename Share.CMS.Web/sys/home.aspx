@@ -1,7 +1,7 @@
-﻿<%@ Page Title="SMS System" Language="C#" MasterPageFile="master.master" AutoEventWireup="true" CodeFile="home.aspx.cs" Inherits="Share.CMS.Web.Admin.sys_home"
-    EnableTheming="false" EnableViewState="false" ViewStateMode="Disabled" EnableSessionState="ReadOnly" %>
-
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+﻿<%@ Page Title="SMS System" Language="C#" MasterPageFile="master.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="Share.CMS.Web.sys.Home" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="breadcrumbs ace-save-state" id="breadcrumbs">
         <ul class="breadcrumb">
             <li>
@@ -25,4 +25,5 @@
         </div>
     </div>
 </asp:Content>
-
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+</asp:Content>

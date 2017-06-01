@@ -53,6 +53,7 @@
                                         <th>Date</th>
                                         <th>Location</th>
                                         <th>Active</th>
+                                        <th>Image</th>
                                         <th class="hidden-print" style="width: 120px">Options</th>
                                     </tr>
                                 </thead>
@@ -60,7 +61,7 @@
                             </table>
                         </div>
                     </div>
-                </div>                
+                </div>
                 <div id="deleteModal" class="modal fade" tabindex="-1">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -103,12 +104,11 @@
         .select2-container {
             width: 83% !important;
         }
+        img.media-object {
+            max-width: 50px;
+        }
     </style>
     <script src="/Scripts/sys/DefaultGridManager.js"></script>
     <script src="/Scripts/sys/numeral.min.js"></script>
-    <script src="/Scripts/sys/admin/PropertiesManager.js?v=1.4"></script>
-    <link href="/Scripts/select2/css/select2.min.css" rel="stylesheet" />
-    <link href="/Scripts/select2/css/select2-optional.css" rel="stylesheet" />
-    <script src="/Scripts/select2/js/select2.min.js"></script>
-    <script src="/Scripts/select2/js/select2-optinal.js"></script>
+    <script src="/Scripts/sys/admin/PropertiesManager.js?v=1.5"></script>
 </asp:Content>

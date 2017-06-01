@@ -1,6 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="PageSettings.ascx.cs" Inherits="sys_UserControls_PageSettings"
-    EnableTheming="false" EnableViewState="false" ViewStateMode="Disabled" %>
-<!-- #section:settings.box -->
+﻿<%@ Control Language="C#" AutoEventWireup="true" EnableTheming="false" EnableViewState="false" ViewStateMode="Disabled" %>
 <div class="ace-settings-container" id="ace-settings-container">
     <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
         <i class="ace-icon fa fa-cog bigger-130"></i>
@@ -19,10 +17,6 @@
                 </div>
                 <span>&nbsp; Choose Skin</span>
             </div>
-
-            <!-- /section:settings.skins -->
-
-            <!-- #section:settings.navbar -->
             <div class="ace-settings-item">
                 <input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-navbar" autocomplete="off" />
                 <label class="lbl" for="ace-settings-navbar">Fixed Navbar</label>
@@ -59,7 +53,7 @@
                 <input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-add-container" autocomplete="off" />
                 <label class="lbl" for="ace-settings-add-container">
                     Inside
-											<b>.container</b>
+                                            <b>.container</b>
                 </label>
             </div>
 

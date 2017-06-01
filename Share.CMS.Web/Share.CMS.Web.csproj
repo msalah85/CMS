@@ -672,6 +672,10 @@
     <Content Include="Content\sys\assets\js\x-editable\bootstrap-editable.min.js.map" />
     <Content Include="Scripts\datatable\Arabic.min.js.map" />
     <None Include="bundleconfig.json" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -747,6 +751,10 @@
       <DependentUpon>featuresManager.js</DependentUpon>
     </Content>
     <Content Include="Scripts\sys\imagesManager.js" />
+    <Content Include="Scripts\sys\mastetUtil.js" />
+    <Content Include="Scripts\sys\mastetUtil.min.js">
+      <DependentUpon>mastetUtil.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\sys\regionsManager.js" />
     <Content Include="Scripts\sys\citiesManager.min.js" />
     <Content Include="Scripts\sys\clientsManager.js" />
@@ -764,7 +772,9 @@
     <Content Include="Scripts\sys\DefaultMasterDetailsManager.js" />
     <Content Include="Scripts\sys\DefaultMasterDetailsManager.min.js" />
     <Content Include="Scripts\sys\defaultPage.js" />
-    <Content Include="Scripts\sys\defaultPage.min.js" />
+    <Content Include="Scripts\sys\defaultPage.min.js">
+      <DependentUpon>defaultPage.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\sys\jquery-dateFormat.js" />
     <Content Include="Scripts\sys\jquery-dateFormat.min.js" />
     <Content Include="Scripts\sys\jquery.xml2json.js" />
@@ -776,6 +786,10 @@
     <Content Include="Scripts\sys\sendSMS.min.js" />
     <Content Include="Scripts\sys\settingsManager.js" />
     <Content Include="Scripts\sys\settingsManager.min.js" />
+    <Content Include="Scripts\sys\usersManager.js" />
+    <Content Include="Scripts\sys\usersManager.min.js">
+      <DependentUpon>usersManager.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\sys\utilities.js" />
     <Content Include="Scripts\sys\utilities.min.js" />
     <Content Include="Scripts\util\jquery.xml2json.js" />
@@ -806,24 +820,23 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="sys\Home.aspx" />
     <Content Include="sys\Images.aspx" />
     <Content Include="sys\Properties.aspx" />
+    <Content Include="sys\Settings.aspx" />
     <Content Include="sys\UrlRecord.aspx" />
     <Content Include="sys\ContactPersons.aspx" />
     <Content Include="sys\Features.aspx" />
     <Content Include="sys\Regions.aspx" />
     <Content Include="sys\Clients.aspx" />
-    <Content Include="sys\Default.aspx" />
-    <Content Include="sys\home.aspx" />
-    <Content Include="sys\Settings.aspx" />
     <Content Include="sys\UserControls\PageSettings.ascx" />
     <Content Include="sys\Users.aspx" />
     <Content Include="sys\PropertyAddEdit.aspx" />
+    <Content Include="sys\Default.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
-    <Content Include="sys\master.master" />
     <Content Include="Scripts\sys\citiesManager.min.js.map" />
     <Content Include="Scripts\sys\clientsManager.min.js.map" />
     <Content Include="Scripts\sys\Common.min.js.map" />
@@ -832,7 +845,6 @@
     <Content Include="Scripts\sys\DefaultGridManager.min.js.map" />
     <Content Include="Scripts\sys\DefaultGridVariables.min.js.map" />
     <Content Include="Scripts\sys\DefaultMasterDetailsManager.min.js.map" />
-    <Content Include="Scripts\sys\defaultPage.min.js.map" />
     <Content Include="Scripts\sys\jquery-dateFormat.min.js.map" />
     <Content Include="Scripts\sys\moment.min.js.map" />
     <Content Include="Scripts\sys\sendSMS.min.js.map" />
@@ -1021,13 +1033,12 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="sys\Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="sys\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="sys\home.aspx.cs">
-      <DependentUpon>home.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
+    <Compile Include="sys\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="sys\Images.aspx.cs">
       <DependentUpon>Images.aspx</DependentUpon>
@@ -1036,17 +1047,12 @@
     <Compile Include="sys\Images.aspx.designer.cs">
       <DependentUpon>Images.aspx</DependentUpon>
     </Compile>
-    <Compile Include="sys\master.master.cs">
-      <DependentUpon>master.master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="sys\Settings.aspx.cs">
       <DependentUpon>Settings.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="sys\UserControls\PageSettings.ascx.cs">
-      <DependentUpon>PageSettings.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
+    <Compile Include="sys\Settings.aspx.designer.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
     </Compile>
     <Compile Include="sys\PropertyAddEdit.aspx.cs">
       <DependentUpon>PropertyAddEdit.aspx</DependentUpon>
@@ -1054,6 +1060,20 @@
     </Compile>
     <Compile Include="sys\PropertyAddEdit.aspx.designer.cs">
       <DependentUpon>PropertyAddEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys\master.Master.cs">
+      <DependentUpon>master.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys\master.Master.designer.cs">
+      <DependentUpon>master.Master</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -1071,6 +1091,7 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="sys\master.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
