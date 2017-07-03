@@ -143,8 +143,8 @@ namespace Share.CMS.Web
             return ImageFormat.Jpeg;
         }
 
-        [ActionName("Remove")]
-        static string GetRemovImage(string id) // image name
+        [HttpGet]
+        public string Del(string id)
         {
             string path = HostingEnvironment.MapPath(string.Format("~/Public/cars/")),
                 f = Path.Combine(path, id),

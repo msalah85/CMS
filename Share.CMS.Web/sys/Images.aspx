@@ -19,7 +19,14 @@
     </div>
     <div class="page-content">
         <div class="page-header">
-            <h1>Upload Property Images <span class="title text-success"></span></h1>
+            <h1>Upload Property Images <span class="title text-success"></span>
+                <span class="pull-right">
+                    <a href="Properties" class="btn btn-sm btn-info"><i class="fa fa-backward"></i>
+                        Back to list</a>
+                    <a href="#" class="edit-me btn btn-sm btn-info2"><i class="fa fa-pencil"></i>
+                        Edit</a>
+                </span>
+            </h1>
         </div>
         <div class="row">
             <form class="form-horizontal" role="form" id="masterForm">
@@ -53,9 +60,10 @@
         </div>
         <hr class="hr-10" />
         <div class="row">
-            <input type="hidden" id="hfMainImage" value="" />
-            <ul class="ace-thumbnails clearfix" id="divIMagesList">
-            </ul>
+            <div class="center">
+                <ul class="ace-thumbnails clearfix" id="divIMagesList">
+                </ul>
+            </div>
         </div>
     </div>
 </asp:Content>
@@ -67,5 +75,5 @@
     <script src="/Scripts/sys/utilities.min.js"></script>
     <script src="/Content/sys/assets/js/autosize.min.js"></script>
     <script src="/Content/sys/assets/js/jquery.inputlimiter.1.3.1.min.js"></script>
-    <script src="/Scripts/sys/imagesManager.js?v=1.8"></script>
+    <script src="/Scripts/sys/imagesManager.js?v=2.7"></script>
 </asp:Content>

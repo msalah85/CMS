@@ -24,7 +24,7 @@ var pageManager = function () {
                     "mDataProp": "FeatureParentName",
                     "bSortable": true,
                     "mData": function (row) {
-                        return row.FeatureParentName ? rows.FeatureParentName : '';
+                        return row.FeatureParentName ? row.FeatureParentName : '';
                     }
                 },
                 {
@@ -54,9 +54,12 @@ var pageManager = function () {
                 $('#aspnetForm').submit();
             });
 
+
             $.fn.afterLoadDatawithdata = function (data) {
                 if (data.FeatureParentID)
-                    $(this).select2('data', { id: data.FeatureParentID, text: data.FeatureParentName });
+                    $('#FeatureParentID').select2("trigger", "select", {
+                        data: { id: data.FeatureParentID, text: data.FeatureParentName }
+                    });
             }
 
         };

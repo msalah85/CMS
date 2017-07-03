@@ -102,7 +102,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label no-padding-right" for="PropertyTitle">Title</label>
                         <div class="col-sm-10">
-                            <input type="text" id="PropertyTitle" name="PropertyTitle" style="width: 92%" placeholder="Title..." />
+                            <input type="text" id="PropertyTitle" required class="required" name="PropertyTitle" style="width: 92%" placeholder="Title..." />
                         </div>
                     </div>
                 </div>
@@ -110,7 +110,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label no-padding-right" for="Description">Description</label>
                         <div class="col-sm-10">
-                            <textarea cols="12" rows="3" id="Description" name="Description" style="width: 92%" placeholder="Description..."></textarea>
+                            <textarea cols="12" rows="3" id="Description" required class="required" name="Description" style="width: 92%" placeholder="Description..."></textarea>
                         </div>
                     </div>
                 </div>
@@ -215,12 +215,12 @@
     <script src="/Scripts/sys/jquery.xml2json.min.js"></script>
     <script src="/Scripts/sys/numeral.min.js"></script>
     <script src="/Scripts/sys/DefaultMasterDetailsManager.js"></script>
-    <script src="/Scripts/sys/admin/PropertyAddEdit.js?v=1.5"></script>
-    <script>pageManager.Init();</script>
     <link href="/Scripts/select2/css/select2.min.css" rel="stylesheet" />
     <link href="/Scripts/select2/css/select2-optional.css" rel="stylesheet" />
     <script src="/Scripts/select2/js/select2.min.js"></script>
-    <script src="/Scripts/select2/js/select2-optinal.js"></script>    
+    <script src="/Scripts/select2/js/select2-optinal.js?v=1.3"></script>
+    <script src="/Scripts/sys/admin/PropertyAddEdit.js?v=2.1"></script>
+    <script>pageManager.Init();</script>    
     <style>
         .error {
             border-color: #f2a696!important;

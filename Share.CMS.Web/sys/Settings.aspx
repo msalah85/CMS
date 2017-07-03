@@ -1,13 +1,13 @@
-﻿<%@ Page Title="Settings Manager" Language="C#" MasterPageFile="master.master" AutoEventWireup="true" CodeFile="Settings.aspx.cs" Inherits="Share.CMS.Web.Admin.sys_Settings" %>
+﻿<%@ Page Title="Settings Manager" Language="C#" MasterPageFile="master.Master" AutoEventWireup="true" CodeBehind="Settings.aspx.cs" Inherits="Share.CMS.Web.sys.Settings" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="/Scripts/sys/Common.min.js"></script>
     <script src="/Scripts/sys/DataService.min.js"></script>
     <script src="/Scripts/sys/DefaultGridVariables.min.js"></script>
     <script src="/content/sys/assets/js/jquery.validate.min.js"></script>
     <script src="/content/sys/assets/js/additional-methods.min.js"></script>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="breadcrumbs ace-save-state" id="breadcrumbs">
         <ul class="breadcrumb">
             <li>
@@ -143,4 +143,5 @@
     <script src="/Scripts/sys/numeral.min.js"></script>
     <script src="/Scripts/sys/SettingsManager.min.js"></script>
 </asp:Content>
-
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+</asp:Content>

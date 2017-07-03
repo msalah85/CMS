@@ -4,5 +4,29 @@
     "inputFiles": [
       "Scripts/sys/addPost.js"
     ]
+  },
+  {
+    "outputFileName": "Scripts/sys/featuresManager.min.js",
+    "inputFiles": [
+      "Scripts/sys/featuresManager.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/defaultPage.min.js",
+    "inputFiles": [
+      "Scripts/sys/defaultPage.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/mastetUtil.min.js",
+    "inputFiles": [
+      "Scripts/sys/mastetUtil.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/usersManager.min.js",
+    "inputFiles": [
+      "Scripts/sys/usersManager.js"
+    ]
   }
 ]

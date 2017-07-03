@@ -45,7 +45,7 @@ var pageManager =
                         "mDataProp": "CountryName",
                         "bSortable": true,
                         "mData": function (d) {
-                            return `${d.CountryName}, ${d.CityName}, ${d.RecidanceName}`;
+                            return `${d.CountryName}, ${d.CityName}, ${d.ResidanceName}`;
                         }
                     },
                     {
@@ -53,6 +53,13 @@ var pageManager =
                         "bSortable": true,
                         "mData": function (d) {
                             return d.Active === 'true' ? '<i class="fa fa-check green"></i>' : '<i class="fa fa-remove red"></i>';
+                        }
+                    },
+                    {
+                        "mDataProp": "MainPicture",
+                        "bSortable": true,
+                        "mData": function (d) {
+                            return d.MainPicture ? `<a href="Images?id=${d.PropertyID}" title="Photos"><img src="/public/images/_thumb/${d.MainPicture}" class="media-object" /></a>` : '';
                         }
                     },
                     {

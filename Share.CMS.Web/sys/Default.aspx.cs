@@ -1,13 +1,15 @@
-﻿//using IraqCars.Business.Business;
-//using Minutesuae.SystemUtilities;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
-namespace Share.CMS.Web.Admin
+namespace Share.CMS.Web.sys
 {
-    public partial class sys_Default : Page
+    public partial class WebForm1 : System.Web.UI.Page
     {
-        void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
