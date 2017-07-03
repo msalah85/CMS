@@ -1,42 +1,185 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Share.CMS.Web._Default" %>
+﻿<%@ Page Title="مرحبا بك فى" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Share.CMS.Web._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
-    <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <section>
+        <div class="video">
+            <div class="container">
+                <div class="video-container responsive-video">
+                    <iframe width="853" height="300" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0"></iframe>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </section>
+    <section>
+        <div class="news">
+            <div class="container">
+                <div class="section">
+                    <h5>الأخبار </h5>
+                    <h6>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة </h6>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 ">
+                        <div class='newsLeftImg'>
+                            <!-- image -->
+                            <img src='/content/masknvr1/img/newsleft.png' class="img-responsive" alt="" title="build" />
+                            <!-- description div -->
+                            <div class='description'>
+                                <!-- description content -->
+                                <h5 class="description_content">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة </h5>
+                                <h6 class="description_content">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق. </h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-6">
+                        <div class="media">
+                            <a href="#" style="float: right; margin-left: 10px;">
+                                <img class="media-object img-responsive" alt="img" src="/content/masknvr1/img/new_img.png" style="width: 100px; height: 80px;">
+                            </a>
+                            <div class="media-body">
+                                <a href="#">
+                                    <h5 class="media-heading">هذا النص هو مثال لنص يمكن أن يستبدل</h5>
+                                </a>
+                                <h6>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى </h6>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <a href="#" style="float: right; margin-left: 10px;">
+                                <img class="media-object img-responsive" alt="img" src="/content/masknvr1/img/new_img.png" style="width: 100px; height: 80px;">
+                            </a>
+                            <div class="media-body">
+                                <a href="#">
+                                    <h5 class="media-heading">هذا النص هو مثال لنص يمكن أن يستبدل  </h5>
+                                </a>
+                                <h6>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى </h6>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <a href="#" style="float: right; margin-left: 10px;">
+                                <img class="media-object img-responsive" alt="img" src="/content/masknvr1/img/new_img.png" style="width: 100px; height: 80px;">
+                            </a>
+                            <div class="media-body">
+                                <a href="#">
+                                    <h5 class="media-heading">هذا النص هو مثال لنص يمكن أن يستبدل </h5>
+                                </a>
+                                <h6>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </section>
+    <div class="matches">
+        <div class="container">
+            <h2>هذا النص هو مثال لنص يمكن أن يستبدل   </h2>
+            <p>
+                هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
+           إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد
+            </p>
+        </div>
     </div>
+    <div class="pin ">
+        <div class="container">
+            <div class="pinImg">
+                <div class="img1">
+                    <div class="row">
+                        <div class="col-md-4 col-md-push-3">
+                            <img src="/content/masknvr1/img/visit.png" class="img-responsive">
+                        </div>
+                        <div class="col-md-8">
+                            <p class="imgName">زيارة الموقع   </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.</p>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
+                <div class="img2">
+                    <div class="row">
+                        <div class="col-md-4 col-md-push-3">
+                            <img src="/content/masknvr1/img/search.png" class="img-responsive">
+                        </div>
+                        <div class="col-md-8 ">
+                            <p class="imgName">بحث   </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-md-pull-4">
+                            <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="img3">
+                    <div class="row">
+                        <div class="col-md-4 col-md-push-3">
+                            <img src="/content/masknvr1/img/happy.png" class="img-responsive">
+                        </div>
+                        <div class="col-md-8">
+                            <p class="imgName">البيت السعيد  </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pinMobile">
+                <div class="row">
+                    <div class="col col-sm-12">
+                        <img src="/content/masknvr1/img/visit.png" class="img-responsive" style="width: 150px; height: 180px; margin: 0 auto">
+                        <h5>زيارة الموقع  </h5>
+                        <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.</p>
+
+                    </div>
+
+                    <div class="col col-sm-12">
+                        <img src="/content/masknvr1/img/search.png" class="img-responsive" style="width: 150px; height: 180px; margin: 0 auto">
+                        <h5>بحث  </h5>
+                        <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.</p>
+
+                    </div>
+                    <div class="col col-sm-12">
+                        <img src="/content/masknvr1/img/happy.png" class="img-responsive" style="width: 150px; height: 180px; margin: 0 auto">
+                        <h5>البيت السعيد </h5>
+                        <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.</p>
+
+                    </div>
+
+                </div>
+            </div>
         </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
+        <div class="clearfix"></div>
+    </div>
+    <div class="update">
+        <div class="container">
+            <h2>هذا النص هو مثال لنص يمكن أن يستبدل </h2>
             <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
+                هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
             </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-            </p>
+            <div class="row">
+                <form class="col s6 pull-s3">
+                    <div class="custom-search-input">
+                        <div class="input-group col-md-12">
+                            <input type="text" class="form-control input-lg" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-info btn-lg" type="button">
+                                    <i class="glyphicon glyphicon-send"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
         </div>
     </div>
-
 </asp:Content>

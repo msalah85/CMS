@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Share.CMS.Web.SiteMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Home.Master.cs" Inherits="Share.CMS.Web.HomeMaster" %>
 
 <!DOCTYPE html>
 
@@ -21,43 +21,41 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
 <body>
-    <div class="header">
-        <div class="navbar-fixed">
-            <nav>
-                <div class="nav-wrapper">
-                    <a href="/" class="brand-logo right">
-                        <img alt="مسكن" src="/content/masknvr1/img/logo.png" class="responsive-img"></a>
-                    <ul class="left">
-                        <li><a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-                        </li>
-                        <li><a href="#">ع  | EN </a></li>
-                        <li><a href="#modal1"><i class="material-icons right">input</i>دخول </a></li>
-                        <li class="ListProperty"><a href="#"><i class="material-icons right">home</i> ممتلكاتك الخاصة</a></li>
-                        <li class="download">
-                            <a href="#" style="border-right: 1px solid #b6b6b6;">
-                                <i class="material-icons right">phone_android</i> تحميل التطبيق  </a>
-                        </li>
-                        <li>
-                            <form>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="بحث ..  ">
-                                </div>
-                            </form>
-                        </li>
-                        <li>
-                            <!-- Dropdown Trigger -->
-                            <a class='dropdown-button ' href='#' data-activates='dropdown1' style="border-left: 1px solid #b6b6b6;"><i class="material-icons left">arrow_drop_down</i> شراء   </a>
-                            <!-- Dropdown Structure -->
-                            <ul id='dropdown1' class='dropdown-content'>
-                                <li><a href="#" style="text-align: right; color: #b5b5b5">شراء </a></li>
-                                <li><a href="#" style="text-align: right; color: #b5b5b5">تأجير </a></li>
+    <div class="bg">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="/" class="brand-logo right">
+                    <img src="/content/masknvr1/img/logo.png" class="responsive-img"></a>
+                <ul class="left">
+                    <li><a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+                    </li>
+                    <li><a href="#">ع  | EN </a></li>
+                    <li><a href="#modal1"><i class="material-icons right">input</i>دخول </a></li>
+                    <li class="ListProperty"><a href="about"><i class="material-icons right">home</i> ممتلكاتك الخاصة</a></li>
+                    <li class="download"><a href="#"><i class="material-icons right">phone_android</i> تحميل التطبيق  </a></li>
+                </ul>
+            </div>
+        </nav>
 
-                            </ul>
-                        </li>
-                    </ul>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-push-3" style="margin-top: 300px;">
+                    <a href="#" class="waves-effect waves-light btn login" style="background-color: #818287">شراء</a>
+                    <a href="#" class="waves-effect waves-light btn login orange">تأجير</a>
+                    <div class="custom-search-input">
+                        <div class="input-group col-md-12">
+                            <input type="text" class="form-control input-lg" placeholder="بحث" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-info btn-lg" type="button">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
                 </div>
-            </nav>
+            </div>
         </div>
+
         <ul id="slide-out" class="side-nav">
             <li>
                 <div class="userView">
@@ -66,7 +64,7 @@
                     <a href="#"><span class="name">غسان هاني </span></a>
                 </div>
             </li>
-            <li><a href="">رحلتي </a></li>
+            <li><a href="#">رحلتي </a></li>
             <li>
                 <div class="divider"></div>
             </li>
@@ -78,21 +76,20 @@
             <li>
                 <div class="divider"></div>
             </li>
-            <li>
-                <ul class="collapsible collapsible-accordion">
-                    <li>
-                        <a class="collapsible-header"><i class="material-icons left">arrow_drop_down</i>أهم المدن </a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="/content/masknvr1/eng/city.html">الشيخ زايد </a></li>
-                                <li><a href="/content/masknvr1/eng/city.html">الشيخ زايد </a></li>
-                                <li><a href="/content/masknvr1/eng/city.html">الشيخ زايد </a></li>
-                                <li><a href="/content/masknvr1/eng/city.html">الشيخ زايد </a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </li>
+
+            <ul class="collapsible collapsible-accordion">
+                <li>
+                    <a class="collapsible-header"><i class="material-icons left">arrow_drop_down</i>أهم المدن </a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="/content/masknvr1/eng/city.html">الشيخ زايد </a></li>
+                            <li><a href="/content/masknvr1/eng/city.html">الشيخ زايد </a></li>
+                            <li><a href="/content/masknvr1/eng/city.html">الشيخ زايد </a></li>
+                            <li><a href="/content/masknvr1/eng/city.html">الشيخ زايد </a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
             <li>
                 <div class="divider"></div>
             </li>
