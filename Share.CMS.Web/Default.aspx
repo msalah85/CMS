@@ -15,8 +15,8 @@
         <div class="news">
             <div class="container">
                 <div class="section">
-                    <h5>الأخبار </h5>
-                    <h6>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة </h6>
+                    <h5>أحدث الأخبار </h5>
+                    <h6>موقع مسكن اختيارك الأول للحصول على مسكنك الجديد</h6>
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-lg-6 ">
@@ -161,15 +161,16 @@
     </div>
     <div class="update">
         <div class="container">
-            <h2>هذا النص هو مثال لنص يمكن أن يستبدل </h2>
+            <h2>الاشتراك فى النشرة الإخبارية لمسكن</h2>
             <p>
-                هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
+                لمتابعة أخبار مسكن أول بأول
+                يرجي إدخال البريد الإلكتروني الخاص بك والإشتراك فى القائمة البريدية لموقع مسكن
             </p>
             <div class="row">
                 <form class="col s6 pull-s3">
                     <div class="custom-search-input">
                         <div class="input-group col-md-12">
-                            <input type="text" class="form-control input-lg" />
+                            <input type="text" class="form-control input-lg" placeholder="البريد الإلكتروني" />
                             <span class="input-group-btn">
                                 <button class="btn btn-info btn-lg" type="button">
                                     <i class="glyphicon glyphicon-send"></i>
@@ -179,7 +180,6 @@
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 </asp:Content>

@@ -1173,10 +1173,6 @@
       <DependentUpon>Settings.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="sys\UserControls\PageSettings.ascx.cs">
-      <DependentUpon>PageSettings.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="sys\PropertyAddEdit.aspx.cs">
       <DependentUpon>PropertyAddEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

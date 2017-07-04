@@ -10233,4 +10233,13 @@ input[type="file"] {
 }
 
 
-/* add padding  */
+/* home search box */
+.search-deactive-optn {
+    background-color: #818287 !important;margin-top:-10px;
+}
+.txt-srch, 
+.txt-srch::-webkit-input-placeholder {
+    color: #fff !important;
+    height: 3rem!important;
+}
+
