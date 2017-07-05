@@ -776,7 +776,15 @@
     <Content Include="Content\sys\assets\js\typeahead.jquery.min.js.map" />
     <Content Include="Content\sys\assets\js\x-editable\ace-editable.min.js.map" />
     <Content Include="Content\sys\assets\js\x-editable\bootstrap-editable.min.js.map" />
-    <Content Include="Scripts\datatable\Arabic.min.js.map" />
+    <Content Include="Scripts\app\services\Common.js" />
+    <Content Include="Scripts\app\services\Common.min.js">
+      <DependentUpon>Common.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\app\services\DataService.js" />
+    <Content Include="Scripts\app\services\DataService.min.js">
+      <DependentUpon>DataService.js</DependentUpon>
+    </Content>
+    <Content Include="PropertiesList.aspx" />
     <None Include="bundleconfig.json" />
     <Content Include="Content\MasknVr1\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\MasknVr1\fonts\fontawesome-webfont.svg" />
@@ -800,7 +808,6 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\datatable\Arabic.js" />
-    <Content Include="Scripts\datatable\Arabic.min.js" />
     <Content Include="Scripts\select2\css\select2-optional.css" />
     <Content Include="Scripts\select2\css\select2.css" />
     <Content Include="Scripts\select2\css\select2.min.css" />
@@ -861,8 +868,6 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\sys\addPost.js" />
-    <Content Include="Scripts\sys\addPost.min.js" />
     <Content Include="Scripts\sys\admin\PropertiesManager.js" />
     <Content Include="Scripts\sys\admin\PropertyAddEdit.js" />
     <Content Include="Scripts\sys\admin\UrlRecordsManager.js" />
@@ -900,6 +905,11 @@
     <Content Include="Scripts\sys\settingsManager.min.js" />
     <Content Include="Scripts\sys\utilities.js" />
     <Content Include="Scripts\sys\utilities.min.js" />
+    <Content Include="Scripts\app\utiltities\jquery.xml2json.js" />
+    <Content Include="Scripts\app\utiltities\jquery.xml2json.min.js">
+      <DependentUpon>jquery.xml2json.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\app\utiltities\lz-string.min.js" />
     <Content Include="Scripts\util\jquery.xml2json.js" />
     <Content Include="Scripts\util\jquery.xml2json.min.js" />
     <Content Include="Scripts\util\lz-string.min.js" />
@@ -954,7 +964,6 @@
     <Content Include="Scripts\sys\DefaultGridManager.min.js.map" />
     <Content Include="Scripts\sys\DefaultGridVariables.min.js.map" />
     <Content Include="Scripts\sys\DefaultMasterDetailsManager.min.js.map" />
-    <Content Include="Scripts\sys\defaultPage.min.js.map" />
     <Content Include="Scripts\sys\jquery-dateFormat.min.js.map" />
     <Content Include="Scripts\sys\moment.min.js.map" />
     <Content Include="Scripts\sys\sendSMS.min.js.map" />
@@ -1067,6 +1076,13 @@
     </Compile>
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PropertiesList.aspx.cs">
+      <DependentUpon>PropertiesList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PropertiesList.aspx.designer.cs">
+      <DependentUpon>PropertiesList.aspx</DependentUpon>
     </Compile>
     <Content Include="App_Code\CookiesManager.cs" />
     <Content Include="App_Code\DataAccess.cs" />

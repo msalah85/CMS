@@ -31,7 +31,7 @@ var pageManager =
                         "mDataProp": "PriceTypeName",
                         "bSortable": true,
                         "mData": function (d) {
-                            return numeral(d.Price).format('0,0') + d.PriceTypeName;
+                            return numeral(d.Price).format('0,0') +', '+ d.PriceTypeName;
                         }
                     },
                     {

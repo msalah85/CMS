@@ -28,5 +28,35 @@
     "inputFiles": [
       "Scripts/sys/usersManager.js"
     ]
+  },
+  {
+    "outputFileName": "Scripts/app/services/DataService.min.js",
+    "inputFiles": [
+      "Scripts/app/services/DataService.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/app/services/Common.min.js",
+    "inputFiles": [
+      "Scripts/app/services/Common.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/datatable/Arabic.min.js",
+    "inputFiles": [
+      "Scripts/datatable/Arabic.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/app/utiltities/xml2json.min.js",
+    "inputFiles": [
+      "Scripts/app/utiltities/xml2json.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/app/utiltities/jquery.xml2json.min.js",
+    "inputFiles": [
+      "Scripts/app/utiltities/jquery.xml2json.js"
+    ]
   }
 ]

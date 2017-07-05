@@ -561,7 +561,7 @@
 
             var txtSearch = $('.txt-srch').val();
             if (txtSearch !== '') {
-                window.location.href = 'properties?t=' + $('a.search-prop-type.orange').attr('data-type') + '&k=' + txtSearch;
+                window.location.href = 'PropertiesList?t=' + $('a.search-prop-type.orange').attr('data-type') + '&k=' + txtSearch;
             }
         });
         $('.txt-srch').keypress(function (e) {
