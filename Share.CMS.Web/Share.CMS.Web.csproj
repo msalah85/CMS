@@ -939,6 +939,8 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="sys\Images.aspx" />
+    <Content Include="sys\News.aspx" />
+    <Content Include="sys\Pages.aspx" />
     <Content Include="sys\Properties.aspx" />
     <Content Include="sys\UrlRecord.aspx" />
     <Content Include="sys\ContactPersons.aspx" />
@@ -1185,6 +1187,20 @@
       <DependentUpon>master.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="sys\News.aspx.cs">
+      <DependentUpon>News.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys\News.aspx.designer.cs">
+      <DependentUpon>News.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys\Pages.aspx.cs">
+      <DependentUpon>Pages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys\Pages.aspx.designer.cs">
+      <DependentUpon>Pages.aspx</DependentUpon>
+    </Compile>
     <Compile Include="sys\Settings.aspx.cs">
       <DependentUpon>Settings.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1231,9 +1247,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IraqCars.Business\IraqCars.Business.csproj">
+    <ProjectReference Include="..\IraqCars.Business\Share.CMS.Business.csproj">
       <Project>{d43b58a3-4e44-4bc6-a88f-ac94774c5ee5}</Project>
-      <Name>IraqCars.Business</Name>
+      <Name>Share.CMS.Business</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

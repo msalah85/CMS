@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Share.CMS.Web", "Share.CMS.Web\Share.CMS.Web.csproj", "{9F3638A2-D58F-4A05-B51B-8DCD2CBC75D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IraqCars.Business", "IraqCars.Business\IraqCars.Business.csproj", "{D43B58A3-4E44-4BC6-A88F-AC94774C5EE5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Share.CMS.Business", "IraqCars.Business\Share.CMS.Business.csproj", "{D43B58A3-4E44-4BC6-A88F-AC94774C5EE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

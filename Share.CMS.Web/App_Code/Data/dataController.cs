@@ -1,5 +1,5 @@
-﻿using IraqCars.Business.Business;
-using IraqCars.Business.DataUtility;
+﻿using Share.CMS.Business;
+using Share.CMS.DataUtility;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -251,6 +251,4 @@ namespace Share.CMS.Web
             return LZString.CompressToUTF16(_ds.GetXml());
         }
     }
-
-
 }

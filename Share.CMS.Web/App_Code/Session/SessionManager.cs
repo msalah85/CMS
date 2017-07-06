@@ -5,7 +5,7 @@ namespace Share.CMS.Web
 {
     public class SessionManager
     {
-        private SessionManager()
+        SessionManager()
         {
             ID = "0";
             IP = HttpContext.Current.Request.UserHostAddress;

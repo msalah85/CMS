@@ -3,7 +3,7 @@ using System.Text;
 using System.IO;
 using System.Security.Cryptography;
 
-namespace IraqCars.Business.DataUtility
+namespace Share.CMS.DataUtility
 {
     public static class EncryptDecryptString
     {
@@ -15,14 +15,14 @@ namespace IraqCars.Business.DataUtility
             byte[] inputByteArray = new byte[stringToDecrypt.Length + 1];
             try
             {
-                key = System.Text.Encoding.UTF8.GetBytes(sEncryptionKey);
-                DESCryptoServiceProvider des = new DESCryptoServiceProvider();
+                key = Encoding.UTF8.GetBytes(sEncryptionKey);
+                var des = new DESCryptoServiceProvider();
                 inputByteArray = Convert.FromBase64String(stringToDecrypt);
-                MemoryStream ms = new MemoryStream();
-                CryptoStream cs = new CryptoStream(ms, des.CreateDecryptor(key, IV), CryptoStreamMode.Write);
+                var ms = new MemoryStream();
+                var cs = new CryptoStream(ms, des.CreateDecryptor(key, IV), CryptoStreamMode.Write);
                 cs.Write(inputByteArray, 0, inputByteArray.Length);
                 cs.FlushFinalBlock();
-                System.Text.Encoding encoding = System.Text.Encoding.UTF8;
+                Encoding encoding = Encoding.UTF8;
                 return encoding.GetString(ms.ToArray());
             }
             catch (Exception e)
@@ -35,11 +35,11 @@ namespace IraqCars.Business.DataUtility
         {
             try
             {
-                key = System.Text.Encoding.UTF8.GetBytes(SEncryptionKey);
-                DESCryptoServiceProvider des = new DESCryptoServiceProvider();
+                key = Encoding.UTF8.GetBytes(SEncryptionKey);
+                var des = new DESCryptoServiceProvider();
                 byte[] inputByteArray = Encoding.UTF8.GetBytes(stringToEncrypt);
-                MemoryStream ms = new MemoryStream();
-                CryptoStream cs = new CryptoStream(ms, des.CreateEncryptor(key, IV), CryptoStreamMode.Write);
+                var ms = new MemoryStream();
+                var cs = new CryptoStream(ms, des.CreateEncryptor(key, IV), CryptoStreamMode.Write);
                 cs.Write(inputByteArray, 0, inputByteArray.Length);
                 cs.FlushFinalBlock();
                 return Convert.ToBase64String(ms.ToArray());
@@ -48,6 +48,6 @@ namespace IraqCars.Business.DataUtility
             {
                 return e.Message;
             }
-        } 
+        }
     }
 }

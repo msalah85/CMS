@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace IraqCars.Business.DataAccess
+namespace Share.CMS.DataAccess
 {
     /// <summary>
     /// DbObject is the class from which all classes in the Data Services
@@ -18,7 +15,7 @@ namespace IraqCars.Business.DataAccess
     public class DbObject
     {
         protected SqlConnection Connection;
-        private string connectionString;
+        string connectionString;
 
         /// <summary>
         /// A parameterized constructor, it allows us to take a connection
@@ -58,7 +55,7 @@ namespace IraqCars.Business.DataAccess
         /// <param name="storedProcName">Name of the stored procedure in the DB, eg. sp_DoTask</param>
         /// <param name="parameters">Array of IDataParameter objects containing parameters to the stored proc</param>
         /// <returns>Newly instantiated SqlCommand instance</returns>
-        private SqlCommand BuildIntCommand(string storedProcName, IDataParameter[] parameters)
+        SqlCommand BuildIntCommand(string storedProcName, IDataParameter[] parameters)
         {
             SqlCommand command = BuildQueryCommand(storedProcName, parameters);
 
@@ -83,9 +80,9 @@ namespace IraqCars.Business.DataAccess
         /// <param name="storedProcName">Name of the stored procedure</param>
         /// <param name="parameters">Array of IDataParameter objects</param>
         /// <returns></returns>
-        private SqlCommand BuildQueryCommand(string storedProcName, IDataParameter[] parameters)
+        SqlCommand BuildQueryCommand(string storedProcName, IDataParameter[] parameters)
         {
-            SqlCommand command = new SqlCommand(storedProcName, Connection);
+            var command = new SqlCommand(storedProcName, Connection);
             command.CommandType = CommandType.StoredProcedure;
 
             foreach (SqlParameter parameter in parameters)
@@ -94,9 +91,8 @@ namespace IraqCars.Business.DataAccess
             }
 
             return command;
-
         }
-
+        
         /// <summary>
         /// Runs a stored procedure, can only be called by those classes deriving
         /// from this base. It returns an integer indicating the return value of the
@@ -118,6 +114,24 @@ namespace IraqCars.Business.DataAccess
             result = (int)command.Parameters["ReturnValue"].Value;
             Connection.Close();
             return result;
+        }
+
+        /// <summary>
+        /// Runs a stored procedure async, can only be called by those classes deriving
+        /// from this base. It returns an integer indicating the return value of the
+        /// stored procedure, and also returns the value of the RowsAffected aspect
+        /// of the stored procedure that is returned by the ExecuteNonQuery method.
+        /// </summary>
+        /// <param name="storedProcName">Name of the stored procedure</param>
+        /// <param name="parameters">Array of IDataParameter objects</param>
+        /// <returns>An integer indicating return value of the stored procedure</returns>
+        public async Task<int> RunProcedureAsync(string storedProcName, IDataParameter[] parameters)
+        {
+            using (var Command = BuildIntCommand(storedProcName, parameters))
+            {
+                await Connection.OpenAsync().ConfigureAwait(false);
+                return await Command.ExecuteNonQueryAsync().ConfigureAwait(false);
+            }
         }
 
         /// <summary>
@@ -159,6 +173,31 @@ namespace IraqCars.Business.DataAccess
             Connection.Close();
 
             return dataSet;
+        }
+
+        /// <summary>
+        /// Creates a DataSet by running the stored procedure async and placing the results
+        /// of the query/proc into the given table name.
+        /// </summary>
+        /// <param name="storedProcName"></param>
+        /// <param name="parameters"></param>
+        /// <param name="tableName"></param>
+        /// <returns></returns>
+        public Task<DataSet> RunProcedureAsync(string storedProcName, IDataParameter[] parameters, string tableName)
+        {
+            return Task.Run(() =>
+            {
+                using (var sqlDA = new SqlDataAdapter())
+                {
+                    sqlDA.SelectCommand = BuildQueryCommand(storedProcName, parameters);
+                    var myDataSet = new DataSet();
+                    Connection.Open();
+                    sqlDA.Fill(myDataSet, tableName);
+                    Connection.Close();
+                    Connection.Dispose();
+                    return myDataSet;
+                }
+            });
         }
 
         /// <summary>
