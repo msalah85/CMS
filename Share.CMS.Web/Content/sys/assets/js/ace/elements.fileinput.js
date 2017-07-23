@@ -341,9 +341,6 @@
             if (self.settings.thumbnail == 'fit') size = $span.width();
             else if (typeof size == 'number') size = parseInt(Math.min(size, $span.width()));
 
-
-            var imgBase64Str = img;
-
             var thumb = get_thumbnail(img, size/**, file.type*/);
             if (thumb == null) {
                 //if making thumbnail fails
@@ -351,7 +348,6 @@
                 deferred.reject({ code: Ace_File_Input.error['THUMBNAIL_FAILED'] });
                 return;
             }
-
 
             var showPreview = true;
             //add width/height info to "file" and trigger preview finished event for each image!
@@ -371,8 +367,12 @@
                 if (self.settings.thumbnail == 'small') { w = h = parseInt(Math.max(w, h)) }
                 else $span.addClass('large');
 
+				
+				var imgBase64Str = get_fullImage(img);
+			
                 $(img).css({ 'background-image': 'url(' + thumb.src + ')', width: w, height: h })
                     .data('thumb', thumb.src)
+                    .data('full', imgBase64Str)
                     .attr({ src: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==' })
                     .show()
             }
@@ -407,7 +407,7 @@
 
     var get_thumbnail = function (img, size, type) {
         var imgWidth = img.width, imgHeight = img.height;
-
+		
         //**IE10** is not giving correct width using img.width so we use $(img).width()
         imgWidth = imgWidth > 0 ? imgWidth : $(img).width()
         imgHeight = imgHeight > 0 ? imgHeight : $(img).height()
@@ -464,7 +464,27 @@
         return { src: dataURL, previewWidth: previewWidth, previewHeight: previewHeight, width: imgWidth, height: imgHeight };
     }
 
+	var get_fullImage = function (img) {
+        var imgWidth = img.width, imgHeight = img.height;
 
+        var dataURL
+        try {
+            var canvas = document.createElement('canvas');
+            canvas.imgWidth = imgWidth; canvas.height = imgHeight;
+            var context = canvas.getContext('2d');
+            context.drawImage(img, 0, 0, imgWidth, imgHeight, 0, 0, imgWidth, imgHeight);
+            dataURL = canvas.toDataURL()
+        } catch (e) {
+            dataURL = null;
+        }
+        if (!dataURL) return null;
+
+        //there was only one image that failed in firefox completely randomly! so let's double check things
+        if (!(/^data\:image\/(png|jpe?g|gif);base64,[0-9A-Za-z\+\/\=]+$/.test(dataURL))) dataURL = null;
+        if (!dataURL) return null;
+		
+        return dataURL;
+    }
 
     var processFiles = function (file_list, dropped) {
         var ret = checkFileList.call(this, file_list, dropped);

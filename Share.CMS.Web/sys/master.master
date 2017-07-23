@@ -79,6 +79,12 @@
                             <i class="ace-icon fa fa-caret-down"></i>
                         </a>
                         <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                            <li>
+                                <a href="/">
+                                    <i class="ace-icon fa fa-globe"></i>
+                                    Website
+                                </a>
+                            </li>
                             <li class="divider"></li>
                             <li>
                                 <a href="default">
@@ -150,13 +156,20 @@
                     </a>
                     <b class="arrow"></b>
                 </li>
-                <!--<li>
-                    <a href="Social/Posts">
+                <li>
+                    <a href="news">
                         <span class="menu-icon glyphicon glyphicon-retweet"></span>
-                        <span class="menu-text">Posts</span>
+                        <span class="menu-text">News</span>
                     </a>
                     <b class="arrow"></b>
-                </li>-->
+                </li>
+                <li>
+                    <a href="pages">
+                        <i class="menu-icon fa fa-file-text-o" aria-hidden="true"></i>
+                        <span class="menu-text">Pages</span>
+                    </a>
+                    <b class="arrow"></b>
+                </li>
                 <li>
                     <a href="Settings">
                         <i class="menu-icon ace-icon fa fa-cogs"></i>
@@ -209,7 +222,7 @@
     <script src="/Content/sys/assets/js/date-time/moment.min.js"></script>
     <script src="/Content/sys/assets/js/date-time/bootstrap-datepicker.min.js"></script>
     <script src="/Content/sys/assets/js/date-time/bootstrap-datetimepicker.min.js"></script>
-    <script src="/Content/sys/assets/js/ace/elements.fileinput.min.js"></script>
+    <script src="/Content/sys/assets/js/ace/elements.fileinput.js"></script>
     <script src="/Content/sys/assets/js/ace/elements.spinner.min.js"></script>
     <script src="/Content/sys/assets/js/ace/elements.treeview.min.js"></script>
     <script src="/Content/sys/assets/js/ace/elements.wizard.min.js"></script>

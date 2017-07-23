@@ -41,6 +41,10 @@ var DefaultGridManager = DefaultGridManager || {},
                 $('#' + formId).find('input, select, textarea').each(function () {
                     $(this).val('');
                 });
+
+                $('textarea.ck-editor').each(function () {
+                    CKEDITOR.instances[$(this).attr('id')].setData('<p></p>');
+                });
             },
             successCallback = function (data) {
                 $('#' + modalDialog).modal('hide');
@@ -144,7 +148,11 @@ var DefaultGridManager = DefaultGridManager || {},
                         }
                         else if (self.hasClass('remove')) {
                             aData = oTable.row(pos).data();
-                            var title = " Delete " + TitlePage, peration = 'delete', ParamNames = [], _id = "";
+
+                            var title = " Delete " + TitlePage,
+                                peration = 'delete',
+                                ParamNames = [], _id = "";
+
                             if (pKey.toLowerCase().indexOf(",") >= 0) {
                                 ParamNames = pKey.split(",");
                                 for (var i = 0; i < ParamNames.length - 1; i++) {
@@ -153,6 +161,7 @@ var DefaultGridManager = DefaultGridManager || {},
                                 _id += aData[ParamNames[ParamNames.length - 1]];
                             }
                             else { _id = aData[pKey]; }
+
                             $('#' + deleteModalDialog).find('.removeField').text(_id);
                             commonManger.showPopUpDialog(title, operation, deleteModalDialog);
                         }

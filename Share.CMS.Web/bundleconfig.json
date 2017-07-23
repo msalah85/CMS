@@ -58,5 +58,38 @@
     "inputFiles": [
       "Scripts/app/utiltities/jquery.xml2json.js"
     ]
+  },
+  {
+    "outputFileName": "Scripts/sys/admin/newsManager.min.js",
+    "inputFiles": [
+      "Scripts/sys/admin/newsManager.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/site/Common.min.js",
+    "inputFiles": [
+      "Scripts/site/Common.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/site/DataService.min.js",
+    "inputFiles": [
+      "Scripts/site/DataService.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/site/jquery.xml2json.min.js",
+    "inputFiles": [
+      "Scripts/site/jquery.xml2json.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/site/site.services.min.js",
+    "inputFiles": [
+      "Scripts/site/Common.js",
+      "Scripts/site/DataService.js",
+      "Scripts/site/jquery.xml2json.js",
+      "Scripts/site/lz-string.min.js"
+    ]
   }
 ]

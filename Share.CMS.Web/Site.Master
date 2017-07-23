@@ -15,7 +15,12 @@
     <link type="text/css" rel="stylesheet" href="/content/masknvr1/css/style.css" media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="/content/masknvr1/css/ar_style.css" media="screen,projection" />
 
-    <asp:ContentPlaceHolder runat="server" ID="head" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="/content/masknvr1/js/materialize.min.js"></script>
+
+    <asp:ContentPlaceHolder runat="server" ID="head">
+    </asp:ContentPlaceHolder>
+
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
@@ -152,9 +157,7 @@
             <li><a class="waves-effect" href="#">ممتلكاتك الخاصة </a></li>
         </ul>
     </div>
-
     <asp:ContentPlaceHolder ID="MainContent" runat="server" />
-
     <div class="footer-color">
         <div class="row" style="padding: 0">
             <div class="col l4 s4">
@@ -492,11 +495,7 @@
             </div>
         </div>
     </div>
-
     <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="/content/masknvr1/js/materialize.min.js"></script>
-
     <script>
         $('.button-collapse').sideNav({
             menuWidth: 300, // Default is 300

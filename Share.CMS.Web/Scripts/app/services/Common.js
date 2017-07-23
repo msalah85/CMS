@@ -157,7 +157,7 @@ var commonManger = function () {
                     if (data.Status) // show success message if done.
                         success(data);
                     else // show error message
-                        showMessage('خطأ بالحذف:', 'خطأ أثناء الحذف ' + data.message);
+                        showMessage('خطأ بالDelete:', 'خطأ أثناء الDelete ' + data.message);
                 };
             
             modalDialog = $('#' + modalDialog);
@@ -183,7 +183,7 @@ var commonManger = function () {
                     if (data.d.Status) // show success message if done.
                         success(data);
                     else // show error message
-                        showMessage('لم تتم عملية الحذف', data.d.message);
+                        showMessage('لم تتم عملية الDelete', data.d.message);
                 }, errorException);
         },
         deleteMultipleData = function (modalDialog, success, error, tableName, pKey, value) {
@@ -198,7 +198,7 @@ var commonManger = function () {
                     if (data.d.Status) // show success message if done.
                         success(data);
                     else // show error message
-                        showMessage('لم تتم عملية الحذف', data.d.message);
+                        showMessage('لم تتم عملية الDelete', data.d.message);
                 }, errorException);
         },
         getDataForUpdate = function (ArrayData, controlid) {

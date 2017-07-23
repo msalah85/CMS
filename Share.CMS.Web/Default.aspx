@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="مرحبا بك فى" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Share.CMS.Web._Default" %>
 
+<asp:Content runat="server" ContentPlaceHolderID="head" ID="topScripts">
+    <script src="Scripts/site/homeController.js"></script>
+</asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <section>
         <div class="video">

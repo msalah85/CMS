@@ -49,7 +49,6 @@ var commonManger = function () {
         applyValidation = function (formId) {
             var _form = $("#" + (formId ? formId : 'aspnetForm'));
             //_form.validate(); // Validate the form and retain the result.
-
             var isValid = false;
             isValid = _form.valid();
             return isValid;
@@ -81,7 +80,7 @@ var commonManger = function () {
                         var ElementId = $(this).attr('id');
                         var Ctype = $(this).prop('type');
                         if (Ctype == "text" || Ctype == "number" || Ctype == "email" || Ctype == "date") {
-                            $(this).val("");
+                            $(this).val(value = "");
                         }
                         else if (Ctype == "checkbox") {
                             $(this).prop("checked", true);
@@ -90,7 +89,7 @@ var commonManger = function () {
                             $(this).val(value = "0");
                         }
                         else if (Ctype == "textarea") {
-                            if ($(this).hasClass('ck-editor')) {
+                            if ($(this).hasClass('textareaSpecial')) {
                                 CKEDITOR.instances[ElementId].setData('<p></p>');
                             } else { $(this).val(value = ""); }
                         }
@@ -152,21 +151,17 @@ var commonManger = function () {
             else { ParamNames.push(pKey); }
 
 
-            var dto = {};
-            dto.actionName = ActionName;
-            dto.names = ParamNames;
-            dto.values = ParamValues;
-
-            modalDialog = $('#' + modalDialog);
-
-            dataService.callAjax('POST', JSON.stringify(dto), sUrl + 'SaveData',
-                function (data) {
+            var DTO = { actionName: ActionName, names: ParamNames, values: ParamValues },
+                successCallBck = function (data) {
                     $(modalDialog).modal('hide');
                     if (data.Status) // show success message if done.
                         success(data);
                     else // show error message
-                        showMessage('Error:', 'Error while deleting ' + data.message);
-                }, errorException);
+                        showMessage('خطأ بالDelete:', 'خطأ أثناء الDelete ' + data.message);
+                };
+
+            modalDialog = $('#' + modalDialog);
+            dataService.callAjax('POST', JSON.stringify(DTO), sUrl + 'SaveData', successCallBck, errorException);
         },
         deleteData = function (modalDialog, success, error, tableName, pKey, value) {
             var paramValues = [], paramNames = [], actionName = tableName + "_Delete";
@@ -188,7 +183,7 @@ var commonManger = function () {
                     if (data.d.Status) // show success message if done.
                         success(data);
                     else // show error message
-                        showMessage('Error while deleting this item', data.d.message);
+                        showMessage('لم تتم عملية الDelete', data.d.message);
                 }, errorException);
         },
         deleteMultipleData = function (modalDialog, success, error, tableName, pKey, value) {
@@ -203,7 +198,7 @@ var commonManger = function () {
                     if (data.d.Status) // show success message if done.
                         success(data);
                     else // show error message
-                        showMessage('Error while deleting this item', data.d.message);
+                        showMessage('لم تتم عملية الDelete', data.d.message);
                 }, errorException);
         },
         getDataForUpdate = function (ArrayData, controlid) {
@@ -216,7 +211,7 @@ var commonManger = function () {
                             var Ctype = $(this).prop('type');
                             if (Ctype != "undefined" || Ctype != '') {
                                 if (Ctype == "text" || Ctype == "hidden" || Ctype == "number" || Ctype == "email" || Ctype == "date" || Ctype == "textarea") {
-                                    if ($(this).hasClass('ck-editor')) {
+                                    if ($(this).hasClass('textareaSpecial')) {
                                         CKEDITOR.instances[ElementId].setData(ArrayData[ElementId])
                                     }
                                     else {
@@ -234,19 +229,12 @@ var commonManger = function () {
                                 }
                                 else if (Ctype == "select-one" && !$('#' + ElementId).hasClass("showvalue")) {
                                     $('#' + ElementId).val(ArrayData[ElementId]);
-
                                     if ($('#' + ElementId).hasClass("chzn-select")) {
                                         $('#' + ElementId).chosen().trigger('chosen:updated').trigger("liszt:updated");
                                     }
-
-                                    //else if ($(this).hasClass('select2')) {
-                                    //    $(this).select2("trigger", "select", {
-                                    //        data: { id: ArrayData[ElementId], text: ArrayData[ElementId] }
-                                    //    });
-                                    //}
                                 }
                                 else if (Ctype == "checkbox") {
-                                    $(this).prop("checked", (ArrayData[ElementId] === 'true'));
+                                    $(this).prop("checked", ArrayData[ElementId]);
                                 }
                                 else if ($(this).is("label")) {
                                     $('#' + ElementId + '').text(ArrayData[ElementId]);
@@ -359,7 +347,7 @@ var commonManger = function () {
                                     valuesids.push($(this).attr('id'));
                                 }
                                 else if (Ctype == "textarea") {
-                                    if ($(this).hasClass('ck-editor')) {
+                                    if ($(this).hasClass('textareaSpecial')) {
                                         var ckdata = CKEDITOR.instances.Details.getData();
                                         values.push(ckdata);
                                         valuesids.push($(this).attr('id'));
@@ -378,9 +366,7 @@ var commonManger = function () {
                     }
 
                 });
-
             valuecollection.push(valuesids, values);
-
             return valuecollection;
         },
         // global save data
@@ -532,9 +518,11 @@ var commonManger = function () {
 
             // bind DT data
             funcCallback(objDT);
+        },
+        getCurrentLanguage = function () {
+
         };
-
-
+    
     return {
         showPopUpDialog: showPopUpDialog,
         doWork: doWork,

@@ -7,9 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Share.CMS.Web {
+namespace Share.CMS.Web.sys {
     
     
-    public partial class _Default {
+    public partial class PagesAddEdit {
     }
 }

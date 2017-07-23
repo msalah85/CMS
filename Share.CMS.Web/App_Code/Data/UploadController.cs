@@ -6,11 +6,60 @@ using System.Web.Http;
 using System.Drawing.Imaging;
 using Share.CMS.Business;
 using System.Xml;
+using System.Net;
 
 namespace Share.CMS.Web
 {
     public class UploadController : ApiController
     {
+        [ActionName("Send")]
+        public IHttpActionResult PostPhoto([FromBody]uploadModel value)
+        {
+            if (string.IsNullOrEmpty(value.ID))
+                return Content(HttpStatusCode.BadRequest, "Error!");
+
+            byte[] imageBytes = Convert.FromBase64String(value.ID);
+            var ms = new MemoryStream(imageBytes, 0, imageBytes.Length);
+
+            // Convert byte[] to Image
+            ms.Write(imageBytes, 0, imageBytes.Length);
+            var image = Image.FromStream(ms, true);
+
+            string newFile = string.Format("{0}.jpg", Guid.NewGuid()),
+                   path = HostingEnvironment.MapPath("~/Public/images/news/"),
+                   filePath = Path.Combine(path, newFile);
+
+            try
+            {
+
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+
+                image.Save(filePath, ImageFormat.Jpeg);
+
+                // Save Thumb image //////////////////////////////////
+                // Set image height and width to be loaded on web page
+                byte[] buffer = getResizedImage(filePath, 150, 150);
+                // prepaire thumb folder
+                string pPath = Path.Combine(path, "_thumb\\");
+                if (!Directory.Exists(pPath))
+                {
+                    Directory.CreateDirectory(pPath);
+                }
+                // save image in thumb folder
+                File.WriteAllBytes(pPath + newFile, buffer);
+                // end ///////////////////////////////////////////////
+
+                return Ok(newFile);
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.BadRequest, "Error!" + ex.Message);
+            }
+        }
+
         // upload image to server.
         [ActionName("Save")]
         public void PostImage([FromBody]uploadModel value)
@@ -156,9 +205,9 @@ namespace Share.CMS.Web
                 {
                     File.Delete(f); // Delete main image
                 }
-                
+
                 if (File.Exists(fThumb))
-                {                   
+                {
                     File.Delete(fThumb); // Delete thumb image
                 }
             }
@@ -168,7 +217,7 @@ namespace Share.CMS.Web
             // delete from db
             string[] names = { "ID" }, values = { id };
             var deleted = new Save().SaveRow("Images_Delete", names, values);
-            
+
 
             return deleted.ToString();
         }
@@ -182,9 +231,9 @@ namespace Share.CMS.Web
 
             return result.ToString();
         }
-        
+
         [ActionName("Index")]
-        public static string UpdateImagesIndexes(string[] values)
+        public string UpdateImagesIndexes(string[] values)
         {
             // create xml file
             XmlDocument xmldoc = new XmlDocument();

@@ -652,6 +652,7 @@
     <Content Include="Content\sys\assets\js\x-editable\bootstrap-editable.min.js" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="file-upload.php" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -868,6 +869,41 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\site\Common.js" />
+    <Content Include="Scripts\site\Common.min.js">
+      <DependentUpon>Common.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\site\homeController.js" />
+    <Content Include="Scripts\site\service.utilities.js" />
+    <Content Include="Scripts\site\DataService - Copy.min.js">
+      <DependentUpon>service.utilities.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\site\DataService.js" />
+    <Content Include="Scripts\site\DataService.min.js">
+      <DependentUpon>DataService.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\site\jquery.xml2json.js" />
+    <Content Include="Scripts\site\jquery.xml2json.min.js">
+      <DependentUpon>jquery.xml2json.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\site\lz-string.min.js" />
+    <Content Include="Scripts\site\site.services.min.js" />
+    <Content Include="Scripts\sys\admin\pagesAddManager.js" />
+    <Content Include="Scripts\sys\admin\newsAddManager.js" />
+    <Content Include="Scripts\sys\admin\newsManager - Copy %282%29.min.js">
+      <DependentUpon>pagesManager.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\sys\admin\newsManager - Copy.min - Copy.js">
+      <DependentUpon>pagesAddManager.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\sys\admin\pagesManager.js" />
+    <Content Include="Scripts\sys\admin\newsManager - Copy.min.js">
+      <DependentUpon>newsAddManager.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\sys\admin\newsManager.js" />
+    <Content Include="Scripts\sys\admin\newsManager.min.js">
+      <DependentUpon>newsManager.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\sys\admin\PropertiesManager.js" />
     <Content Include="Scripts\sys\admin\PropertyAddEdit.js" />
     <Content Include="Scripts\sys\admin\UrlRecordsManager.js" />
@@ -940,6 +976,8 @@
     <Content Include="Site.Master" />
     <Content Include="sys\Images.aspx" />
     <Content Include="sys\News.aspx" />
+    <Content Include="sys\PagesAddEdit.aspx" />
+    <Content Include="sys\NewsAddEdit.aspx" />
     <Content Include="sys\Pages.aspx" />
     <Content Include="sys\Properties.aspx" />
     <Content Include="sys\UrlRecord.aspx" />
@@ -1194,6 +1232,20 @@
     <Compile Include="sys\News.aspx.designer.cs">
       <DependentUpon>News.aspx</DependentUpon>
     </Compile>
+    <Compile Include="sys\PagesAddEdit.aspx.cs">
+      <DependentUpon>PagesAddEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys\PagesAddEdit.aspx.designer.cs">
+      <DependentUpon>PagesAddEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys\NewsAddEdit.aspx.cs">
+      <DependentUpon>NewsAddEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys\NewsAddEdit.aspx.designer.cs">
+      <DependentUpon>NewsAddEdit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="sys\Pages.aspx.cs">
       <DependentUpon>Pages.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1223,7 +1275,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Public\images\" />
+    <Folder Include="Public\images\news\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
