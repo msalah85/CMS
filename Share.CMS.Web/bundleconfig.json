@@ -91,5 +91,17 @@
       "Scripts/site/jquery.xml2json.js",
       "Scripts/site/lz-string.min.js"
     ]
+  },
+  {
+    "outputFileName": "Scripts/site/homeController.min.js",
+    "inputFiles": [
+      "Scripts/site/homeController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/site/service.utilities.min.js",
+    "inputFiles": [
+      "Scripts/site/service.utilities.js"
+    ]
   }
 ]

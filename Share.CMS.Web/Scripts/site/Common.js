@@ -519,10 +519,10 @@ var commonManger = function () {
             // bind DT data
             funcCallback(objDT);
         },
-        getCurrentLanguage = function () {
-
+        getCurrentSiteLanguage = function () {
+            return 2;
         };
-    
+
     return {
         showPopUpDialog: showPopUpDialog,
         doWork: doWork,
@@ -559,6 +559,7 @@ var commonManger = function () {
         populateDataTable: populateDataTable,
         jsnFromXML: jsonFromXml,
         decoData: decompressXMLData,
-        setData2Grid: prepareData2Grid
+        setData2Grid: prepareData2Grid,
+        currentLanguage = getCurrentSiteLanguage
     };
 }();

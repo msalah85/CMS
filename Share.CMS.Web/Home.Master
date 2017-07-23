@@ -15,7 +15,13 @@
     <link type="text/css" rel="stylesheet" href="/content/masknvr1/css/style.css" media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="/content/masknvr1/css/ar_style.css" media="screen,projection" />    
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="/Scripts/site/site.services.min.js"></script>
+    
+    <script src="/Scripts/site/DataService.js"></script>
+    <script src="/Scripts/site/jquery.xml2json.js"></script>
+    <script src="/Scripts/site/lz-string.min.js"></script>
+    <script src="/Scripts/site/Common.js"></script>
+    <script src="/Scripts/site/service.utilities.js"></script>
+
     <asp:ContentPlaceHolder runat="server" ID="head">
     </asp:ContentPlaceHolder>
     <asp:PlaceHolder runat="server">

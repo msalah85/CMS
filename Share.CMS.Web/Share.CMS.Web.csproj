@@ -874,10 +874,10 @@
       <DependentUpon>Common.js</DependentUpon>
     </Content>
     <Content Include="Scripts\site\homeController.js" />
-    <Content Include="Scripts\site\service.utilities.js" />
-    <Content Include="Scripts\site\DataService - Copy.min.js">
-      <DependentUpon>service.utilities.js</DependentUpon>
+    <Content Include="Scripts\site\homeController.min.js">
+      <DependentUpon>homeController.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\site\service.utilities.js" />
     <Content Include="Scripts\site\DataService.js" />
     <Content Include="Scripts\site\DataService.min.js">
       <DependentUpon>DataService.js</DependentUpon>
@@ -887,7 +887,9 @@
       <DependentUpon>jquery.xml2json.js</DependentUpon>
     </Content>
     <Content Include="Scripts\site\lz-string.min.js" />
-    <Content Include="Scripts\site\site.services.min.js" />
+    <Content Include="Scripts\site\service.utilities.min.js">
+      <DependentUpon>service.utilities.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\sys\admin\pagesAddManager.js" />
     <Content Include="Scripts\sys\admin\newsAddManager.js" />
     <Content Include="Scripts\sys\admin\newsManager - Copy %282%29.min.js">
