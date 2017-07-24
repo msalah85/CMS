@@ -521,6 +521,13 @@ var commonManger = function () {
         },
         getCurrentSiteLanguage = function () {
             return 2;
+        },
+        getUrlSegment = function (segmentIndex) {
+            var segments = window.location.href.split('/');
+
+            segmentIndex = segmentIndex ? segmentIndex : segments.length - 1;
+
+            return segments[segmentIndex];
         };
 
     return {
@@ -560,6 +567,7 @@ var commonManger = function () {
         jsnFromXML: jsonFromXml,
         decoData: decompressXMLData,
         setData2Grid: prepareData2Grid,
-        currentLanguage = getCurrentSiteLanguage
+        getCurrentLanguage: getCurrentSiteLanguage,
+        getUrlSegment: getUrlSegment
     };
 }();

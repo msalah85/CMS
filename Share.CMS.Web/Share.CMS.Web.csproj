@@ -189,7 +189,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
+    <Content Include="Page.aspx" />
     <Content Include="Account\AddPhoneNumber.aspx" />
     <Content Include="Account\Confirm.aspx" />
     <Content Include="Account\Forgot.aspx" />
@@ -777,6 +777,7 @@
     <Content Include="Content\sys\assets\js\typeahead.jquery.min.js.map" />
     <Content Include="Content\sys\assets\js\x-editable\ace-editable.min.js.map" />
     <Content Include="Content\sys\assets\js\x-editable\bootstrap-editable.min.js.map" />
+    <Content Include="NewsDetails.aspx" />
     <Content Include="Scripts\app\services\Common.js" />
     <Content Include="Scripts\app\services\Common.min.js">
       <DependentUpon>Common.js</DependentUpon>
@@ -872,6 +873,18 @@
     <Content Include="Scripts\site\Common.js" />
     <Content Include="Scripts\site\Common.min.js">
       <DependentUpon>Common.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\site\controllers\pageDetailsController.js" />
+    <Content Include="Scripts\site\controllers\newsDetailsController.js" />
+    <Content Include="Scripts\site\controllers\homeMasterController.js" />
+    <Content Include="Scripts\site\controllers\homeMasterController.min.js">
+      <DependentUpon>homeMasterController.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\site\controllers\newsDetailsController.min.js">
+      <DependentUpon>newsDetailsController.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\site\controllers\pageDetailsController.min.js">
+      <DependentUpon>pageDetailsController.js</DependentUpon>
     </Content>
     <Content Include="Scripts\site\homeController.js" />
     <Content Include="Scripts\site\homeController.min.js">
@@ -1119,6 +1132,13 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="NewsDetails.aspx.cs">
+      <DependentUpon>NewsDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewsDetails.aspx.designer.cs">
+      <DependentUpon>NewsDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PropertiesList.aspx.cs">
       <DependentUpon>PropertiesList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1156,12 +1176,12 @@
       <DependentUpon>sys.lang.resx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
+    <Compile Include="Page.aspx.cs">
+      <DependentUpon>Page.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
+    <Compile Include="Page.aspx.designer.cs">
+      <DependentUpon>Page.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />

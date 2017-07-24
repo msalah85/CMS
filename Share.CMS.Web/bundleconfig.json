@@ -103,5 +103,23 @@
     "inputFiles": [
       "Scripts/site/service.utilities.js"
     ]
+  },
+  {
+    "outputFileName": "Scripts/site/controllers/homeMasterController.min.js",
+    "inputFiles": [
+      "Scripts/site/controllers/homeMasterController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/site/controllers/newsDetailsController.min.js",
+    "inputFiles": [
+      "Scripts/site/controllers/newsDetailsController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/site/controllers/pageDetailsController.min.js",
+    "inputFiles": [
+      "Scripts/site/controllers/pageDetailsController.js"
+    ]
   }
 ]

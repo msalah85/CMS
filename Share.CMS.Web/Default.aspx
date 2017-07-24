@@ -21,55 +21,8 @@
                     <h5>أحدث الأخبار </h5>
                     <h6>موقع مسكن اختيارك الأول للحصول على مسكنك الجديد</h6>
                 </div>
-                <div class="row">
-                    <div class="col-md-6 col-lg-6 ">
-                        <div class='newsLeftImg'>
-                            <!-- image -->
-                            <img src='/content/masknvr1/img/newsleft.png' class="img-responsive" alt="" title="build" />
-                            <!-- description div -->
-                            <div class='description'>
-                                <!-- description content -->
-                                <h5 class="description_content">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة </h5>
-                                <h6 class="description_content">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق. </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col col-md-6">
-                        <div class="media">
-                            <a href="#" style="float: right; margin-left: 10px;">
-                                <img class="media-object img-responsive" alt="img" src="/content/masknvr1/img/new_img.png" style="width: 100px; height: 80px;">
-                            </a>
-                            <div class="media-body">
-                                <a href="#">
-                                    <h5 class="media-heading">هذا النص هو مثال لنص يمكن أن يستبدل</h5>
-                                </a>
-                                <h6>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى </h6>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <a href="#" style="float: right; margin-left: 10px;">
-                                <img class="media-object img-responsive" alt="img" src="/content/masknvr1/img/new_img.png" style="width: 100px; height: 80px;">
-                            </a>
-                            <div class="media-body">
-                                <a href="#">
-                                    <h5 class="media-heading">هذا النص هو مثال لنص يمكن أن يستبدل  </h5>
-                                </a>
-                                <h6>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى </h6>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <a href="#" style="float: right; margin-left: 10px;">
-                                <img class="media-object img-responsive" alt="img" src="/content/masknvr1/img/new_img.png" style="width: 100px; height: 80px;">
-                            </a>
-                            <div class="media-body">
-                                <a href="#">
-                                    <h5 class="media-heading">هذا النص هو مثال لنص يمكن أن يستبدل </h5>
-                                </a>
-                                <h6>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى </h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="row top-news-list"></div>
+                <script>homeController.Init();</script>
             </div>
             <div class="clearfix"></div>
         </div>

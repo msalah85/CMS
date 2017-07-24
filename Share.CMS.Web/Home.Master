@@ -15,18 +15,23 @@
     <link type="text/css" rel="stylesheet" href="/content/masknvr1/css/style.css" media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="/content/masknvr1/css/ar_style.css" media="screen,projection" />    
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    <link href="/Content/sys/assets/css/jquery.gritter.min.css" rel="stylesheet" />
     
     <script src="/Scripts/site/DataService.js"></script>
     <script src="/Scripts/site/jquery.xml2json.js"></script>
     <script src="/Scripts/site/lz-string.min.js"></script>
+    <script src="/Content/sys/assets/js/jquery.gritter.min.js"></script>
     <script src="/Scripts/site/Common.js"></script>
     <script src="/Scripts/site/service.utilities.js"></script>
 
-    <asp:ContentPlaceHolder runat="server" ID="head">
-    </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder runat="server" ID="head" />
+
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
+
+    <script src="/Scripts/site/controllers/homeMasterController.min.js"></script>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
 <body>
@@ -156,9 +161,7 @@
             <li><a class="waves-effect" href="#">ممتلكاتك الخاصة </a></li>
         </ul>
     </div>
-
     <asp:ContentPlaceHolder ID="MainContent" runat="server" />
-
     <div class="footer-color">
         <div class="row" style="padding: 0">
             <div class="col l4 s4">
@@ -210,7 +213,7 @@
                         <li><a class=" text-lighten-3" href="#">عقارات مصر</a></li>
                     </ul>
                 </div>
-                <div class="col l3  s12">
+                <div class="col l3 s12">
                     <ul>
                         <li><a class=" text-lighten-3" href="#">عن الشركة </a></li>
                         <li><a class=" text-lighten-3" href="#">وظائف </a></li>
@@ -221,6 +224,8 @@
             </div>
         </div>
     </footer>
+
+    <script>masterController.Init();</script>
 
     <!-- Modal Structure -->
     <div id="modal1" class="modal">
@@ -494,7 +499,6 @@
         </div>
     </div>
 
-    <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="/content/masknvr1/js/materialize.min.js"></script>
 
     <script>

@@ -11,7 +11,7 @@ namespace Share.CMS.Web
 {
 
 
-    public partial class About
+    public partial class NewsDetails
     {
     }
 }

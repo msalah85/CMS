@@ -53,10 +53,14 @@ namespace Share.CMS.Web
             return LZString.CompressToUTF16(_ds.GetXml());
         }
 
-        public string GetDataList(string actionName, string[] names, string[] values)
+        [HttpPost]
+        public string GetDataList(DataListModel param)
         {
+            if (param == null)
+                return "Error!! null paramters";
+
             // get all of data.
-            var _ds = new Select().SelectLists(actionName, names, values);
+            var _ds = new Select().SelectLists(param.actionName, param.names, param.values);
             return LZString.CompressToUTF16(_ds.GetXml());
         }
 
@@ -250,5 +254,12 @@ namespace Share.CMS.Web
             var _ds = new Select().SelectLists(fnName, namesAll, valuesAll);
             return LZString.CompressToUTF16(_ds.GetXml());
         }
+    }
+
+    public class DataListModel
+    {
+        public string actionName { get; set; }
+        public string[] names { get; set; }
+        public string[] values { get; set; }
     }
 }
