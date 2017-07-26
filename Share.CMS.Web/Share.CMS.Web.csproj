@@ -652,7 +652,6 @@
     <Content Include="Content\sys\assets\js\x-editable\bootstrap-editable.min.js" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
-    <Content Include="file-upload.php" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -778,6 +777,16 @@
     <Content Include="Content\sys\assets\js\x-editable\ace-editable.min.js.map" />
     <Content Include="Content\sys\assets\js\x-editable\bootstrap-editable.min.js.map" />
     <Content Include="NewsDetails.aspx" />
+    <Content Include="PropertyDetails.aspx" />
+    <Content Include="Scripts\site\controllers\pageDetailsController - Copy %282%29.min.js">
+      <DependentUpon>propertyDetailsController.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\site\controllers\propertyDetailsController.js" />
+    <Content Include="Scripts\site\controllers\propertiesController.js" />
+    <Content Include="Scripts\site\controllers\pageDetailsController - Copy.min.js">
+      <DependentUpon>propertiesController.js</DependentUpon>
+    </Content>
+    <Content Include="Search.aspx" />
     <Content Include="Scripts\app\services\Common.js" />
     <Content Include="Scripts\app\services\Common.min.js">
       <DependentUpon>Common.js</DependentUpon>
@@ -786,7 +795,6 @@
     <Content Include="Scripts\app\services\DataService.min.js">
       <DependentUpon>DataService.js</DependentUpon>
     </Content>
-    <Content Include="PropertiesList.aspx" />
     <None Include="bundleconfig.json" />
     <Content Include="Content\MasknVr1\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\MasknVr1\fonts\fontawesome-webfont.svg" />
@@ -1139,12 +1147,19 @@
     <Compile Include="NewsDetails.aspx.designer.cs">
       <DependentUpon>NewsDetails.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PropertiesList.aspx.cs">
-      <DependentUpon>PropertiesList.aspx</DependentUpon>
+    <Compile Include="PropertyDetails.aspx.cs">
+      <DependentUpon>PropertyDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PropertiesList.aspx.designer.cs">
-      <DependentUpon>PropertiesList.aspx</DependentUpon>
+    <Compile Include="PropertyDetails.aspx.designer.cs">
+      <DependentUpon>PropertyDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
     </Compile>
     <Content Include="App_Code\CookiesManager.cs" />
     <Content Include="App_Code\DataAccess.cs" />

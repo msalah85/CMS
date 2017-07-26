@@ -11,7 +11,7 @@ namespace Share.CMS.Web
 {
 
 
-    public partial class WebForm2
+    public partial class PropertyDetails
     {
     }
 }
