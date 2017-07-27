@@ -814,6 +814,7 @@
     <Content Include="Content\MasknVr1\fonts\JF-Flat-regular.eot" />
     <Content Include="Content\MasknVr1\fonts\JF-Flat-regular.ttf" />
     <Content Include="Content\MasknVr1\fonts\JF-Flat-regular.woff" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

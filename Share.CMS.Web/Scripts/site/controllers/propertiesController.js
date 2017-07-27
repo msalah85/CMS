@@ -56,7 +56,7 @@ var propertiesController = function () {
                                                     <input type="radio" id="star21" name="rating" value="1">
                                                     <label class="full" for="star21" title="bad  1 star"></label>
                                                 </fieldset>
-                                                <a title="أضف للمفضله" href="property/${v.PropertyID}" class="fav active"><i class="material-icons">favorite_border</i></a>
+                                                <a title="أضف للمفضله" href="PropertyDetails/${v.PropertyID}/" class="fav active"><i class="material-icons">favorite_border</i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -81,10 +81,10 @@ var propertiesController = function () {
                                             <div class="buildingsBtn">
                                                 <div class="row">
                                                     <div class="col m4">
-                                                        <a href="property/${v.PropertyID}" class="waves-effect waves-light btn" style="background-color: #818287">المزيد </a>
+                                                        <a href="PropertyDetails/${v.PropertyID}/" class="waves-effect waves-light btn" style="background-color: #818287">المزيد </a>
                                                     </div>
                                                     <div class="col m4">
-                                                        <a href="property/${v.PropertyID}" class="waves-effect waves-light orange btn">طلب الآن </a>
+                                                        <a href="PropertyDetails/${v.PropertyID}/" class="waves-effect waves-light orange btn">طلب الآن </a>
                                                     </div>
                                                 </div>
                                             </div>
