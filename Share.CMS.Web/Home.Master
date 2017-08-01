@@ -13,11 +13,11 @@
     <link type="text/css" rel="stylesheet" href="/content/masknvr1/css/bootstrap.css" media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="/content/masknvr1/css/bootstrap-rtl.css" media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="/content/masknvr1/css/style.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="/content/masknvr1/css/ar_style.css" media="screen,projection" />    
+    <link type="text/css" rel="stylesheet" href="/content/masknvr1/css/ar_style.css" media="screen,projection" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
     <link href="/Content/sys/assets/css/jquery.gritter.min.css" rel="stylesheet" />
-    
+
     <script src="/Scripts/site/DataService.js"></script>
     <script src="/Scripts/site/jquery.xml2json.js"></script>
     <script src="/Scripts/site/lz-string.min.js"></script>
@@ -43,10 +43,10 @@
                 <ul class="left">
                     <li><a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
                     </li>
-                    <li><a href="/en">Eng</a></li>
-                    <li><a href="#modal1"><i class="material-icons right">input</i>دخول </a></li>
-                    <li class="ListProperty"><a href="about"><i class="material-icons right">home</i> أضف عقارك</a></li>
-                    <li class="download"><a href="#"><i class="material-icons right">phone_android</i> تحميل تطبيق مسكن</a></li>
+                    <%--<li><a href="/en">Eng</a></li>
+                    <li><a href="#modal1"><i class="material-icons right">input</i>دخول </a></li>--%>
+                    <li class="ListProperty"><a href="#about"><i class="material-icons right">home</i> أضف عقارك</a></li>
+                    <li class="download"><a href="/download-mobileapp"><i class="material-icons icon-app right">phone_android</i> تحميل تطبيق مسكن</a></li>
                 </ul>
             </div>
         </nav>
@@ -73,92 +73,19 @@
             <li>
                 <div class="userView">
                     <a href="#">
-                        <img class="circle" src="/content/masknvr1/img/user.png"></a>
-                    <a href="#"><span class="name">غسان هاني </span></a>
+                        <img class="circle" src="/content/masknvr1/img/user-default.png"></a>
+                    <a href="#"><span class="name">مرحباً</span></a>
                 </div>
             </li>
-            <li><a href="#">رحلتي </a></li>
+            <li><a href="#">رحلتى مع مسكن</a></li>
             <li>
                 <div class="divider"></div>
             </li>
-            <li><a href="#"><i class="material-icons left">favorite_border</i> المفضلة  </a></li>
+            <li><a class="waves-effect" href="download-mobileapp"><i class="material-icons left">phone_android</i> تحميل التطبيق </a></li>
             <li>
                 <div class="divider"></div>
             </li>
-            <li><a href="#">خدمات الشركاء   </a></li>
-            <li>
-                <div class="divider"></div>
-            </li>
-
-            <ul class="collapsible collapsible-accordion">
-                <li>
-                    <a class="collapsible-header"><i class="material-icons left">arrow_drop_down</i>أهم المدن </a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li><a href="/content/masknvr1/eng/city.html">الشيخ زايد </a></li>
-                            <li><a href="/content/masknvr1/eng/city.html">الشيخ زايد </a></li>
-                            <li><a href="/content/masknvr1/eng/city.html">الشيخ زايد </a></li>
-                            <li><a href="/content/masknvr1/eng/city.html">الشيخ زايد </a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-            <li>
-                <div class="divider"></div>
-            </li>
-            <li>
-                <ul class="collapsible collapsible-accordion">
-                    <li>
-                        <a class="collapsible-header"><i class="material-icons left">arrow_drop_down</i>أفضل بناة </a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="/content/masknvr1/eng/Buildings.html">بناة 1  </a></li>
-                                <li><a href="/content/masknvr1/eng/Buildings.html">بناة 1  </a></li>
-                                <li><a href="/content/masknvr1/eng/Buildings.html">بناة 1  </a></li>
-                                <li><a href="/content/masknvr1/eng/Buildings.html">بناة 1  </a></li>
-                                <li><a href="/content/masknvr1/eng/Buildings.html">بناة 1  </a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <div class="divider"></div>
-            </li>
-            <li>
-                <ul class="collapsible collapsible-accordion">
-                    <li>
-                        <a class="collapsible-header"><i class="material-icons left">arrow_drop_down</i>أفضل الوسطاء  </a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="/content/masknvr1/eng/brokers.html">وسيط 1 </a></li>
-                                <li><a href="/content/masknvr1/eng/brokers.html">وسيط 2 </a></li>
-                                <li><a href="/content/masknvr1/eng/brokers.html">وسيط 3 </a></li>
-                                <li><a href="/content/masknvr1/eng/brokers.html">وسيط 4 </a></li>
-                                <li><a href="/content/masknvr1/eng/brokers.html">وسيط 5 </a></li>
-
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <div class="divider"></div>
-            </li>
-
-            <li>
-                <div class="divider"></div>
-            </li>
-
-            <li><a class="waves-effect" href="#">Makaaniq </a></li>
-            <li>
-                <div class="divider"></div>
-            </li>
-            <li><a class="waves-effect" href="#"><i class="material-icons left">phone_android</i> تحميل التطبيق </a></li>
-            <li>
-                <div class="divider"></div>
-            </li>
-            <li><a class="waves-effect" href="#">ممتلكاتك الخاصة </a></li>
+            <li><a class="waves-effect" href="search">عقاراتى</a></li>
         </ul>
     </div>
     <asp:ContentPlaceHolder ID="MainContent" runat="server" />
@@ -563,7 +490,7 @@
             _this.addClass('orange').removeClass('search-deactive-optn');
 
 
-            $srchText.attr('placeholder', 'بحث عقار ' + (_type === '2' ? 'للتأجير' : 'للشراء'));
+            $srchText.attr('placeholder', 'بحث عقار ' + (_type === '2' ? 'للإيجار' : 'للشراء'));
         });
 
 
@@ -573,7 +500,7 @@
 
             var txtSearch = $('.txt-srch').val();
             if (txtSearch !== '') {
-                window.location.href = 'PropertiesList?t=' + $('a.search-prop-type.orange').attr('data-type') + '&k=' + txtSearch;
+                window.location.href = 'Search?t=' + $('a.search-prop-type.orange').attr('data-type') + '&k=' + txtSearch;
             }
         });
         $('.txt-srch').keypress(function (e) {

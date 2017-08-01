@@ -571,7 +571,7 @@ section .news {
 
     .pinImg .img1 {
         position: absolute;
-        top: 7%;
+        top: 6%;
     }
 
 
@@ -584,17 +584,18 @@ section .news {
         .pinImg .img1 p.imgName, .pinImg .img2 p.imgName, .pinImg .img3 p.imgName {
             color: #014f66;
             font-weight: bold;
-            margin-right: 17px;
+            margin-right: 25px;
             font-size: 20px;
         }
 
         .pinImg .img1 p.imgName {
             margin-top: 135px;
+            padding-right: 30px;
         }
 
     .pinImg .img2 p.imgName {
         margin-top: 200px;
-        margin-left: 17px;
+        /*margin-left: 17px;*/
     }
 
     .pinImg .img3 p.imgName {
@@ -10243,3 +10244,20 @@ input[type="file"] {
     height: 3rem!important;
 }
 
+/*icon-animation*/
+@keyframes ring {
+    0%,100%,16%,24%,32%,8% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    12%,20%,28%,4% {
+        -webkit-transform: rotate(-8deg);
+        transform: rotate(-8deg)
+    }
+}
+
+.icon-app {
+    -webkit-animation: ring infinite ease-in-out 3s;
+    animation: ring infinite ease-in-out 3s;
+}
