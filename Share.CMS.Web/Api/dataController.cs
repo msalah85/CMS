@@ -1,16 +1,18 @@
-﻿using Share.CMS.Business;
-using Share.CMS.DataUtility;
+﻿using Minutesuae.SystemUtilities;
+using Share.CMS.Business;
+using Share.CMS.Web.Models;
+using Share.CMS.Web.Session;
+using Share.CMS.Web.Utilities;
 using System;
 using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Xml;
 
-namespace Share.CMS.Web
+namespace Share.CMS.Web.Api
 {
-    public class DataController : ApiController
+    public class dataController : ApiController
     {
         //[Route("data")]
         //Banks_SelectList
@@ -18,7 +20,7 @@ namespace Share.CMS.Web
         public string GetLoadDataTables()
         {
             var param = new jQueryDataTableParamModel();
-            HttpContext Context = HttpContext.Current;
+            var Context = HttpContext.Current;
             param.sEcho = String.IsNullOrEmpty(Context.Request["sEcho"]) ? 0 : Convert.ToInt32(Context.Request["sEcho"]);
             param.sSearch = String.IsNullOrEmpty(Context.Request["sSearch"]) ? "" : Context.Request["sSearch"];
             param.iDisplayStart += String.IsNullOrEmpty(Context.Request["iDisplayStart"]) ? 0 : Convert.ToInt32(Context.Request["iDisplayStart"]);
@@ -137,9 +139,8 @@ namespace Share.CMS.Web
             }
 
             object data = new { };
-            SqlCommand command = DataAccess.CreateCommand();
-
-
+            var command = DataAccess.CreateCommand();
+            
             try
             {
                 command.CommandText = value.actionName;
@@ -254,12 +255,5 @@ namespace Share.CMS.Web
             var _ds = new Select().SelectLists(fnName, namesAll, valuesAll);
             return LZString.CompressToUTF16(_ds.GetXml());
         }
-    }
-
-    public class DataListModel
-    {
-        public string actionName { get; set; }
-        public string[] names { get; set; }
-        public string[] values { get; set; }
     }
 }

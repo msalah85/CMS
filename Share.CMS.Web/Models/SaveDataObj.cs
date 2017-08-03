@@ -1,4 +1,4 @@
-﻿namespace Share.CMS.Web
+﻿namespace Share.CMS.Web.Models
 {
     // models
     public class SaveDataObj
@@ -16,5 +16,12 @@
         public string[] namesD { get; set; }
         public string[] valuesD { get; set; }
         public bool useIP { get; set; } = false;
+    }
+
+    public class DataListModel
+    {
+        public string actionName { get; set; }
+        public string[] names { get; set; }
+        public string[] values { get; set; }
     }
 }

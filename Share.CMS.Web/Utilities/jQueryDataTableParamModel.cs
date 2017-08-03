@@ -1,4 +1,5 @@
-﻿namespace Share.CMS.Web
+﻿
+namespace Share.CMS.Web.Utilities
 {
     /// <summary>
     /// Class that encapsulates most common parameters sent by DataTables plugin

@@ -2,7 +2,7 @@
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 
-namespace Share.CMS.Web
+namespace Share.CMS.Web.Utilities
 {
     public abstract class FactshMasterPage : System.Web.UI.Page
     {

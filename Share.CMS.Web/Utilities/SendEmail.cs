@@ -1,27 +1,10 @@
-﻿using System;
-using System.Data;
-using System.Configuration;
-using System.Linq;
-using System.Web;
-using System.Configuration;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
+﻿using System.Web;
 using System.Net.Mail;
-using System.Net.Mime;
-using System.Net.Configuration;
-using System.Web.Configuration;
 using System.IO;
 using System.Net;
 
-namespace Share.CMS.Web
+namespace Share.CMS.Web.Utilities
 {
-    /// <summary>
-    /// Summary description for Send Email class
-    /// </summary>
     public class SendEmail
     {
         #region "Private Declaration"

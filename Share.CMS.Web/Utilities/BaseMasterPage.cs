@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Share.CMS.Web.Session;
+using System;
 using System.Globalization;
 using System.Threading;
 using System.Web.UI;
 
-
-namespace Share.CMS.Web
+namespace Share.CMS.Web.Utilities
 {
     public class Base : Page
     {

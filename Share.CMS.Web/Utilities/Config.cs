@@ -1,20 +1,13 @@
-﻿//=======================================
-// Developer: M. Salah (09-02-2016)
-// Email: eng.msalah.abdullah@gmail.com
-//=======================================
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Configuration;
 using System.Web.Security;
 
-namespace Share.CMS.Web
+namespace Share.CMS.Web.Utilities
 {
     public static class Config
     {
         // private
-        private static string user_item = "eng.msalah.abdullah@gmailcom";
+        static string user_item = "eng.msalah.abdullah@gmailcom";
 
         // public
         public static string AdminUrl = "sys",

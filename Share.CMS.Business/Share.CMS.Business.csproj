@@ -7,8 +7,8 @@
     <ProjectGuid>{D43B58A3-4E44-4BC6-A88F-AC94774C5EE5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IraqCars.Business</RootNamespace>
-    <AssemblyName>IraqCars.Business</AssemblyName>
+    <RootNamespace>Share.Business</RootNamespace>
+    <AssemblyName>Share.Business</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

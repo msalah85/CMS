@@ -1142,6 +1142,8 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Api\DataAccess.cs" />
+    <Compile Include="Api\dataController.cs" />
     <Compile Include="download-mobileapp.aspx.cs">
       <DependentUpon>download-mobileapp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1149,6 +1151,7 @@
     <Compile Include="download-mobileapp.aspx.designer.cs">
       <DependentUpon>download-mobileapp.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\SaveDataObj.cs" />
     <Compile Include="NewsDetails.aspx.cs">
       <DependentUpon>NewsDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1170,25 +1173,11 @@
     <Compile Include="Search.aspx.designer.cs">
       <DependentUpon>Search.aspx</DependentUpon>
     </Compile>
-    <Content Include="App_Code\CookiesManager.cs" />
-    <Content Include="App_Code\DataAccess.cs" />
-    <Content Include="App_Code\Data\dataController.cs" />
-    <Content Include="App_Code\Data\SMSController.cs" />
-    <Content Include="App_Code\Data\UploadController.cs" />
-    <Content Include="App_Code\Utilities\jQueryDataTableParamModel.cs" />
-    <Content Include="App_Code\Models\SaveDataObj.cs" />
-    <Content Include="App_Code\Session\SessionManager.cs" />
-    <Content Include="App_Code\Utilities\BaseMasterPage.cs">
+    <Content Include="Api\SMSController.cs" />
+    <Content Include="Api\UploadController.cs" />
+    <Content Include="Utilities\FeatchMasterPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="App_Code\Utilities\Config.cs" />
-    <Content Include="App_Code\Utilities\ConvertListToDataTable.cs" />
-    <Content Include="App_Code\Utilities\FeatchMasterPage.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="App_Code\Utilities\LZString.cs" />
-    <Content Include="App_Code\Utilities\SMSManager.cs" />
-    <Content Include="App_Code\Utilities\SendEmail.cs" />
     <Compile Include="App_GlobalResources\sys.lang.ar.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1237,6 +1226,8 @@
     <Compile Include="Home.Master.designer.cs">
       <DependentUpon>Home.Master</DependentUpon>
     </Compile>
+    <Compile Include="Session\CookiesManager.cs" />
+    <Compile Include="Session\SessionManager.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1310,6 +1301,14 @@
     <Compile Include="sys\PropertyAddEdit.aspx.designer.cs">
       <DependentUpon>PropertyAddEdit.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\BaseMasterPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\Config.cs" />
+    <Compile Include="Utilities\ConvertListToDataTable.cs" />
+    <Compile Include="Utilities\jQueryDataTableParamModel.cs" />
+    <Compile Include="Utilities\LZString.cs" />
+    <Compile Include="Utilities\SendEmail.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1319,6 +1318,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
     <Folder Include="Public\images\news\" />
@@ -1345,7 +1345,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IraqCars.Business\Share.CMS.Business.csproj">
+    <ProjectReference Include="..\Share.CMS.Business\Share.CMS.Business.csproj">
       <Project>{d43b58a3-4e44-4bc6-a88f-ac94774c5ee5}</Project>
       <Name>Share.CMS.Business</Name>
     </ProjectReference>

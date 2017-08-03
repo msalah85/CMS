@@ -67,7 +67,6 @@
                             <ul id='dropdown1' class='dropdown-content'>
                                 <li><a href="#" style="text-align: right; color: #b5b5b5">شراء </a></li>
                                 <li><a href="#" style="text-align: right; color: #b5b5b5">تأجير </a></li>
-
                             </ul>
                         </li>
                     </ul>
@@ -82,7 +81,7 @@
                     <a href="#"><span class="name">غسان هاني </span></a>
                 </div>
             </li>
-            <li><a href="">رحلتي </a></li>
+            <li><a href="jurny">رحلتي </a></li>
             <li>
                 <div class="divider"></div>
             </li>

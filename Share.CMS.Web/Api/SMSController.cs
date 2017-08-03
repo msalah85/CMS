@@ -3,7 +3,7 @@ using Share.SMS;
 using System.Collections.Generic;
 using System.Web.Http;
 
-namespace Share.CMS.Web
+namespace Share.CMS.Api
 {
     public class SMSController : ApiController
     {

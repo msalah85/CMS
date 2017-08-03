@@ -8,7 +8,7 @@ using Share.CMS.Business;
 using System.Xml;
 using System.Net;
 
-namespace Share.CMS.Web
+namespace Share.CMS.Api
 {
     public class UploadController : ApiController
     {

@@ -17,18 +17,18 @@
                         var newsHtml = $(list).map(function (i, v) {
                             // 1st item.
                             return i === 0 ? `<div class="col-md-6 col-lg-6"><div class="newsLeftImg">
-                                        <a href="news/${v.NewsID}"><img src="/public/${v.PhotoUrl ? 'images/news/' + v.PhotoUrl : 'default.jpg'}" class="img-responsive" alt="Maskn.com" title="build"></a>
+                                        <a href="NewsDetails/${v.NewsID}"><img src="/public/${v.PhotoUrl ? 'images/news/' + v.PhotoUrl : 'default.jpg'}" class="img-responsive" alt="Maskn.com" title="build"></a>
                                         <div class="description">
                                             <h5 class="description_content">${v.Title}</h5>
                                             <h6 class="description_content">${v.Short}</h6>
                                         </div></div></div>`
                                 : // other items
                                 `<div class="media">
-                                                    <a href="news/${v.NewsID}" style="float: right; margin-left: 10px;">
+                                                    <a href="NewsDetails/${v.NewsID}" style="float: right; margin-left: 10px;">
                                                         <img class="media-object img-responsive" alt="maskn.com" src="/public/${v.PhotoUrl ? 'images/news/_thumb/' + v.PhotoUrl : 'default.jpg'}" style="width: 100px; height: 80px;">
                                                     </a>
                                                     <div class="media-body">
-                                                        <a href="news/${v.NewsID}">
+                                                        <a href="NewsDetails/${v.NewsID}">
                                                             <h5 class="media-heading">${v.Title}</h5>
                                                         </a>
                                                         <h6>${v.Short}</h6>

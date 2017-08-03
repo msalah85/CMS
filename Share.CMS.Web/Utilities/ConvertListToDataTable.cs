@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Data;
 using System.Reflection;
 using Newtonsoft.Json;
 
-namespace Share.CMS.Web
+namespace Share.CMS.Web.Utilities
 {
-    /// <summary>
-    /// Summary description for DTUT
-    /// </summary>
     public static class ConvertListToDataTable
     {
         /// <summary>
@@ -93,15 +89,11 @@ namespace Share.CMS.Web
                 {
                     return t;
                 }
-                else
-                {
-                    return Nullable.GetUnderlyingType(t);
-                }
+
+                return Nullable.GetUnderlyingType(t);
             }
-            else
-            {
-                return t;
-            }
+
+            return t;
         }
 
         public static string DataTableToJsonWithJsonNet(DataTable table)

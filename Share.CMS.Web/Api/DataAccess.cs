@@ -1,24 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Share.CMS.Web.Utilities;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Configuration;
 
-namespace Share.CMS.Web
+namespace Share.CMS.Web.Api
 {
-    /// <summary>
-    /// Summary description for DataAccess
-    /// </summary>
     public class DataAccess
     {
         public static SqlCommand CreateCommand()
         {
             string connnectionString = Config.connString;
-            SqlConnection connection = new SqlConnection(connnectionString);
+            var connection = new SqlConnection(connnectionString);
+            var command = connection.CreateCommand();
 
-            SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.StoredProcedure;
             return command;
         }
@@ -26,9 +19,9 @@ namespace Share.CMS.Web
         public static SqlCommand CreateCommandText()
         {
             string connnectionString = Config.connString;
-            SqlConnection connection = new SqlConnection(connnectionString);
+            var connection = new SqlConnection(connnectionString);
+            var command = connection.CreateCommand();
 
-            SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
             return command;
         }

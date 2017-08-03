@@ -1,13 +1,9 @@
-﻿//=======================================
-// Developer: M. Salah (09-02-2016)
-// Email: eng.msalah.abdullah@gmail.com
-//=======================================
-
-using System;
+﻿using System;
 using System.Web;
 using Minutesuae.SystemUtilities;
+using Share.CMS.Web.Utilities;
 
-namespace Share.CMS.Web
+namespace Share.CMS.Web.Session
 {
     public class CookiesManager
     {

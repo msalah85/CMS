@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Share.CMS.Web
+namespace Share.CMS.Web.Utilities
 {
-    public class LZString
+    public static class LZString
     {
         class ContextCompress
         {

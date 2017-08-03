@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Web;
 
-namespace Share.CMS.Web
+namespace Share.CMS.Web.Session
 {
     public class SessionManager
     {
