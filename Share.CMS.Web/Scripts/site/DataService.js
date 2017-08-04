@@ -1,4 +1,5 @@
-﻿/// <reference path="../jquery-1.10.2" />
+﻿
+/// <reference path="../jquery-1.10.2" />
 
 var dataService = function () {
     var
@@ -7,16 +8,15 @@ var dataService = function () {
         },
         jqueryAjax = function (reqestType, postedData, url, successCallback, errorCallback) {
             $.ajax({
-                type: reqestType,
                 data: postedData,
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
+                type: reqestType,
                 url: url,
                 success: function (data) {
                     successCallback(data);
                 },
                 beforeSend: function (xhr) {
-                    xhr.setRequestHeader("Content-Encoding", "gzip");
                     $(".sinpper").html("<i class='icon-spinner icon-spin orange bigger-125'></i>");
                     $('div[id$=UpdateProgress1]').css('display', 'block');
                 },

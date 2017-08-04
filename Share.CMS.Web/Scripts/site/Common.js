@@ -523,6 +523,7 @@ var commonManger = function () {
             return 2;
         },
         getUrlSegment = function (segmentIndex) {
+            // if url ends with '/' remove it.
             var segments = window.location.href.split('/');
 
             segmentIndex = segmentIndex ? segmentIndex : segments.length - 1;

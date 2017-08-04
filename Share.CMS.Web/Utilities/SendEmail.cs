@@ -9,7 +9,7 @@ namespace Share.CMS.Web.Utilities
     {
         #region "Private Declaration"
 
-        private string host, Username, Password, from, CC, BCC;
+        private string host, Username, Password, from, BCC;
         int port;
 
         MailMessage message = new MailMessage();

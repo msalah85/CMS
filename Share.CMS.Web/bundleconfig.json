@@ -42,12 +42,6 @@
     ]
   },
   {
-    "outputFileName": "Scripts/datatable/Arabic.min.js",
-    "inputFiles": [
-      "Scripts/datatable/Arabic.js"
-    ]
-  },
-  {
     "outputFileName": "Scripts/app/utiltities/xml2json.min.js",
     "inputFiles": [
       "Scripts/app/utiltities/xml2json.js"
@@ -120,6 +114,18 @@
     "outputFileName": "Scripts/site/controllers/pageDetailsController.min.js",
     "inputFiles": [
       "Scripts/site/controllers/pageDetailsController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/imagesManager.min.js",
+    "inputFiles": [
+      "Scripts/sys/imagesManager.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/datatable/Arabic.min.js",
+    "inputFiles": [
+      "Scripts/datatable/Arabic.js"
     ]
   }
 ]

@@ -9,10 +9,9 @@ String.prototype.format = function () {
         str = str.replace(reg, arguments[i]);
     }
     return str;
-}
+};
 
-
-var newPostManager = newPostManager || {},
+var 
     newPostManager = function () {
         var
             btnUpload = $('#uploadAll'),
@@ -256,7 +255,7 @@ var newPostManager = newPostManager || {},
                 reader.readAsDataURL($image);
             },
             OnDeleteSuccess = function (data) {
-                if (data == "1") {
+                if (data === "1") {
                     showMessage(1, 'The selected image has been deleted.');
                     getProperties();
                 }

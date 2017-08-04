@@ -1,14 +1,14 @@
-﻿using System;
-using System.IO;
+﻿using Share.CMS.Business;
+using System;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Net;
 using System.Web.Hosting;
 using System.Web.Http;
-using System.Drawing.Imaging;
-using Share.CMS.Business;
 using System.Xml;
-using System.Net;
 
-namespace Share.CMS.Api
+namespace Share.CMS.Web.Api
 {
     public class UploadController : ApiController
     {
@@ -31,7 +31,6 @@ namespace Share.CMS.Api
 
             try
             {
-
                 if (!Directory.Exists(path))
                 {
                     Directory.CreateDirectory(path);

@@ -13,7 +13,9 @@
     });
     $('.today').datepicker('setDate', new Date());
 });
+
 var setNavigation = function () {
     var path = location.href.toLowerCase().replace(/\/$/, ""); path = decodeURIComponent(path); $('.nav-list li.active').removeClass('active'); $("#sidebar ul.nav-list a").each(function () { var href = $(this).attr('href').toLowerCase(); if (path.indexOf(href) > -1) { $(this).closest('li').addClass('active').parent().parent().addClass("active open"); } });
 }
+
 setNavigation();

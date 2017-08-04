@@ -50,7 +50,6 @@
                 </ul>
             </div>
         </nav>
-
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-push-3" style="margin-top: 290px;">
@@ -58,7 +57,7 @@
                     <a href="javascript:;" data-type="1" class="waves-effect waves-light btn login search-prop-type search-deactive-optn">شراء</a>
                     <div class="custom-search-input">
                         <div class="input-group col-md-12">
-                            <input type="text" class="form-control input-lg txt-srch" placeholder="بحث عقار للتأجير" />
+                            <input type="text" class="form-control input-lg txt-srch" placeholder="بحث عقار للإيجار" />
                             <span class="input-group-btn">
                                 <button class="btn btn-info btn-lg btn-srch" type="button">
                                     <i class="glyphicon glyphicon-search"></i>

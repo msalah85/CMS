@@ -8,9 +8,9 @@
         <div class="slider">
             <div class="container">
                 <img src="/content/MasknVr1/img/deals.png" class="img-responsive" />
-                <h5>مباتي غسان</h5>
+                <h5>نتيجة البحث</h5>
                 <p>
-                    هذا نص تجريبي يمكن أن يستبدل في مكانه
+                    يمكنك تغيير معايير بحثك من الخيارات بأسفل
                 </p>
                 <i class="material-icons btn-floating waves-effect waves-light orange pull-left">room</i>
             </div>

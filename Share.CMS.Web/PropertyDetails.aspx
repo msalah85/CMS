@@ -2,12 +2,12 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" type="text/css" href="/content/masknvr1/css/slider-pro.css" media="screen" />
-    <script src="/Scripts/site/controllers/propertyDetailsController.js"></script>
+    <script src="/Scripts/site/controllers/propertyDetailsController.js?v=1.1"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div id="example3" class="slider-pro">
         <div class="sp-slides">
-            <div class="sp-slide">
+            <%--<div class="sp-slide">
                 <img class="sp-image" src="/content/MasknVr1/img/blank.gif"
                     data-src="/content/MasknVr1/img/brokers.png"
                     data-small="http://bqworks.com/slider-pro/images/image1_large.jpg" />
@@ -85,17 +85,17 @@
             <div class="sp-slide">
                 <img class="sp-image" src="/content/MasknVr1/img/blank.gif"
                     data-src="http://bqworks.com/slider-pro/images/image8_large.jpg" />
-            </div>
+            </div>--%>
         </div>
         <div class="sp-thumbnails">
-            <img class="sp-thumbnail" src="/content/MasknVr1/img/s1.png" />
+            <%--<img class="sp-thumbnail" src="/content/MasknVr1/img/s1.png" />
             <img class="sp-thumbnail" src="http://bqworks.com/slider-pro/images/image2_thumbnail.jpg" />
             <img class="sp-thumbnail" src="http://bqworks.com/slider-pro/images/image3_thumbnail.jpg" />
             <img class="sp-thumbnail" src="http://bqworks.com/slider-pro/images/image4_thumbnail.jpg" />
             <img class="sp-thumbnail" src="http://bqworks.com/slider-pro/images/image5_thumbnail.jpg" />
             <img class="sp-thumbnail" src="http://bqworks.com/slider-pro/images/image6_thumbnail.jpg" />
             <img class="sp-thumbnail" src="http://bqworks.com/slider-pro/images/image7_thumbnail.jpg" />
-            <img class="sp-thumbnail" src="http://bqworks.com/slider-pro/images/image8_thumbnail.jpg" />
+            <img class="sp-thumbnail" src="http://bqworks.com/slider-pro/images/image8_thumbnail.jpg" />--%>
         </div>
     </div>
     <div class="MainContent">
