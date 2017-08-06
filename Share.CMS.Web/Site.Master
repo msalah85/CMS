@@ -25,7 +25,7 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <script type="text/javascript" src="/content/masknvr1/js/materialize.min.js"></script>
+    <script src="/Scripts/site/controllers/homeMasterController.min.js"></script>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
 <body>
@@ -68,12 +68,15 @@
         <ul id="slide-out" class="side-nav">
             <li>
                 <div class="userView">
-                    <a href="#">
+                    <a href="#login">
                         <img class="circle" src="/content/masknvr1/img/user-default.png"></a>
-                    <a href="#"><span class="name">مرحباً</span></a>
+                    <a href="#login"><span class="name">مرحباً</span></a>
                 </div>
             </li>
-            <li><a href="#">رحلتى مع مسكن</a></li>
+            <li><a href="#journey">رحلتى مع مسكن</a></li>
+            <li><a href="/default#news-list">أحدث الأخبار</a></li>
+            <li><a class="waves-effect" href="/search?k=uae">عقارات الامارات</a></li>
+            <li><a class="waves-effect" href="/search?k=egypt">عقارات مصر</a></li>
             <li>
                 <div class="divider"></div>
             </li>
@@ -81,7 +84,6 @@
             <li>
                 <div class="divider"></div>
             </li>
-            <li><a class="waves-effect" href="/search">عقاراتى</a></li>
         </ul>
     </div>
     <asp:ContentPlaceHolder ID="MainContent" runat="server" />
@@ -105,52 +107,49 @@
                 <div class="col l6 s12 " style="float: right">
                     <p class=" text-lighten-4">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة </p>
                     <p class=" text-lighten-4">فيسبوك  ·تويتر · فيسبوك  ·</p>
-                    <p class=" text-lighten-4">اتصال آمن </p>
+                    <p class=" text-lighten-4">اتصال آمن</p>
                     <ul class="pay">
                         <li>
-                            <a href="#">
+                            <a href="#visa">
                                 <img src="/content/masknvr1/img/visa.png" class="img-responsive" alt="visa" title="visa"></a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="#Master">
                                 <img src="/content/masknvr1/img/masterCard.png" class="img-responsive" alt="Master" title="Master">
                             </a>
                         </li>
                         <li>
-                            <a href="#">
-                                <img src="/content/masknvr1/img/American-Express.png" class="img-responsive" alt="visa" title="visa">
+                            <a href="#American">
+                                <img src="/content/masknvr1/img/American-Express.png" class="img-responsive" alt="American Express" title="American Express">
                             </a>
                         </li>
                         <li>
-                            <a href="#">
-                                <img src="/content/masknvr1/img/paypal.png" class="img-responsive" alt="visa" title="visa">
+                            <a href="#paypal">
+                                <img src="/content/masknvr1/img/paypal.png" class="img-responsive" alt="paypal" title="paypal">
                             </a>
                         </li>
                     </ul>
                 </div>
                 <div class="col l3 s12">
                     <ul class="ar-footer">
-                        <li><a class=" text-lighten-3" href="#">Upgrade to PRO </a></li>
-                        <li><a class=" text-lighten-3" href="#">Customer suit </a></li>
-                        <li><a class=" text-lighten-3" href="#">API</a></li>
-                        <li><a class=" text-lighten-3" href="#">Tags</a></li>
-                        <li><a class=" text-lighten-3" href="#">Help & Support </a></li>
+                        <li><a class=" text-lighten-3" href="#about">عن الشركة </a></li>
+                        <li><a class=" text-lighten-3" href="#carerrs">وظائف </a></li>
+                        <li><a class=" text-lighten-3" href="#policy">شروط الخدمة </a></li>
+                        <li><a class=" text-lighten-3" href="#privacy">سياسة الخصوصية  </a></li>
                     </ul>
                 </div>
-                <div class="col l3  s12">
+                <div class="col l3 s12">
                     <ul>
-                        <li><a class=" text-lighten-3" href="#">عن الشركة </a></li>
-                        <li><a class=" text-lighten-3" href="#">مدونة</a></li>
-                        <li><a class=" text-lighten-3" href="#">وظائف </a></li>
-                        <li><a class=" text-lighten-3" href="#">شروط الخدمة </a></li>
-                        <li><a class=" text-lighten-3" href="#">سياسة الخصوصية  </a></li>
-                        <li><a class=" text-lighten-3" href="#">Return and Refund Policy </a></li>
+                        <li><a class=" text-lighten-3" href="/download-mobileapp">تطبيق مسكن</a></li>
+                        <li><a class=" text-lighten-3" href="/default#news-list">أحدث الأخبار</a></li>
+                        <li><a class=" text-lighten-3" href="/search?k=uae">عقارات الامارات</a></li>
+                        <li><a class=" text-lighten-3" href="/search?k=egypt">عقارات مصر</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </footer>
-
+    <script>masterController.Init();</script>
     <!-- Modal Structure -->
     <div id="modal1" class="modal">
         <div class="modal-content">
@@ -423,6 +422,7 @@
         </div>
     </div>
     <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="/content/masknvr1/js/materialize.min.js"></script>
     <script>
         $('.button-collapse').sideNav({
             menuWidth: 300, // Default is 300

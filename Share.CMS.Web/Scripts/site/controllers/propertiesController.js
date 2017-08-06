@@ -43,7 +43,7 @@ var propertiesController = function () {
                                         <div class="buldImg">
                                             <img src="/public/${v.MainPicture ? 'images/' + v.MainPicture : 'default.jpg'}" class="img-responsive" alt="${v.PropertyTitle}" title="build" />
                                             <div class="description">
-                                                <h6 class="description_content">${v.PropertyTitle}</h6>
+                                                <h6 class="description_content"></h6>
                                                 <fieldset class="rating">
                                                     <input type="radio" id="star25" name="rating" value="5">
                                                     <label class="full" for="star25" title="5 start"></label>

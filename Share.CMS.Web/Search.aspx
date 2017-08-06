@@ -281,7 +281,6 @@
                                                                     </p>
                                                                 </div>
                                                             </div>
-
                                                         </div>
                                                     </div>
                                                 </form>
@@ -311,15 +310,15 @@
                                         <div class="col l12 m12 s12">
                                             <div class="media ">
                                                 <div class="media-body" style="float: right; width: 70%; text-align: right">
-                                                    <h5>نص تجريبي </h5>
-                                                    <p style="width: 70%;">نص تجريبي </p>
-                                                    <a href="#" style="color: #ff8d0d;">
-                                                        <h6 style="font-size: 17px; text-align: right">مشاركة المتطلبات  </h6>
+                                                    <h5>تحميل التطبيق</h5>
+                                                    <p style="width: 70%;">تطبيق مسكن متاح بجميع المتاجر الآن</p>
+                                                    <a href="download-mobileapp" style="color: #ff8d0d;">
+                                                        <h6 style="font-size: 17px; text-align: right">تحميل الآن</h6>
                                                     </a>
 
                                                 </div>
-                                                <a href="#" style="float: left!important; text-align: left; padding-top: 20px;">
-                                                    <img class="media-object img-responsive" alt="img" src="/content/MasknVr1/img/pyr.png">
+                                                <a href="download-mobileapp" style="float: left!important; text-align: left; padding-top: 20px;">
+                                                    <img class="media-object img-responsive" alt="img" src="/content/MasknVr1/img/download.png">
                                                 </a>
                                             </div>
                                         </div>
@@ -334,13 +333,13 @@
                                         <div class="col l12 m12 s12">
                                             <div class="media ">
                                                 <div class="media-body" style="float: right; width: 70%; text-align: right">
-                                                    <h5>نص تجريبي </h5>
-                                                    <p style="width: 70%;">نص تجريبي </p>
-                                                    <a href="#" style="color: #ff8d0d;">
-                                                        <h6 style="font-size: 17px; text-align: right">مشاركة المتطلبات  </h6>
+                                                    <h5>تواصل معنا</h5>
+                                                    <p style="width: 70%;">يسعدنا تلقى مشاركتك واستفساراتك.</p>
+                                                    <a href="page/4" style="color: #ff8d0d;">
+                                                        <h6 style="font-size: 17px; text-align: right">راسلنا الآن</h6>
                                                     </a>
                                                 </div>
-                                                <a href="#" style="float: left!important; text-align: left; padding-top: 20px;">
+                                                <a href="page/4" style="float: left!important; text-align: left; padding-top: 20px;">
                                                     <img class="media-object img-responsive" alt="img" src="/content/MasknVr1/img/pyr.png">
                                                 </a>
                                             </div>

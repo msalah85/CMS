@@ -293,8 +293,7 @@ a {
 .btn-large,
 .btn-floating,
 .dropdown-content,
-.collapsible,
-.side-nav {
+.collapsible, .buildingCard, .side-nav {
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2)
 }
 
@@ -428,7 +427,7 @@ ul.side-nav {
 .bg {
     background: url("../img/slide.png") no-repeat;
     background-size: cover;
-    height: 662px;
+    height: 893px;
 }
 
 section .video,
@@ -2921,6 +2920,11 @@ ul.staggered-list li {
 @media only screen and (min-width: 993px) {
     .show-on-large {
         display: block !important
+    }
+
+    .newsLeftImg img {
+        width: 630px;
+        height: 410px;
     }
 }
 
@@ -10236,12 +10240,14 @@ input[type="file"] {
 
 /* home search box */
 .search-deactive-optn {
-    background-color: #818287 !important;margin-top:-10px;
+    background-color: #818287 !important;
+    margin-top: -10px;
 }
-.txt-srch, 
+
+.txt-srch,
 .txt-srch::-webkit-input-placeholder {
     color: #fff !important;
-    height: 3rem!important;
+    height: 3rem !important;
 }
 
 /*icon-animation*/
@@ -10260,4 +10266,9 @@ input[type="file"] {
 .icon-app {
     -webkit-animation: ring infinite ease-in-out 3s;
     animation: ring infinite ease-in-out 3s;
+}
+
+.buldImg img {
+    min-height: 205px;
+    min-width: 250px;
 }

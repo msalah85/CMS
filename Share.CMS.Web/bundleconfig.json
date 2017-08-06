@@ -127,5 +127,11 @@
     "inputFiles": [
       "Scripts/datatable/Arabic.js"
     ]
+  },
+  {
+    "outputFileName": "Scripts/sys/DataService.min.js",
+    "inputFiles": [
+      "Scripts/sys/DataService.js"
+    ]
   }
 ]

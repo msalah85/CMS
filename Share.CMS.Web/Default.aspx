@@ -8,14 +8,14 @@
         <div class="video">
             <div class="container">
                 <div class="video-container responsive-video">
-                    <iframe width="853" height="300" src="//www.youtube.com/embed/LCg1GJI-dUA?rel=0" frameborder="0"></iframe>
+                    <iframe width="853" height="300" src="//www.youtube.com/embed/YLLTFu8kqLs?rel=0" frameborder="0"></iframe>
                 </div>
             </div>
             <div class="clearfix"></div>
         </div>
     </section>
     <section>
-        <div class="news">
+        <div class="news" id="news-list">
             <div class="container">
                 <div class="section">
                     <h5>أحدث الأخبار</h5>
@@ -88,7 +88,7 @@
             <div class="pinMobile">
                 <div class="row">
                     <div class="col col-sm-12">
-                        <img src="/content/masknvr1/img/second.png" class="img-responsive" style="width: 150px; height: 180px; margin: 0 auto">
+                        <img src="/content/masknvr1/img/second.jpg" class="img-responsive" style="width: 150px; height: 180px; margin: 0 auto">
                         <h5>زيارة الموقع</h5>
                         <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.</p>
                     </div>

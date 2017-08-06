@@ -14,6 +14,7 @@
             <br />
             <h5 id="Short"></h5>
             <br />
+            <img id="ImageURL" src="Public/default.jpg" class="responsive-img hidden" />
             <br />
             <div class="contentsAbout" id="Details"></div>
             <br />

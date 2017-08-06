@@ -16,7 +16,6 @@ var dataService = function () {
                     successCallback(data);
                 },
                 beforeSend: function (xhr) {
-                    xhr.setRequestHeader("Content-Encoding", "gzip");
                     $(".sinpper").html("<i class='icon-spinner icon-spin orange bigger-125'></i>");
                     $('div[id$=UpdateProgress1]').css('display', 'block');
                 },

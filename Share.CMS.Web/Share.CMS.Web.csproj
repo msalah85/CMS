@@ -189,6 +189,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\MasknVr1\img\user-default.png" />
     <Content Include="download-mobileapp.aspx" />
     <Content Include="Page.aspx" />
     <Content Include="Account\AddPhoneNumber.aspx" />
@@ -1284,13 +1285,10 @@
     <Content Include="Public\images\_thumb\ff516553-3da8-40a5-84fd-368ea48574a0.jpg" />
     <Content Include="Public\images\_thumb\ff6b954d-d0b6-400e-975c-6ac444c4986f.jpg" />
     <Content Include="Public\images\_thumb\ffa554be-ea69-4ed7-abe5-d62266807d2b.jpg" />
-    <Content Include="Scripts\site\controllers\pageDetailsController - Copy %282%29.min.js">
-      <DependentUpon>propertyDetailsController.js</DependentUpon>
-    </Content>
     <Content Include="Scripts\site\controllers\propertyDetailsController.js" />
     <Content Include="Scripts\site\controllers\propertiesController.js" />
-    <Content Include="Scripts\site\controllers\pageDetailsController - Copy.min.js">
-      <DependentUpon>propertiesController.js</DependentUpon>
+    <Content Include="Scripts\sys\DataService.min.js">
+      <DependentUpon>DataService.js</DependentUpon>
     </Content>
     <Content Include="Scripts\sys\imagesManager.min.js">
       <DependentUpon>imagesManager.js</DependentUpon>
@@ -1455,7 +1453,6 @@
     <Content Include="Scripts\sys\commonMasterDetails.js" />
     <Content Include="Scripts\sys\commonMasterDetails.min.js" />
     <Content Include="Scripts\sys\DataService.js" />
-    <Content Include="Scripts\sys\DataService.min.js" />
     <Content Include="Scripts\sys\DefaultGridManager.js" />
     <Content Include="Scripts\sys\DefaultGridManager.min.js" />
     <Content Include="Scripts\sys\DefaultGridVariables.js" />
@@ -1536,7 +1533,6 @@
     <Content Include="Scripts\sys\clientsManager.min.js.map" />
     <Content Include="Scripts\sys\Common.min.js.map" />
     <Content Include="Scripts\sys\commonMasterDetails.min.js.map" />
-    <Content Include="Scripts\sys\DataService.min.js.map" />
     <Content Include="Scripts\sys\DefaultGridManager.min.js.map" />
     <Content Include="Scripts\sys\DefaultGridVariables.min.js.map" />
     <Content Include="Scripts\sys\DefaultMasterDetailsManager.min.js.map" />

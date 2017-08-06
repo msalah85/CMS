@@ -169,21 +169,25 @@
                         <img src="/content/MasknVr1/img/userAbout.png" class="img-responsive" style="width: 200px; height: 200px; margin: 20px auto">
                         <div class="userDe">
                             <h5>مسكن.كوم</h5>
-                            <h6>وكيل </h6>
+                            <h6>المكتب الرئيسي</h6>
                         </div>
                         <div class="row">
                             <div class="col m4 l4">
                                 <select class="browser-default form-control">
-                                    <option value="">PS</option>
-                                    <option value="1">Option 1</option>
-                                    <option value="2">Option 2</option>
-                                    <option value="3">Option 3</option>
+                                    <option value="">البلد</option>
+                                    <option value="1">الإمارات</option>
+                                    <option value="2">مصر</option>
                                 </select>
                             </div>
                             <div class="col m8 l8">
                                 <div class="form-group ">
-                                    <input placeholder="05998755222" id="first_name" type="text" class="validate form-control ">
+                                    <input placeholder="رقم الجوال" id="first_name" type="text" class="validate form-control ">
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col m12">
+                                <button type="submit" onclick="javascript:alert('يرجي ادخال رقم الهاتف بطريقة صحيحة.');" class="btn btn-block btn-success">اطلب اتصال</button>
                             </div>
                         </div>
                     </div>
