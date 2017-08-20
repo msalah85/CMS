@@ -186,9 +186,18 @@
                 <div class="col-xs-6">
                     <div class="form-group">
                         <label class="col-sm-3 control-label no-padding-right" for="FeatureID">Features <span class="text-danger">*</span></label>
-                        <div class="col-sm-9">
+                        <div class="col-sm-8">
                             <select class="required col-xs-10 col-sm-10 select2 form-control" name="FeatureID" multiple required
                                 data-placeholder="Choose a feature..." data-fn-name="Features_Names" data-allow-clear="true">
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="ContactPersonID">Agent <span class="text-danger">*</span></label>
+                        <div class="col-sm-8">
+                            <select class="required col-xs-10 col-sm-10 select2 form-control" id="ContactPersonID" name="ContactPersonID" required
+                                data-placeholder="Choose agent..." data-fn-name="ContactPersons_Names" data-allow-clear="true">
                                 <option></option>
                             </select>
                         </div>
@@ -219,7 +228,7 @@
     <link href="/Scripts/select2/css/select2-optional.css" rel="stylesheet" />
     <script src="/Scripts/select2/js/select2.min.js"></script>
     <script src="/Scripts/select2/js/select2-optinal.js?v=1.3"></script>
-    <script src="/Scripts/sys/admin/PropertyAddEdit.js?v=2.1"></script>
+    <script src="/Scripts/sys/admin/PropertyAddEdit.js?v=2.2"></script>
     <script>pageManager.Init();</script>    
     <style>
         .error {

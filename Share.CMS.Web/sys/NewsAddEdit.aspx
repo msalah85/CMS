@@ -4,9 +4,7 @@
     <link rel="stylesheet" href="/content/sys/assets/css/bootstrap-editable.css" />
     <link href="/Scripts/select2/css/select2.min.css" rel="stylesheet" />
     <link href="/Scripts/select2/css/select2-optional.css" rel="stylesheet" />
-
     <script src="//cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
-
     <script src="/Scripts/sys/Common.js?v=1.3"></script>
     <script src="/Scripts/sys/DataService.min.js"></script>
     <script src="/Scripts/sys/DefaultGridVariables.js"></script>
@@ -64,6 +62,8 @@
                                     <span class="profile-picture">
                                         <img class="PhotoUrl editable img-responsive" data-placement="right" alt="News photo" src="/public/default.jpg" />
                                         <input type="hidden" id="PhotoUrl" value="" />
+
+                                        <img class="f111111111" />
                                     </span>
                                 </div>
                             </div>
@@ -142,12 +142,9 @@
     </style>
     <script src="/content/sys/assets/js/jquery.validate.min.js"></script>
     <script src="/content/sys/assets/js/additional-methods.min.js"></script>
-
     <script src="/content/sys/assets/js/x-editable/bootstrap-editable.js"></script>
     <script src="/content/sys/assets/js/x-editable/ace-editable.js"></script>
-
     <script src="/Scripts/select2/js/select2.min.js"></script>
     <script src="/Scripts/select2/js/select2-optinal.js?v=1.3"></script>
-
-    <script src="/Scripts/sys/admin/newsAddManager.js?v=1.2"></script>
+    <script src="/Scripts/sys/admin/newsAddManager.js?v=1.3"></script>
 </asp:Content>

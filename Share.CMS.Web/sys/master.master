@@ -136,6 +136,13 @@
                     <b class="arrow"></b>
                 </li>
                 <li>
+                    <a href="ContactPersons">
+                        <i class="menu-icon fa fa-users"></i>
+                        <span class="menu-text">Agents</span>
+                    </a>
+                    <b class="arrow"></b>
+                </li>
+                <li>
                     <a href="Regions">
                         <i class="menu-icon fa fa-globe"></i>
                         <span class="menu-text">Regions</span>

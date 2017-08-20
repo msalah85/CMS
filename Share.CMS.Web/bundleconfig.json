@@ -133,5 +133,11 @@
     "inputFiles": [
       "Scripts/sys/DataService.js"
     ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace/elements.fileinput.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace/elements.fileinput.js"
+    ]
   }
 ]

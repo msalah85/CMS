@@ -83,7 +83,6 @@ var
                     namesMaster = $(`${$formId} input[id],${$formId} select[id],${$formId} textarea[id]`).map((i, k) => { return $(k).attr('id'); }).get(),
                     valuesMaster = $(`${$formId} input[id],${$formId} select[id],${$formId} textarea[id]`).map((i, k) => { return $(k).val(); }).get();
 
-
                 SaveDataMasterDetails(namesMaster, valuesMaster, namesDetails, valuesDetails);
             },
             SaveDataMasterDetails = function (fieldsMaster, valuesMaster, fieldsDetails, valuesDetails) {
@@ -96,9 +95,9 @@ var
                     useIP: true
                 };
 
-
                 dataService.callAjax('Post',
-                    JSON.stringify(DTO), '/api/data/SaveMasterDetails',
+                    JSON.stringify(DTO),
+                    '/api/data/SaveMasterDetails',
                     successSaved, commonManger.errorException);
             },
             validateMayData = function () {
@@ -232,18 +231,7 @@ var
             },
             resetMyForm = function () {
                 $($formId)[0].reset();
-            }
-            //,getDefaultValue = function (no) {
-            //    var functionName = "Expenses_SelectRow",
-            //        prm = { 'actionName': functionName, 'value': no },
-            //        bindData = function (data) {
-            //            var xml = $.parseXML(data.d), jsn = $.xml2json(xml).list;
-            //            if (jsn) { $('#Cost').val(numeral(jsn.DefaultValue).format('0.00')); $('#Amount').val(numeral((jsn.DefaultValue)).format('0.00')); }
-            //        };
-            //    dataService.callAjax('Post', JSON.stringify(prm), sUrl + 'GetData', bindData, commonManger.errorException);
-            //}
-            ;
-
+            };
 
         return {
             Init: Init

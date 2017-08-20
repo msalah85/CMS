@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Contact Persons" Language="C#" MasterPageFile="master.master" AutoEventWireup="true" EnableTheming="false" EnableViewState="false" ViewStateMode="Disabled" EnableSessionState="ReadOnly" %>
+﻿<%@ Page Title="Agents" Language="C#" MasterPageFile="master.master" AutoEventWireup="true" EnableTheming="false" EnableViewState="false" ViewStateMode="Disabled" EnableSessionState="ReadOnly" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script src="/Scripts/sys/Common.js?v=1.3"></script>
@@ -14,12 +14,12 @@
                 <i class="ace-icon fa fa-home home-icon"></i>
                 <a href="home">Home</a>
             </li>
-            <li class="active">Contact Persons</li>
+            <li class="active">Agents</li>
         </ul>
     </div>
     <div class="page-content">
         <div class="page-header">
-            <h1>Contact Persons Manager</h1>
+            <h1>Agents Manager</h1>
         </div>
         <div class="row">
             <div class="col-xs-12 widget-container-col">
@@ -33,7 +33,7 @@
                     <div class="widget-header">
                         <h5 class="widget-title bigger lighter">
                             <i class="ace-icon fa fa-table"></i>
-                            Contact Persons List
+                            Agents List
                         </h5>
 
                         <div class="widget-toolbar">
@@ -69,7 +69,7 @@
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                                         <span class="white">&times;</span>
                                     </button>
-                                    Add/Edit Contact Person
+                                    Add/Edit Agent
                                 </div>
                             </div>
                             <div class="modal-body">
@@ -82,7 +82,7 @@
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label no-padding-right">Type <span class="text-danger">*</span></label>
                                                 <div class="col-sm-9">
-                                                    <select class="col-sm-10 select2" id="ContactPersonTypeID" name="ContactPersonTypeID" data-fn-name="ContactPersonTypes_Names" data-placeholder="Contact type" data-allow-clear="true">
+                                                    <select class="col-sm-10 select2 required" id="ContactPersonTypeID" name="ContactPersonTypeID" data-fn-name="ContactPersonTypes_Names" data-placeholder="Contact type" data-allow-clear="true">
                                                         <option value=""></option>
                                                     </select>
                                                 </div>
@@ -90,7 +90,7 @@
                                             <div class="form-group">
                                                 <label for="ContactName" class="col-sm-3 control-label no-padding-right">Name <span class="text-danger">*</span></label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="col-sm-10 required" required id="ContactName" name="ContactName" placeholder="Contact person name" />
+                                                    <input type="text" class="col-sm-10 required" required id="ContactName" name="ContactName" placeholder="Agent name" />
                                                 </div>
                                             </div>
                                             <div class="form-group">

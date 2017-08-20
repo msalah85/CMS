@@ -245,12 +245,10 @@ var
                 var reader = new FileReader();
                 reader.onloadend = function () {
                     var $imgg = $('span.ace-file-name:eq(' + idex + ')');
-
-
+                    
                     if ($imgg) {
                         $imgg.data('base64', reader.result.split(',')[1]);
                     }
-
                 }
                 reader.readAsDataURL($image);
             },

@@ -493,7 +493,9 @@
     <Content Include="Content\sys\assets\js\ace\elements.colorpicker.js" />
     <Content Include="Content\sys\assets\js\ace\elements.colorpicker.min.js" />
     <Content Include="Content\sys\assets\js\ace\elements.fileinput.js" />
-    <Content Include="Content\sys\assets\js\ace\elements.fileinput.min.js" />
+    <Content Include="Content\sys\assets\js\ace\elements.fileinput.min.js">
+      <DependentUpon>elements.fileinput.js</DependentUpon>
+    </Content>
     <Content Include="Content\sys\assets\js\ace\elements.onpage-help.js" />
     <Content Include="Content\sys\assets\js\ace\elements.onpage-help.min.js" />
     <Content Include="Content\sys\assets\js\ace\elements.scroller.js" />
@@ -1826,7 +1828,6 @@
     <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Scripts\datatable\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

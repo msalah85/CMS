@@ -19,6 +19,10 @@ var newsDetailsController = function () {
                         $.each(list, function (k, v) {
                             $('#' + k).html(v);
                         });
+
+                        if (list.PhotoUrl) {
+                            $('#ImageURL').attr('src', '/public/images/news/' + list.PhotoUrl).removeClass('hidden');
+                        }
                     }
                 };
 

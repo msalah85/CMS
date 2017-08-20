@@ -73,8 +73,7 @@ namespace Share.CMS.Web.Api
                 var xmldoc = new XmlDocument();
                 XmlElement doc = xmldoc.CreateElement("doc");
                 xmldoc.AppendChild(doc);
-
-
+                
                 // Convert byte[] to Image
                 ms.Write(imageBytes, 0, imageBytes.Length);
                 var image = Image.FromStream(ms, true);
@@ -83,17 +82,14 @@ namespace Share.CMS.Web.Api
                 string newFile = string.Format("{0}.jpg", Guid.NewGuid()),
                        path = HostingEnvironment.MapPath("~/Public/images/"),
                        filePath = Path.Combine(path, newFile);
-
-
+                
                 // add this picture to list to save into DB.
                 XmlElement xmlelement = xmldoc.CreateElement("Pictures");
                 xmlelement.SetAttribute("MediaUrl", newFile);
                 xmlelement.SetAttribute("PropertyID", value.ID);
                 xmlelement.SetAttribute("Index", string.Format("{0}", i + 1));
                 doc.AppendChild(xmlelement);
-
-
-
+                
                 try
                 {
                     image.Save(filePath, ImageFormat.Jpeg);
@@ -216,8 +212,7 @@ namespace Share.CMS.Web.Api
             // delete from db
             string[] names = { "ID" }, values = { id };
             var deleted = new Save().SaveRow("Images_Delete", names, values);
-
-
+            
             return deleted.ToString();
         }
 
@@ -235,7 +230,7 @@ namespace Share.CMS.Web.Api
         public string UpdateImagesIndexes(string[] values)
         {
             // create xml file
-            XmlDocument xmldoc = new XmlDocument();
+            var xmldoc = new XmlDocument();
             XmlElement doc = xmldoc.CreateElement("doc");
             xmldoc.AppendChild(doc);
 

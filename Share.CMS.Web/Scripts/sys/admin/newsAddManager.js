@@ -106,7 +106,7 @@
 
                                 if (thumb) $photo.get(0).src = thumb;
                                 if (full) {
-                                    $('#PhotoUrl').val(full.split(',')[1]);
+                                    $('#PhotoUrl').data('img', full.split(',')[1]);
                                     uploadImage();
                                 }
                             }
@@ -138,8 +138,6 @@
 
                     if (_dataList) {
                         $.each(_dataList, function (key, vl) {
-
-                            console.log(key, vl);
 
                             $('#' + key).val(vl);
 
@@ -230,7 +228,7 @@
         uploadImage = function () {
             // upload to the server.
             var upload_url = '/api/upload/Send',
-                imgStr = $('#PhotoUrl').val();
+                imgStr = $('#PhotoUrl').data('img');
 
             if (imgStr === '') {
                 commonManger.showMessage('Upload faild!', 'Please try again by uploading image or contact system administrator.');

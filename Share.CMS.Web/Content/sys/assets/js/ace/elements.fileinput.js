@@ -327,6 +327,8 @@
         var imgLoaded = function (img, $file) {
             //if image loaded successfully
 
+            var imgBase64Str = get_fullImage(img);
+
             var size = self.settings['previewSize'];
 
             if (!size) {
@@ -367,9 +369,6 @@
                 if (self.settings.thumbnail == 'small') { w = h = parseInt(Math.max(w, h)) }
                 else $span.addClass('large');
 
-				
-				var imgBase64Str = get_fullImage(img);
-			
                 $(img).css({ 'background-image': 'url(' + thumb.src + ')', width: w, height: h })
                     .data('thumb', thumb.src)
                     .data('full', imgBase64Str)
@@ -407,7 +406,7 @@
 
     var get_thumbnail = function (img, size, type) {
         var imgWidth = img.width, imgHeight = img.height;
-		
+
         //**IE10** is not giving correct width using img.width so we use $(img).width()
         imgWidth = imgWidth > 0 ? imgWidth : $(img).width()
         imgHeight = imgHeight > 0 ? imgHeight : $(img).height()
@@ -464,15 +463,13 @@
         return { src: dataURL, previewWidth: previewWidth, previewHeight: previewHeight, width: imgWidth, height: imgHeight };
     }
 
-	var get_fullImage = function (img) {
-        var imgWidth = img.width, imgHeight = img.height;
-
-        var dataURL
+    var get_fullImage = function (img) {
+        var dataURL;
         try {
             var canvas = document.createElement('canvas');
-            canvas.imgWidth = imgWidth; canvas.height = imgHeight;
+            canvas.width = img.width; canvas.height = img.height;
             var context = canvas.getContext('2d');
-            context.drawImage(img, 0, 0, imgWidth, imgHeight, 0, 0, imgWidth, imgHeight);
+            context.drawImage(img, 0, 0);
             dataURL = canvas.toDataURL()
         } catch (e) {
             dataURL = null;
@@ -482,7 +479,7 @@
         //there was only one image that failed in firefox completely randomly! so let's double check things
         if (!(/^data\:image\/(png|jpe?g|gif);base64,[0-9A-Za-z\+\/\=]+$/.test(dataURL))) dataURL = null;
         if (!dataURL) return null;
-		
+
         return dataURL;
     }
 
