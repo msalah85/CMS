@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.15
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Share.CMS.Web", "Share.CMS.Web\Share.CMS.Web.csproj", "{9F3638A2-D58F-4A05-B51B-8DCD2CBC75D0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Share.CMS.Business", "Share.CMS.Business\Share.CMS.Business.csproj", "{D43B58A3-4E44-4BC6-A88F-AC94774C5EE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Share.CMS.WebAPI", "Share.CMS.WebAPI\Share.CMS.WebAPI.csproj", "{DE710784-6CC5-4BCF-AEFE-515DFF8D353B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{06A7BFDF-9392-48EF-9929-D28EBDCBBB74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{D43B58A3-4E44-4BC6-A88F-AC94774C5EE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D43B58A3-4E44-4BC6-A88F-AC94774C5EE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D43B58A3-4E44-4BC6-A88F-AC94774C5EE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE710784-6CC5-4BCF-AEFE-515DFF8D353B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE710784-6CC5-4BCF-AEFE-515DFF8D353B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE710784-6CC5-4BCF-AEFE-515DFF8D353B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE710784-6CC5-4BCF-AEFE-515DFF8D353B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06A7BFDF-9392-48EF-9929-D28EBDCBBB74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06A7BFDF-9392-48EF-9929-D28EBDCBBB74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06A7BFDF-9392-48EF-9929-D28EBDCBBB74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06A7BFDF-9392-48EF-9929-D28EBDCBBB74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
