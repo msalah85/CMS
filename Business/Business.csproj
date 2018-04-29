@@ -49,6 +49,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Share.CMS.Web\bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -96,23 +100,42 @@
     <Compile Include="AutoMapper\SqlParametersGenerator.cs" />
     <Compile Include="BaseSearch\IBaseSearch.cs" />
     <Compile Include="DAL\StartUp.cs" />
+    <Compile Include="Enums\Enum_LangModule.cs" />
+    <Compile Include="Enums\SessionEnum.cs" />
     <Compile Include="Extenions\CompareData.cs" />
     <Compile Include="Extenions\EncodeSQLParameters.cs" />
+    <Compile Include="Extenions\EncryptDecryptString.cs" />
     <Compile Include="Extenions\ParseData.cs" />
+    <Compile Include="Globalization\GlobalizationManager.cs" />
+    <Compile Include="Globalization\LanguageInfo.cs" />
+    <Compile Include="Globalization\TranslatedItem.cs" />
     <Compile Include="Lookups\ILookup.cs" />
     <Compile Include="Lookups\Model\ItemValue.cs" />
     <Compile Include="Lookups\Model\ModifiedBase.cs" />
     <Compile Include="Lookups\Model\ModifiedItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ApplicationService.cs" />
     <Compile Include="Services\BasicSearch.cs" />
+    <Compile Include="Services\LanguageService.cs" />
+    <Compile Include="Services\LocalizationService.cs" />
+    <Compile Include="Services\Models\Application_Info.cs" />
+    <Compile Include="Services\Models\LanguageParams.cs" />
+    <Compile Include="Services\Models\LanguagesViewModel.cs" />
+    <Compile Include="Services\Models\LogInParams.cs" />
     <Compile Include="Services\Models\propertyParams.cs" />
     <Compile Include="Services\Models\propertyViewModel.cs" />
+    <Compile Include="Services\Models\RegisterViewModel.cs" />
+    <Compile Include="Services\Models\UserViewModel.cs" />
     <Compile Include="Services\propertyService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="SessionImpl\DeploySession.cs" />
+    <Compile Include="SessionImpl\DevSession.cs" />
+    <Compile Include="SessionImpl\ISession.cs" />
+    <Compile Include="SessionImpl\SessionElement.cs" />
+    <Compile Include="SessionImpl\SessionHandler.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Globalization\" />
     <Folder Include="ObjectComparer\" />
-    <Folder Include="SessionImpl\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

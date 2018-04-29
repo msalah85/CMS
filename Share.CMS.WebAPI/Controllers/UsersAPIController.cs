@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Business.Services.Models;
 using Business.Services;
+using Business.Extenions;
 
 namespace Share.CMS.WebAPI.Controllers
 {
@@ -28,21 +29,25 @@ namespace Share.CMS.WebAPI.Controllers
 
         [HttpPost]
         [Route("api/UsersService/LogIn")]
-        public HttpResponseMessage LogIn(LoginViewModel _LogInViewModel)
+        public HttpResponseMessage LogIn(LogInParams _LogInViewModel)
         {
             try
             {
-                var user = userManager.Find(_LogInViewModel.UserName, _LogInViewModel.Password);
-                if (user != null)
+                UserService _userService = new UserService();
+                string _pass = EncryptDecryptString.Encrypt(_LogInViewModel.Password, "Taj$$Key");
+                var _paramters = new LogInParams()
                 {
-                    return Request.CreateResponse(HttpStatusCode.Accepted, user);
-                }
-                else
-                    return Request.CreateResponse(HttpStatusCode.Unauthorized, "Invalid username or password.");
+                    Username=_LogInViewModel.Username,
+                    Password = _pass
+                };
+
+                List<UserViewModel> User_List = new List<UserViewModel>();
+                User_List = _userService.Find(_paramters);
+                return Request.CreateResponse(HttpStatusCode.OK, User_List);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return Request.CreateResponse(HttpStatusCode.ExpectationFailed, ex.Message);
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
             }
         }
 
@@ -60,7 +65,7 @@ namespace Share.CMS.WebAPI.Controllers
                     return Request.CreateResponse(HttpStatusCode.Accepted, user);
                 }
                 else
-                    return Request.CreateResponse(HttpStatusCode.InternalServerError);
+                    return Request.CreateResponse(HttpStatusCode.OK, result.Errors);
             }
             catch (Exception ex)
             {
