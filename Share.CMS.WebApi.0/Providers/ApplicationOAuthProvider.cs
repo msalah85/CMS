@@ -10,6 +10,9 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using Share.CMS.WebApi._0.Models;
+using Business.Services;
+using Business.Extenions;
+using Business.Services.Models;
 
 namespace Share.CMS.WebApi._0.Providers
 {
@@ -31,8 +34,25 @@ namespace Share.CMS.WebApi._0.Providers
         {
             var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
 
-            ApplicationUser user = await userManager.FindAsync(context.UserName, context.Password);
+            ApplicationUser user=new ApplicationUser();
 
+            UserService _userService = new UserService();
+            string _pass = EncryptDecryptString.Encrypt(context.Password, "Taj$$Key");
+            var _paramters = new LogInParams()
+            {
+                Username = context.UserName,
+                Password = _pass
+            };
+
+            List<UserViewModel> User_List = new List<UserViewModel>();
+            User_List = _userService.Find(_paramters);
+
+            if (User_List.Count <= 0)
+            {
+                context.SetError("invalid_grant", "The user name or password is incorrect.");
+                return;
+            }
+            user.UserName = User_List[0].UserFullName;
             if (user == null)
             {
                 context.SetError("invalid_grant", "The user name or password is incorrect.");

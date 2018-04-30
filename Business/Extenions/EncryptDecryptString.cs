@@ -50,5 +50,10 @@ namespace Business.Extenions
                 return e.Message;
             }
         }
+
+        public static string Encrypt(object password, string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
