@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace Share.CMS.WebApi._0.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         public ActionResult Index()
