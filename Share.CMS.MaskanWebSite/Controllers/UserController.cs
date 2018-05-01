@@ -32,7 +32,9 @@ namespace Share.CMS.MaskanWebSite.Controllers
                 if (User_List.Count <= 0)
                     return -1;
 
-                SessionHandler.Instance.Set(User_List, SessionEnum.User_Info); // Save User Session.
+                Session[SessionEnum.User_Info.ToString()] = new UserViewModel();
+                Session[SessionEnum.User_Info.ToString()] = User_List[0];
+
                 return 1;
             }
             catch (Exception ex)
@@ -40,5 +42,45 @@ namespace Share.CMS.MaskanWebSite.Controllers
                 throw;
             }
         }
+
+
+        [HttpPost]
+        public int Register(UserViewModel model)
+        {
+            try
+            {
+                UserService _userService = new UserService();
+                string _pass = EncryptDecryptString.Encrypt(model.Password, "Taj$$Key");
+                var _paramters = new UserViewModel()
+                {
+                    Username = model.Username,
+                    UserFullName = model.Username,
+                    Password = _pass,
+                    Email = model.Email,
+                    Phone = model.Phone,
+                    Address = model.Address,
+                    Country = model.Country
+                };
+                _paramters.UserID = null;
+                _paramters.IsActive = null;
+                _paramters.IsDeleted = null;
+
+                int Result = _userService.Insert(_paramters);
+
+                // set Current session.
+                Session[SessionEnum.User_Info.ToString()] = new UserViewModel();
+                Session[SessionEnum.User_Info.ToString()] = _paramters;
+
+                return Result;
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
+        }
+
+
+
+
     }
 }

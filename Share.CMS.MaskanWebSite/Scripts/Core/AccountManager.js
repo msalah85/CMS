@@ -25,13 +25,14 @@
             "Password": $("#txtNewAccPassword").val(),
             "Email": $("#txtNewAccEMail").val()
         }
-        _CommonManager.SendRequest("/api/UsersService/Register", UserViewModel, function (result) {
+
+        _CommonManager.SendRequest("/user/Register", UserViewModel, function (result) {
             // sucess callback.
             $("#modal3").hide();
             $("#modal1").hide();
             $("#lblCreateNewAccMsg").html("");
             _selfAccountManager.ClearControls();
-            //window.parent.SucessNewAccount(result);
+            window.parent.SuccessLogIn();
         }, function () {
             // user Already exist.
             $("#lblCreateNewAccMsg").html(_TranslationManager.GetTranslatedText(TranslationModule.MaskanWeb, 67 , "UserName or Email Already Exist"));

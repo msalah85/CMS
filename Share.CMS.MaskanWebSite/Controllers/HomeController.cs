@@ -20,22 +20,20 @@ namespace Share.CMS.MaskanWebSite.Controllers
         GlobalizationManager _GlobalizationManager = new GlobalizationManager();
         public ActionResult Index()
         {
-            UserViewModel user = new UserViewModel();
+            //UserViewModel user = new UserViewModel();
             if (SessionHandler.Instance.Get(SessionEnum.Language_Info) == null)
             {
                 SessionHandler.Instance.Set(_GlobalizationManager, SessionEnum.Language_Info);
             }
-
-            if (SessionHandler.Instance.Get(SessionEnum.User_Info) == null)
-            {
-                SessionHandler.Instance.Set(user, SessionEnum.User_Info);
-            }
             // Set Language Information.
             ManageUserLanguage(GetActiveLanguage());
-
-            //Fill View Model.
             Models.HomeVM_UI model = new Models.HomeVM_UI();
-            var cuurentuser = SessionHandler.Instance.Get(SessionEnum.User_Info);
+
+            if (Session[SessionEnum.User_Info.ToString()] != null)
+            {
+                UserViewModel user = (UserViewModel)Session[SessionEnum.User_Info.ToString()]; // User session.
+                model.currentUser = user;
+            }
 
             return View(model);
         }
