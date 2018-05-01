@@ -33,23 +33,7 @@ namespace Business.Globalization
                 this.Items = new Dictionary<string, List<TranslatedItem>>();
                 if (_langDS != null)
                 {
-                    //for (int index = 1; index < _langDS.Tables.Count; index++)
-                    //{
                     var table = _langDS.Tables[0];
-                    //if (table.TableName == "UserLangInfo")
-                    //{
-
-                    //    string _langDirection = (from n in table.AsEnumerable()
-                    //                             select n.Field<string>("LangDirection")).FirstOrDefault().ToString();
-
-                    //    if (_langDirection.ToLower() == "rtl")
-                    //        this.IsUserLang_RTL = true;
-                    //    else
-                    //        this.IsUserLang_RTL = false;
-
-                    //}
-                    //else
-                    //{
                     List<TranslatedItem> _TranslatedItems = new List<TranslatedItem>();
                     _TranslatedItems = (from n in table.AsEnumerable()
                                         select new TranslatedItem() { id = n.Field<string>("id"), c = n.Field<string>("c") }).ToList<TranslatedItem>();
@@ -60,8 +44,6 @@ namespace Business.Globalization
                         this.IsUserLang_RTL = false;
 
                     this.Items.Add(table.TableName, _TranslatedItems);
-                    //}
-                    // }
                 }
             }
             catch (Exception ex)

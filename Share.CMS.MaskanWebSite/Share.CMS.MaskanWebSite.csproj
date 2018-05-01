@@ -178,8 +178,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Core\Controllers\PropertyController.cs" />
+    <Compile Include="Areas\Core\CoreAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DownloadMobAppController.cs" />
+    <Compile Include="Controllers\EmailSubscriptionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -791,7 +794,12 @@
     <Content Include="Content\sys\assets\js\x-editable\ace-editable.min.js.map" />
     <Content Include="Content\sys\assets\js\x-editable\bootstrap-editable.min.js.map" />
     <Content Include="Languages\Default\ar\Maskan.jsn" />
+    <Content Include="Areas\Core\Views\web.config" />
+    <Content Include="Areas\Core\Views\Property\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Core\CommonManager.js" />
+    <Content Include="Scripts\Core\EmailSubscriptionManager.js" />
+    <Content Include="Scripts\Core\Translation\TranslationManager.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -800,6 +808,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\Plugin\notify.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\select2\css\select2-optional.css" />
@@ -1005,7 +1014,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Core\Models\" />
+    <Folder Include="Areas\Core\Views\Shared\" />
     <Folder Include="Languages\Default\en\" />
+    <Folder Include="Views\EmailSubscription\" />
     <Folder Include="Views\UsersService\" />
     <Folder Include="Views\User\" />
   </ItemGroup>

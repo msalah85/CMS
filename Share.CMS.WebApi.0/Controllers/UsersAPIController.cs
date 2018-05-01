@@ -1,8 +1,13 @@
-﻿using Business.Extenions;
+﻿using Business.AutoMapper;
+using Business.DAL;
+using Business.Extenions;
 using Business.Services;
 using Business.Services.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -29,11 +34,14 @@ namespace Share.CMS.WebApi._0.Controllers
 
                 List<UserViewModel> User_List = new List<UserViewModel>();
                 User_List = _userService.Find(_paramters);
-                return Request.CreateResponse(HttpStatusCode.OK, User_List);
+                if (User_List.Count > 0)
+                    return Request.CreateResponse(HttpStatusCode.Accepted, User_List);
+                else
+                    return Request.CreateResponse(HttpStatusCode.OK, "Invalid username or password");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
             }
         }
 
@@ -45,12 +53,12 @@ namespace Share.CMS.WebApi._0.Controllers
             try
             {
                 UserService _userService = new UserService();
-                string _pass = EncryptDecryptString.Decrypt(model.Password, "Taj$$Key");
+                string _pass = EncryptDecryptString.Encrypt(model.Password, "Taj$$Key");
                 var _paramters = new UserViewModel()
                 {
                     Username = model.Username,
-                    UserFullName=model.Username,
-                    Password= _pass,
+                    UserFullName = model.Username,
+                    Password = _pass,
                     Email = model.Email,
                     Phone = model.Phone,
                     Address = model.Address,
@@ -65,13 +73,13 @@ namespace Share.CMS.WebApi._0.Controllers
                 if (Result == -1)
                     return Request.CreateResponse(HttpStatusCode.OK, "User with this Email or Username Already Exists");
                 if (Result < 0)
-                    return Request.CreateResponse(HttpStatusCode.OK, Result);
+                    return Request.CreateResponse(HttpStatusCode.Accepted, Result);
                 else
-                    return Request.CreateResponse(HttpStatusCode.InternalServerError);
+                    return Request.CreateResponse(HttpStatusCode.OK, Result);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
             }
         }
 
@@ -92,9 +100,9 @@ namespace Share.CMS.WebApi._0.Controllers
                 Properties_List = _propertyService.Find(_paramters);
                 return Request.CreateResponse(HttpStatusCode.OK, Properties_List);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
             }
         }
 

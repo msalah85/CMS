@@ -116,9 +116,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ApplicationService.cs" />
     <Compile Include="Services\BasicSearch.cs" />
+    <Compile Include="Services\EmailSubscriptionService.cs" />
     <Compile Include="Services\LanguageService.cs" />
     <Compile Include="Services\LocalizationService.cs" />
     <Compile Include="Services\Models\Application_Info.cs" />
+    <Compile Include="Services\Models\EmailSubscriptionParams.cs" />
+    <Compile Include="Services\Models\EmailSubscription_VM.cs" />
     <Compile Include="Services\Models\LanguageParams.cs" />
     <Compile Include="Services\Models\LanguagesViewModel.cs" />
     <Compile Include="Services\Models\LogInParams.cs" />

@@ -122,14 +122,15 @@
             <form class="col-lg-6">
                 <div class="custom-search-input">
                     <div class="input-group col-md-12">
-                        <input type="text" class="form-control input-lg"
-                        placeholder="@_GlobalizationManager.GetTranslatedText("Enter your email", Enum_LangModule.MaskanWeb, "42")" />
+                        <input type="text" id="txtSubscripeMail" class="form-control input-lg"
+                               placeholder="@_GlobalizationManager.GetTranslatedText("Enter your email", Enum_LangModule.MaskanWeb, "42")" />
                         
                         <span class="input-group-btn">
-                            <button class="btn btn-info btn-lg" type="button">
+                            <button id="btnSendEmail" onclick="_EmailSubscriptionManager.SubscripeWithEmail()" class="btn btn-info btn-lg" type="button">
                                 <i class="glyphicon glyphicon-send"></i>
                             </button>
                         </span>
+
                     </div>
                 </div>
             </form>
