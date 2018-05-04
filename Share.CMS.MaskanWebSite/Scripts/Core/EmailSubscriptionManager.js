@@ -5,7 +5,7 @@
         var EmailAddress = $("#txtSubscripeMail").val();
         // Required Validation.
         if (EmailAddress == "") {
-            $.notify(_TranslationManager.GetTranslatedText(TranslationModule.MaskanWeb, 63, "Please enter you email address"), "info");
+            $.notify(_TranslationManager.GetTranslatedText(TranslationModule.MaskanWeb, 63, "Please enter your email address"), "info");
             return;
         }
 

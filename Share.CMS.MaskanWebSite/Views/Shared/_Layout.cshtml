@@ -35,7 +35,7 @@
         {
             isRight = true;
         }
-        var user = SessionHandler.Instance.Get<UserViewModel>(SessionEnum.User_Info);
+        UserViewModel user = (UserViewModel)Session[SessionEnum.User_Info.ToString()]; // User session.
     }
 
     @{
@@ -65,103 +65,139 @@
 
     @{
         if (action != "index" && controller != "Home")
-        { 
-        <div class="header">
-        <div class="navbar-fixed">
-            <nav>
-                <div class="nav-wrapper">
-                    <a href="/" class="brand-logo right">
-                        <img alt="مسكن" src="/content/masknvr1/img/logo.png" class="responsive-img">
-                    </a>
-                    <ul class="left">
-                        <li>
-                            <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-                        </li>
-                        <li><a href="#" onclick="ChangeLanguage()">@_GlobalizationManager.GetTranslatedText("عربي", Enum_LangModule.MaskanWeb, "32")</a></li>
-                        <li><a href="#modal1"><i class="material-icons right">input</i>@_GlobalizationManager.GetTranslatedText("LogIn", Enum_LangModule.MaskanWeb, "1")</a></li>
-                        <li class="ListProperty"><a href="#"><i class="material-icons right">home</i>@_GlobalizationManager.GetTranslatedText("Your Properities", Enum_LangModule.MaskanWeb, "47")</a></li>
-                        <li class="download">
-                            <a href="/download-mobileapp" style="border-right: 1px solid #b6b6b6;">
-                                <i class="material-icons icon-app right">phone_android</i>@_GlobalizationManager.GetTranslatedText("Download App", Enum_LangModule.MaskanWeb, "10")
+        {
+            <div class="header">
+                <div class="navbar-fixed">
+                    <nav>
+                        <div class="nav-wrapper">
+                            <a href="/" class="brand-logo right">
+                                <img alt="مسكن" src="/content/masknvr1/img/logo.png" class="responsive-img">
                             </a>
-                        </li>
-                        <li>
-                            <form>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="@_GlobalizationManager.GetTranslatedText("Search", Enum_LangModule.MaskanWeb, "48")">
-                                </div>
-                            </form>
-                        </li>
-                        <li>
-                            <!-- Dropdown Trigger -->
-                            <a class='dropdown-button ' href='#' data-activates='dropdown1' style="border-left: 1px solid #b6b6b6;"><i class="material-icons left">arrow_drop_down</i> @_GlobalizationManager.GetTranslatedText("Buying", Enum_LangModule.MaskanWeb, "49")</a>
-                            <!-- Dropdown Structure -->
-                            <ul id='dropdown1' class='dropdown-content'>
-                                <li><a href="#" style="text-align: right; color: #b5b5b5">@_GlobalizationManager.GetTranslatedText("Buying", Enum_LangModule.MaskanWeb, "49") </a></li>
-                                <li><a href="#" style="text-align: right; color: #b5b5b5">@_GlobalizationManager.GetTranslatedText("Rent", Enum_LangModule.MaskanWeb, "4") </a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-        
-            <ul id="slide-out" class="side-nav">
-                <li>
-                    <div class="userView">
-                        <a href="#login">
-                            <img class="circle" src="/content/masknvr1/img/user-default.png">
-                        </a>
-                        <a href="#login"><span class="name">@_GlobalizationManager.GetTranslatedText("Welcome", Enum_LangModule.MaskanWeb, "6")</span></a>
-                    </div>
-                </li>
-                <li><a href="#journey">@_GlobalizationManager.GetTranslatedText("My Adventure with Maskan", Enum_LangModule.MaskanWeb, "7")</a></li>
-                <li><a href="/default#news-list">@_GlobalizationManager.GetTranslatedText("Latest News", Enum_LangModule.MaskanWeb, "12")</a></li>
-                <li><a class="waves-effect" href="/search?k=uae">@_GlobalizationManager.GetTranslatedText("3Qarat El Imarat", Enum_LangModule.MaskanWeb, "8")</a></li>
-                <li><a class="waves-effect" href="/search?k=egypt">@_GlobalizationManager.GetTranslatedText("3Qarat Masr", Enum_LangModule.MaskanWeb, "9")</a></li>
-                <li>
-                    <div class="divider"></div>
-                </li>
-                <li><a class="waves-effect" href="download-mobileapp"><i class="material-icons left">phone_android</i>@_GlobalizationManager.GetTranslatedText("Download App", Enum_LangModule.MaskanWeb, "10")</a></li>
-                <li>
-                    <div class="divider"></div>
-                </li>
-            </ul>
-
-    </div>
-        }
-    }
-
-    
-    @{
-        if (action == "Index" && controller == "Home")
-        { 
-         <div class="bg">
-        <nav>
-            <div class="nav-wrapper">
-                <a href="/" class="brand-logo right">
-                    <img src="/content/masknvr1/img/logo.png" class="responsive-img">
-                </a>
-                <ul class="left">
-                    @{
-                        if (user != null)
-                        {
-                            if (user.Username != null)
-                            {
+                            <ul class="left">
                                 <li>
                                     <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
                                 </li>
-                            }
+                                <li><a href="#" onclick="ChangeLanguage()">@_GlobalizationManager.GetTranslatedText("عربي", Enum_LangModule.MaskanWeb, "32")</a></li>
+
+                                @{
+                                    if (user != null)
+                                    {
+                                        <li><a href="#" onclick="_AccountManager.LogOut()"><i class="material-icons left">input</i>@_GlobalizationManager.GetTranslatedText("Log Out", Enum_LangModule.MaskanWeb, "76")</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="#modal1" id="btnLoginShowModal"><i class="material-icons right">input</i>@_GlobalizationManager.GetTranslatedText("LogIn", Enum_LangModule.MaskanWeb, "1")</a></li>
+                                    }
+                                }
+
+
+
+                                <li class="ListProperty"><a href="#"><i class="material-icons right">home</i>@_GlobalizationManager.GetTranslatedText("Your Properities", Enum_LangModule.MaskanWeb, "47")</a></li>
+                                <li class="download">
+                                    <a href="/download-mobileapp" style="border-right: 1px solid #b6b6b6;">
+                                        <i class="material-icons icon-app right">phone_android</i>@_GlobalizationManager.GetTranslatedText("Download App", Enum_LangModule.MaskanWeb, "10")
+                                    </a>
+                                </li>
+                                <li>
+                                    <form>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="@_GlobalizationManager.GetTranslatedText("Search", Enum_LangModule.MaskanWeb, "48")">
+                                        </div>
+                                    </form>
+                                </li>
+                                <li>
+                                    <!-- Dropdown Trigger -->
+                                    <a class='dropdown-button ' href='#' data-activates='dropdown1' style="border-left: 1px solid #b6b6b6;"><i class="material-icons left">arrow_drop_down</i> @_GlobalizationManager.GetTranslatedText("Buying", Enum_LangModule.MaskanWeb, "49")</a>
+                                    <!-- Dropdown Structure -->
+                                    <ul id='dropdown1' class='dropdown-content'>
+                                        <li><a href="#" style="text-align: right; color: #b5b5b5">@_GlobalizationManager.GetTranslatedText("Buying", Enum_LangModule.MaskanWeb, "49") </a></li>
+                                        <li><a href="#" style="text-align: right; color: #b5b5b5">@_GlobalizationManager.GetTranslatedText("Rent", Enum_LangModule.MaskanWeb, "4") </a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+
+                <ul id="slide-out" class="side-nav">
+                    <li>
+                        <div class="userView">
+                            <a href="#login">
+                                <img class="circle" src="/content/masknvr1/img/user-default.png">
+                            </a>
+                            <a href="#login">
+                                @_GlobalizationManager.GetTranslatedText("Welcome", Enum_LangModule.MaskanWeb, "6")
+
+                                @{
+
+                                    if (user != null)
+                                    {
+                                        <span>@user.Username</span>
+                                    }
+                                }
+
+                            </a>
+                        </div>
+                    </li>
+
+                    @{
+                        if (user != null)
+                        {
+                            <li><a href="#journey">@_GlobalizationManager.GetTranslatedText("My Adventure with Maskan", Enum_LangModule.MaskanWeb, "7")</a></li>
                         }
                     }
 
-                    <li><a href="#" onclick="ChangeLanguage()">@_GlobalizationManager.GetTranslatedText("عربي", Enum_LangModule.MaskanWeb, "32")</a></li>
-                    <li><a href="#" id="btnLoginShowModal"><i class="material-icons right">input</i>@_GlobalizationManager.GetTranslatedText("Login", Enum_LangModule.MaskanWeb, "1")</a></li>
-                    <li class="ListProperty"><a href="@Url.Action("Index", "Property", new { area = "Core" })"><i class="material-icons right">home</i>@_GlobalizationManager.GetTranslatedText("Add your properity", Enum_LangModule.MaskanWeb, "2")</a></li>
-                    <li class="download"><a href="@Url.Action("Index", "DownloadMobApp")"><i class="material-icons icon-app right">phone_android</i>@_GlobalizationManager.GetTranslatedText("Download Mobile App", Enum_LangModule.MaskanWeb, "3")</a></li>
+                    <li><a href="/default#news-list">@_GlobalizationManager.GetTranslatedText("Latest News", Enum_LangModule.MaskanWeb, "12")</a></li>
+                    <li><a class="waves-effect" href="/search?k=uae">@_GlobalizationManager.GetTranslatedText("3Qarat El Imarat", Enum_LangModule.MaskanWeb, "8")</a></li>
+                    <li><a class="waves-effect" href="/search?k=egypt">@_GlobalizationManager.GetTranslatedText("3Qarat Masr", Enum_LangModule.MaskanWeb, "9")</a></li>
+                    <li>
+                        <div class="divider"></div>
+                    </li>
+                    <li><a class="waves-effect" href="download-mobileapp"><i class="material-icons left">phone_android</i>@_GlobalizationManager.GetTranslatedText("Download App", Enum_LangModule.MaskanWeb, "10")</a></li>
+                    <li>
+                        <div class="divider"></div>
+                    </li>
                 </ul>
+
             </div>
-        </nav>
+                        }
+    }
+
+
+    @{
+        if (action == "Index" && controller == "Home")
+        {
+            <div class="bg">
+                <nav>
+                    <div class="nav-wrapper">
+                        <a href="/" class="brand-logo right">
+                            <img src="/content/masknvr1/img/logo.png" class="responsive-img">
+                        </a>
+                        <ul class="left">
+
+                            <li>
+                                <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+                            </li>
+
+
+                            <li><a href="#" onclick="ChangeLanguage()">@_GlobalizationManager.GetTranslatedText("عربي", Enum_LangModule.MaskanWeb, "32")</a></li>
+
+                            @{
+                                if (user != null)
+                                {
+                                    <li><a href="#" onclick="_AccountManager.LogOut()"><i class="material-icons left">input</i>@_GlobalizationManager.GetTranslatedText("Log Out", Enum_LangModule.MaskanWeb, "76")</a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="#modal1" id="btnLoginShowModal"><i class="material-icons right">input</i>@_GlobalizationManager.GetTranslatedText("LogIn", Enum_LangModule.MaskanWeb, "1")</a></li>
+                                }
+                            }
+
+                            <li class="ListProperty"><a href="@Url.Action("Index", "Property", new { area = "Core" })"><i class="material-icons right">home</i>@_GlobalizationManager.GetTranslatedText("Add your properity", Enum_LangModule.MaskanWeb, "2")</a></li>
+                            <li class="download"><a href="@Url.Action("Index", "DownloadMobApp")"><i class="material-icons icon-app right">phone_android</i>@_GlobalizationManager.GetTranslatedText("Download Mobile App", Enum_LangModule.MaskanWeb, "3")</a></li>
+                        </ul>
+                    </div>
+                </nav>
 
                 <div class="container">
                     <div class="row">
@@ -187,10 +223,27 @@
                             <a href="#login">
                                 <img class="circle" src="/content/masknvr1/img/user-default.png">
                             </a>
-                            <a href="#login"><span class="name">@_GlobalizationManager.GetTranslatedText("Welcome", Enum_LangModule.MaskanWeb, "6")</span></a>
+                            <a href="#login">
+
+                                @_GlobalizationManager.GetTranslatedText("Welcome", Enum_LangModule.MaskanWeb, "6")
+                                @{
+
+                                    if (user != null)
+                                    {
+                                        <span>@user.Username</span>
+                                    }
+                                }
+                            </a>
                         </div>
                     </li>
-                    <li><a href="#journey">@_GlobalizationManager.GetTranslatedText("My Adventure with Maskan", Enum_LangModule.MaskanWeb, "7")</a></li>
+
+                    @{
+                        if (user != null)
+                        {
+                            <li><a href="#journey">@_GlobalizationManager.GetTranslatedText("My Adventure with Maskan", Enum_LangModule.MaskanWeb, "7")</a></li>
+                        }
+                    }
+
                     <li><a href="/default#news-list">@_GlobalizationManager.GetTranslatedText("Latest News", Enum_LangModule.MaskanWeb, "12")</a></li>
                     <li><a class="waves-effect" href="/search?k=uae">@_GlobalizationManager.GetTranslatedText("3Qarat El Imarat", Enum_LangModule.MaskanWeb, "8")</a></li>
                     <li><a class="waves-effect" href="/search?k=egypt">@_GlobalizationManager.GetTranslatedText("3Qarat Masr", Enum_LangModule.MaskanWeb, "9")</a></li>
@@ -203,13 +256,13 @@
                     </li>
                 </ul>
 
-    </div>
-        }
-        
+            </div>
+                        }
+
     }
 
 
-    
+
 
     @RenderBody()
 
@@ -416,8 +469,8 @@
                                     </div>
                                 </form>
                             </div>
-                            <label style="margin:0 auto" id="lblCreateNewAccMsg"></label>
                         </div>
+                        <label style="margin:0 auto" id="lblCreateNewAccMsg"></label>
                     </div>
                 </div>
             </div>
@@ -449,15 +502,17 @@
                             <div class="col m12 s12">
                                 <form>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="@_GlobalizationManager.GetTranslatedText("Email", Enum_LangModule.MaskanWeb, "28")">
+                                        <input type="text" id="txtRecoverEmail" class="form-control" placeholder="@_GlobalizationManager.GetTranslatedText("Email", Enum_LangModule.MaskanWeb, "28")">
                                     </div>
                                     <div class="col m12 s12">
-                                        <a href="#modal5" class="waves-effect waves-light btn login">@_GlobalizationManager.GetTranslatedText("Recover", Enum_LangModule.MaskanWeb, "70")</a>
+                                        <a href="#" id="btnRecoverPassword" onclick="_AccountManager.RecoverPassword()" class="waves-effect waves-light btn login">@_GlobalizationManager.GetTranslatedText("Recover", Enum_LangModule.MaskanWeb, "70")</a>
                                     </div>
                                 </form>
                             </div>
+                            
                         </div>
                     </div>
+                    <label id="lblRecoverMessage"></label>
                 </div>
             </div>
         </div>
@@ -569,8 +624,12 @@
         }
 
         function SuccessLogIn() {
+            debugger;
             var uri = "@Url.Action("Index", "Home")";
             window.location.href = uri;
+            setTimeout(function () {
+                $.notify(_TranslationManager.GetTranslatedText(TranslationModule.MaskanWeb, 85, "Welcome to you in Maskan.com"), "success");
+            }, 3000);
         }
 
         var _AccountManager;

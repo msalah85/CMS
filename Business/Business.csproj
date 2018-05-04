@@ -127,7 +127,9 @@
     <Compile Include="Services\Models\LogInParams.cs" />
     <Compile Include="Services\Models\propertyParams.cs" />
     <Compile Include="Services\Models\propertyViewModel.cs" />
+    <Compile Include="Services\Models\RecoverPass_VM.cs" />
     <Compile Include="Services\Models\RegisterViewModel.cs" />
+    <Compile Include="Services\ResetPasswordService.cs" />
     <Compile Include="Services\Models\UserViewModel.cs" />
     <Compile Include="Services\propertyService.cs" />
     <Compile Include="Services\UserService.cs" />

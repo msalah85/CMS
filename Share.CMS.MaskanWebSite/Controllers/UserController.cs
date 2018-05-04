@@ -5,7 +5,9 @@ using Business.Services.Models;
 using Business.SessionImpl;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 
@@ -79,6 +81,74 @@ namespace Share.CMS.MaskanWebSite.Controllers
             }
         }
 
+
+        [HttpGet]
+        public void LogOut()
+        {
+            Session[SessionEnum.User_Info.ToString()] = null;
+        }
+
+        [HttpGet]
+        public string RecoverPassoerd(string Email)
+        {
+            try
+            {
+                // check Email in our database or not.
+                UserService _userService = new UserService();
+                var _paramters = new LogInParams()
+                {
+                    Email = Email
+                };
+
+                List<UserViewModel> User_List = new List<UserViewModel>();
+                User_List = _userService.Find(_paramters);
+                if (User_List.Count <= 0)
+                    return "This email does not exsit in our database";
+
+                //---------------------------------------------------------------
+
+                System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient();
+                client.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
+                client.EnableSsl = true;
+                client.Host = "smtp.gmail.com";
+                client.Port = 587;
+
+                string AppEmail = EncryptDecryptString.Decrypt(ConfigurationManager.AppSettings["Email"], "Taj$$Key");
+                string AppPass = EncryptDecryptString.Decrypt(ConfigurationManager.AppSettings["EmailAuth"], "Taj$$Key");
+
+                System.Net.NetworkCredential credentials = new System.Net.NetworkCredential(AppEmail, AppPass);
+                client.UseDefaultCredentials = false;
+                client.Credentials = credentials;
+
+                System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
+                msg.From = new MailAddress(AppEmail);
+                msg.To.Add(new MailAddress(Email));
+
+                msg.Subject = "Maskan Rest Password";
+
+                msg.IsBodyHtml = true;
+                string _pass = EncryptDecryptString.Encrypt(Email, "Taj$$Key");
+
+                string CurrentUrl = "http://" + Request.Url.DnsSafeHost + ":" + Request.Url.Port + "/ResetPassword/restpass/" + _pass;
+                // Email Body.
+                string body = "Dear User <br />";
+                body += "Please fllow this link to recover your passord </br>";
+                body += "<a href =" + CurrentUrl + "> Maskan rest your Password </ a >  <br />";
+
+                msg.Body = body;
+                msg.IsBodyHtml = true;
+
+                client.Send(msg);
+
+                return "Success";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+
+
+        }
 
 
 

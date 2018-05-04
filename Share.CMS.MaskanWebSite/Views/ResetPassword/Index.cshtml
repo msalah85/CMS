@@ -1,0 +1,41 @@
+﻿@using Business.Globalization
+@using Business.SessionImpl
+@using Business.Enums
+@using Business.Services.Models
+
+@{
+    GlobalizationManager _GlobalizationManager = SessionHandler.Instance.Get<GlobalizationManager>(SessionEnum.Language_Info);
+    ViewBag.Title = _GlobalizationManager.GetTranslatedText("Recover Password", Enum_LangModule.MaskanWeb, "78");
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Business.Services.Models.RecoverPass_VM
+
+@using (Html.BeginForm("RestPass", "ResetPassword", FormMethod.Post))
+{
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-lg-4">
+
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <input type="password" name="recoverPass_VM.NewPassword" class="form-control" placeholder="@_GlobalizationManager.GetTranslatedText("New Password", Enum_LangModule.MaskanWeb, "80")">
+            </div>
+            <div class="form-group">
+                <input type="password" name="recoverPass_VM.ConfirmedPassword" class="form-control" placeholder="@_GlobalizationManager.GetTranslatedText("Confirm Password", Enum_LangModule.MaskanWeb, "81")">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-success" value="@_GlobalizationManager.GetTranslatedText("Reset", Enum_LangModule.MaskanWeb, "82")">
+            </div>
+            <div class="form-group">
+               @ViewBag.ErrorMessage
+            </div>
+        </div>
+        <div class="col-lg-4">
+
+        </div>
+    </div>
+
+}

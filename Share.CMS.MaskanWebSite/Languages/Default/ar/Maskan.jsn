@@ -312,7 +312,7 @@
     },
     {
       "id": "63",
-      "o": "Please enter you email address",
+      "o": "Please enter your email address",
       "c": "قم بإدخال البريد الألكتروني"
     },
     {
@@ -376,54 +376,54 @@
       "c": "قم بملئ جميع الحقول المطلوبة"
     },
     {
-      "id": "",
-      "o": "",
-      "c": ""
+      "id": "76",
+      "o": "Log Out",
+      "c": "خروج"
     },
     {
-      "id": "",
-      "o": "",
-      "c": ""
+      "id": "77",
+      "o": "Please check your mail to reset your password",
+      "c": "قم بفحص الإميل لإستعادة رقم المرور"
     },
     {
-      "id": "",
-      "o": "",
-      "c": ""
+      "id": "78",
+      "o": "Recover Password",
+      "c": "إستعادة كلمة المرور"
     },
     {
-      "id": "",
-      "o": "",
-      "c": ""
+      "id": "79",
+      "o": "This email does not exsit in our database",
+      "c": "البريد الألكتروني غير موجود من قبل"
     },
     {
-      "id": "",
-      "o": "",
-      "c": ""
+      "id": "80",
+      "o": "New Password",
+      "c": "الرقم السري الجديد"
     },
     {
-      "id": "",
-      "o": "",
-      "c": ""
+      "id": "81",
+      "o": "Confirm Password",
+      "c": "تأكيد الرقم"
     },
     {
-      "id": "",
-      "o": "",
-      "c": ""
+      "id": "82",
+      "o": "Reset",
+      "c": "إعادة تعيين"
     },
     {
-      "id": "",
-      "o": "",
-      "c": ""
+      "id": "83",
+      "o": "Your password successfully recovered, Please login with your new password.",
+      "c": "لقد تم تعيين كلمة السر بنجاح"
     },
     {
-      "id": "",
-      "o": "",
-      "c": ""
+      "id": "84",
+      "o": "There is an Error while recovering your password",
+      "c": "لقد حدث خطأ أثناء تعيين كلمة السر"
     },
     {
-      "id": "",
-      "o": "",
-      "c": ""
+      "id": "85",
+      "o": "Welcome to you in Maskan.com",
+      "c": "مرحبا بك فى مسكن الإمارات ومصر"
     },
     {
       "id": "",

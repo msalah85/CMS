@@ -8,8 +8,7 @@
         var Password = $("#txtNewAccPassword").val();
         var Email = $("#txtNewAccEMail").val();
 
-        if (Username == "" || Password == "" || Email == "")
-        {
+        if (Username == "" || Password == "" || Email == "") {
             $("#lblCreateNewAccMsg").html(_TranslationManager.GetTranslatedText(TranslationModule.MaskanWeb, 75, "Please fill all fields"));
             return;
         }
@@ -28,6 +27,7 @@
 
         _CommonManager.SendRequest("/user/Register", UserViewModel, function (result) {
             // sucess callback.
+            
             $("#modal3").hide();
             $("#modal1").hide();
             $("#lblCreateNewAccMsg").html("");
@@ -35,7 +35,7 @@
             window.parent.SuccessLogIn();
         }, function () {
             // user Already exist.
-            $("#lblCreateNewAccMsg").html(_TranslationManager.GetTranslatedText(TranslationModule.MaskanWeb, 67 , "UserName or Email Already Exist"));
+            $("#lblCreateNewAccMsg").html(_TranslationManager.GetTranslatedText(TranslationModule.MaskanWeb, 67, "UserName or Email Already Exist"));
         });
     }
 
@@ -64,9 +64,45 @@
             window.parent.SuccessLogIn();
         }, function () {
             // Invalid username or password. 
-            $("#lblLogInMsg").html(_TranslationManager.GetTranslatedText(TranslationModule.MaskanWeb, 68 , "Invalid username or password"));
+            $("#lblLogInMsg").html(_TranslationManager.GetTranslatedText(TranslationModule.MaskanWeb, 68, "Invalid username or password"));
         });
     }
+
+    AccountManager.prototype.LogOut = function () {
+        _CommonManager.GetAPI("user/LogOut", function () {
+            window.parent.SuccessLogIn();
+            // console.log("user signed out successfully");
+        });
+    }
+
+
+    AccountManager.prototype.RecoverPassword = function () {
+        debugger;
+        var Email = $("#txtRecoverEmail").val();
+
+        if (Email == "")
+        {
+            $("#lblRecoverMessage").html(_TranslationManager.GetTranslatedText(TranslationModule.MaskanWeb, 63, "Please enter your email address"));
+            return;
+        }
+
+        // Validation Email Address.
+        if (!_CommonManager.isEmail(Email)) {
+            $("#lblRecoverMessage").html(_TranslationManager.GetTranslatedText(TranslationModule.MaskanWeb, 64, "Please enter a valid email address"));
+            return;
+        }
+
+        _CommonManager.GetAPI("user/RecoverPassoerd/?Email=" + Email, function (result) {
+            debugger;
+            if (result == "This email does not exsit in our database")
+            {
+                $("#lblRecoverMessage").html(_TranslationManager.GetTranslatedText(TranslationModule.MaskanWeb, 79, "This email does not exsit in our database"));
+                return;
+            }
+            $("#lblRecoverMessage").html(_TranslationManager.GetTranslatedText(TranslationModule.MaskanWeb, 77, "Please check your mail to reset your password"));
+        });
+    }
+
 
     AccountManager.prototype.ClearControls = function () {
         $("#txtNewAccName").val("");

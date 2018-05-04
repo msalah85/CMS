@@ -15,7 +15,7 @@ namespace Business.Services.Models
 
         public string Email { get; set; }
 
-        public bool IsActive { get; set; }
+        public bool? IsActive { get; set; }
 
         public string Mobile { get; set; }
 
