@@ -5,14 +5,20 @@
 @using Business.Services.Models
 
 @{
-    ViewBag.Title = "Index";
+    GlobalizationManager _GlobalizationManager = SessionHandler.Instance.Get<GlobalizationManager>(SessionEnum.Language_Info);
+    UserViewModel user = (UserViewModel)Session[SessionEnum.User_Info.ToString()]; // User session.
+    ViewBag.Title = @_GlobalizationManager.GetTranslatedText("Add your properity", Enum_LangModule.MaskanWeb, "2");
     Layout = "~/Views/Shared/_Layout.cshtml";
     <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
 }
 
+<link href="~/Content/sys/assets/css/select2.min.css" rel="stylesheet" />
+<script src="~/Content/sys/assets/js/select2.js"></script>
+<script src="~/Scripts/Core/properityManager.js"></script>
+@model Share.CMS.MaskanWebSite.Areas.Core.Models.propertyAddUI_vm
+
 @{
     bool isRight = false;
-    GlobalizationManager _GlobalizationManager = SessionHandler.Instance.Get<GlobalizationManager>(SessionEnum.Language_Info);
     if (_GlobalizationManager.IsUserLang_RTL)
     {
         isRight = true;
@@ -21,12 +27,21 @@
 
 @if (isRight)
 {
- <style>
-     #titleAddProp {
-         text-align: right;
-         margin-bottom: 50px;
-     }
- </style>
+    <style>
+        #titleAddProp {
+            text-align: right;
+            margin-bottom: 50px;
+            margin-right: 50px;
+        }
+
+        .CustomRow {
+            margin-right: 35px;
+        }
+
+        .Description {
+            margin-right: 30px;
+        }
+    </style>
 }
 else
 {
@@ -34,89 +49,311 @@ else
         #titleAddProp {
             text-align: left;
             margin-bottom: 50px;
+            margin-left: 50px;
+        }
+
+        .CustomRow {
+            margin-left: 35px;
+        }
+
+        .Description {
+            margin-left: 30px;
         }
     </style>
 }
 
+<link href="~/Content/sys/assets/css/bootstrap-datepicker3.min.css" rel="stylesheet" />
+<script src="~/Content/sys/assets/js/date-time/bootstrap-datepicker.js"></script>
+<script>
+    var _properityManager;
+    $(function () {
+        _properityManager = new properityManager();
+        $(".select2").select2();
+        $(".date-picker").datepicker();
+    });
+</script>
+
 <div class="AddPropert " style="background-color: #fff; padding:20px;margin: 40px">
     <div class="container">
+
+        @if (user == null)
+        {
+            <div class="alert alert-info">
+                @_GlobalizationManager.GetTranslatedText("Your must login first before you add a properity", Enum_LangModule.MaskanWeb, "109")
+            </div>
+        }
+       
+            <div class="alert alert-info" style="display:none" id="divMessage">
+                
+            </div>
+       
         <div class="title" id="titleAddProp">
             <h5>@_GlobalizationManager.GetTranslatedText("Add your properity", Enum_LangModule.MaskanWeb, "2")</h5>
         </div>
+
         <div class="row">
-            <div class="col-md-8">
-                <form>
-                    <div class="row">
-                        <div class="col m6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="@_GlobalizationManager.GetTranslatedText("Name", Enum_LangModule.MaskanWeb, "27")">
+            <form class="form-horizontal" role="form" id="masterForm">
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <!--sale, rent -->
+                        <label class="col-sm-3 control-label no-padding-right" for="ProjectTypeID">@_GlobalizationManager.GetTranslatedText("Project Type", Enum_LangModule.MaskanWeb, "86")<span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <input type="hidden" id="PropertyID" value="0" />
+                            <select id="ProjectTypeID" name="ProjectTypeID"
+                                    class="required form-control select2"
+                                    required
+                                    data-placeholder="@_GlobalizationManager.GetTranslatedText("Choose a one...", Enum_LangModule.MaskanWeb, "97")"
+                                    data-fn-name="ProjectTypes_Names" data-allow-clear="true">
+                                @foreach (var item in Model.ProjectTypes)
+                                {
+                                    <option value="@item.id">@item.text1</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <!--villa, flat, land -->
+                        <label class="col-sm-3 control-label no-padding-right" for="PropertyTypeID">@_GlobalizationManager.GetTranslatedText("Property Type", Enum_LangModule.MaskanWeb, "89") <span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <select id="PropertyTypeID" name="PropertyTypeID" class="required form-control select2" required
+                                    data-placeholder="@_GlobalizationManager.GetTranslatedText("Choose a one...", Enum_LangModule.MaskanWeb, "97")"
+                                    data-fn-name="PropertyTypes_Names" data-allow-clear="true">
+                                @foreach (var item in Model.PropertyTypes)
+                                {
+                                    <option value="@item.id">@item.text1</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="CountryID">@_GlobalizationManager.GetTranslatedText("Country", Enum_LangModule.MaskanWeb, "90")<span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <select id="CountryID" name="CountryID" class="required form-control select2" required
+                                    data-placeholder="@_GlobalizationManager.GetTranslatedText("Choose a one...", Enum_LangModule.MaskanWeb, "97")" data-fn-name="Regions_Names" data-allow-clear="true">
+                                @foreach (var item in Model.RegionsNames)
+                                {
+                                    <option value="@item.id">@item.text1</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="CityID">@_GlobalizationManager.GetTranslatedText("City", Enum_LangModule.MaskanWeb, "91")<span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <select id="CityID" name="CityID" class="required form-control select2" required
+                                    data-placeholder="@_GlobalizationManager.GetTranslatedText("Choose a one...", Enum_LangModule.MaskanWeb, "97")"
+                                    data-fn-name="Regions_Names" data-allow-clear="true">
+                                @foreach (var item in Model.RegionsNames)
+                                {
+                                    <option value="@item.id">@item.text1</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="ResidanceID">@_GlobalizationManager.GetTranslatedText("Residance", Enum_LangModule.MaskanWeb, "92") <span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <select id="ResidanceID" name="ResidanceID" class="required form-control select2" required data-placeholder="@_GlobalizationManager.GetTranslatedText("Choose a one...", Enum_LangModule.MaskanWeb, "97")" data-fn-name="Regions_Names" data-allow-clear="true">
+                                @foreach (var item in Model.RegionsNames)
+                                {
+                                    <option value="@item.id">@item.text1</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="StreetID">@_GlobalizationManager.GetTranslatedText("Street", Enum_LangModule.MaskanWeb, "93") <span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <select id="StreetID" name="StreetID" class="required form-control select2" required data-placeholder="@_GlobalizationManager.GetTranslatedText("Choose a one...", Enum_LangModule.MaskanWeb, "97")" data-fn-name="Regions_Names" data-allow-clear="true">
+                                @foreach (var item in Model.RegionsNames)
+                                {
+                                    <option value="@item.id">@item.text1</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="CreationDate">@_GlobalizationManager.GetTranslatedText("Date", Enum_LangModule.MaskanWeb, "94") <span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <input type="text" id="CreationDate" name="CreationDate" required class="required today date-picker form-control" data-date-format="mm/dd/yyyy" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="LocationLat">@_GlobalizationManager.GetTranslatedText("Location Lat", Enum_LangModule.MaskanWeb, "87") <span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <input type="text" id="LocationLat" name="LocationLat" required class="required form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="LocationLang">@_GlobalizationManager.GetTranslatedText("Location Lang", Enum_LangModule.MaskanWeb, "88") <span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <input type="text" id="LocationLang" name="LocationLang" required class="required form-control" data-date-format="mm/dd/yyyy" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label no-padding-right CustomRow" for="PropertyTitle">@_GlobalizationManager.GetTranslatedText("Title", Enum_LangModule.MaskanWeb, "95")</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="PropertyTitle" required class="required form-control" name="PropertyTitle" style="width: 92%" placeholder="@_GlobalizationManager.GetTranslatedText("Title", Enum_LangModule.MaskanWeb, "95")" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label no-padding-right Description" for="Description">@_GlobalizationManager.GetTranslatedText("Description", Enum_LangModule.MaskanWeb, "96")</label>
+                        <div class="col-sm-10">
+                            <textarea cols="12" rows="3" id="Description" required class="required form-control" name="Description" style="width: 92%" placeholder="@_GlobalizationManager.GetTranslatedText("Description", Enum_LangModule.MaskanWeb, "96")"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="Area">@_GlobalizationManager.GetTranslatedText("Area", Enum_LangModule.MaskanWeb, "98") <span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <input type="number" id="Area" name="Area" class="required form-control" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="AreaTypeID">@_GlobalizationManager.GetTranslatedText("Area type", Enum_LangModule.MaskanWeb, "101") <span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <select id="AreaTypeID" name="AreaTypeID" class="required form-control select2" required data-placeholder="@_GlobalizationManager.GetTranslatedText("Choose a one...", Enum_LangModule.MaskanWeb, "97")" data-fn-name="AreaTypes_Names" data-allow-clear="true">
+                                @foreach (var item in Model.AreaTypes)
+                                {
+                                    <option value="@item.id">@item.text1</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="Price">@_GlobalizationManager.GetTranslatedText("Price", Enum_LangModule.MaskanWeb, "102") <span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <input type="text" id="Price" name="Price" class="required form-control" required data-placeholder="00.00" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="PriceTypeID">@_GlobalizationManager.GetTranslatedText("Price type", Enum_LangModule.MaskanWeb, "103") <span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <select id="PriceTypeID" name="PriceTypeID" class="required form-control select2" required data-placeholder="@_GlobalizationManager.GetTranslatedText("Choose a one...", Enum_LangModule.MaskanWeb, "97")" data-fn-name="PriceTypes_Names" data-allow-clear="true">
+                                @foreach (var item in Model.PriceTypes)
+                                {
+                                    <option value="@item.id">@item.text1</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="BedRooms">@_GlobalizationManager.GetTranslatedText("BedRooms", Enum_LangModule.MaskanWeb, "104") <span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <input type="number" id="BedRooms" name="BedRooms" class="required form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="AdditionalRooms">@_GlobalizationManager.GetTranslatedText("Additional Rooms", Enum_LangModule.MaskanWeb, "105") <span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <input type="number" id="AdditionalRooms" name="AdditionalRooms" class="required form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="Bathrooms">@_GlobalizationManager.GetTranslatedText("Bathrooms", Enum_LangModule.MaskanWeb, "106") <span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <input type="number" id="Bathrooms" name="Bathrooms" class="required form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="Balconies">@_GlobalizationManager.GetTranslatedText("Balconies", Enum_LangModule.MaskanWeb, "53") <span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <input type="number" id="Balconies" name="Balconies" class="required form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="Floor">@_GlobalizationManager.GetTranslatedText("Floor", Enum_LangModule.MaskanWeb, "107") <span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <input type="number" id="Floor" name="Floor" class="required form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="FurnitureTypeID">@_GlobalizationManager.GetTranslatedText("Furniture type", Enum_LangModule.MaskanWeb, "108") <span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <select id="FurnitureTypeID" name="FurnitureTypeID" class="required form-control select2" required data-placeholder="@_GlobalizationManager.GetTranslatedText("Choose a one...", Enum_LangModule.MaskanWeb, "97")" data-fn-name="FurnitureTypes_Names" data-allow-clear="true">
+                                @foreach (var item in Model.FurnitureTypes)
+                                {
+                                    <option value="@item.id">@item.text1</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    @*<div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="FeatureID">@_GlobalizationManager.GetTranslatedText("Features", Enum_LangModule.MaskanWeb, "99") <span class="text-danger">*</span></label>
+                            <div class="col-sm-8">
+                                <select class="required form-control select2 form-control" name="FeatureID" multiple required
+                                        data-placeholder="@_GlobalizationManager.GetTranslatedText("Choose a one...", Enum_LangModule.MaskanWeb, "97")"
+                                        data-fn-name="Features_Names" data-allow-clear="true">
+                                    @foreach (var item in Model.FeaturesNames)
+                                    {
+                                        <option value="@item.id">@item.text1</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>*@
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="ContactPersonID">@_GlobalizationManager.GetTranslatedText("OwnerShip Type", Enum_LangModule.MaskanWeb, "110") <span class="text-danger">*</span></label>
+                        <div class="col-sm-8">
+                            <select class="required form-control select2 form-control" id="OwnershipTypeID" name="ContactPersonID" required
+                                    data-placeholder="@_GlobalizationManager.GetTranslatedText("Choose a one...", Enum_LangModule.MaskanWeb, "97")"
+                                    data-fn-name="ContactPersons_Names" data-allow-clear="true">
+                                @foreach (var item in Model.OwnerShipTypes)
+                                {
+                                    <option value="@item.id">@item.text1</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="ContactPersonID">@_GlobalizationManager.GetTranslatedText("Agent", Enum_LangModule.MaskanWeb, "100") <span class="text-danger">*</span></label>
+                        <div class="col-sm-8">
+                            <select class="required form-control select2 form-control" id="ContactPersonID" name="ContactPersonID" required
+                                    data-placeholder="@_GlobalizationManager.GetTranslatedText("Choose a one...", Enum_LangModule.MaskanWeb, "97")"
+                                    data-fn-name="ContactPersons_Names" data-allow-clear="true">
+                                @foreach (var item in Model.ContactPersons)
+                                {
+                                    <option value="@item.id">@item.text1</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+
+                @if (user != null)
+                {
+
+                    <div class="col-xs-12">
+                        <div class="clearfix form-actions">
+                            <div class="col-xs-10 col-xs-offset-1">
+                                <button onclick="_properityManager.InsertProperty()" class="btn btn-app btn-success" type="button" id="btnSave">
+                                    <i class="fa fa-save bigger-230"></i>
+                                    @_GlobalizationManager.GetTranslatedText("Save", Enum_LangModule.MaskanWeb, "51")
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col m12">
-                            <div class="form-group">
-                                <textarea type="text" class="form-control" placeholder="@_GlobalizationManager.GetTranslatedText("Description", Enum_LangModule.MaskanWeb, "52")" rows="10"></textarea>
-                            </div>
-                        </div>
-                        <div class="col m6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="@_GlobalizationManager.GetTranslatedText("Balconies", Enum_LangModule.MaskanWeb, "53")">
-                            </div>
-                        </div>
-                        <div class="col m6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="@_GlobalizationManager.GetTranslatedText("Status", Enum_LangModule.MaskanWeb, "54")">
-                            </div>
-                        </div><div class="col m6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="@_GlobalizationManager.GetTranslatedText("Total Floors", Enum_LangModule.MaskanWeb, "55")">
-                            </div>
-                        </div><div class="col m6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="@_GlobalizationManager.GetTranslatedText("New / Resale", Enum_LangModule.MaskanWeb, "56")">
-                            </div>
-                        </div><div class="col m6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="@_GlobalizationManager.GetTranslatedText("No. Open Sides", Enum_LangModule.MaskanWeb, "57")">
-                            </div>
-                        </div><div class="col m6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="@_GlobalizationManager.GetTranslatedText("Road facing main entry", Enum_LangModule.MaskanWeb, "58")">
-                            </div>
-                        </div><div class="col m6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="@_GlobalizationManager.GetTranslatedText("facing", Enum_LangModule.MaskanWeb, "59")">
-                            </div>
-                        </div><div class="col m6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="@_GlobalizationManager.GetTranslatedText("Price Negotiable", Enum_LangModule.MaskanWeb, "60")">
-                            </div>
-                        </div><div class="col m6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="@_GlobalizationManager.GetTranslatedText("Overlooking", Enum_LangModule.MaskanWeb, "61")">
-                            </div>
-                        </div><div class="col m6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="@_GlobalizationManager.GetTranslatedText("Ownership Type", Enum_LangModule.MaskanWeb, "62")">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <div class="box">
-                            <input type="file" name="file-5[]" id="file-5" class="inputfile inputfile-4" data-multiple-caption="{count} files selected" multiple />
-                            <label for="file-5"><i class="fa fa-plus" style="display: block;font-size: 30px;"></i> <span>@_GlobalizationManager.GetTranslatedText("Image", Enum_LangModule.MaskanWeb, "50")</span></label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col m6 ">
-                            <button class="waves-effect waves-light orange btn text-center" style="border-radius: 10px;margin-bottom: 20px"> @_GlobalizationManager.GetTranslatedText("Save", Enum_LangModule.MaskanWeb, "51")  </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+
+                }
+
+            </form>
         </div>
+
 
     </div>
 </div>
-

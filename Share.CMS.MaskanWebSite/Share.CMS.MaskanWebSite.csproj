@@ -180,6 +180,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Core\Controllers\PropertyController.cs" />
     <Compile Include="Areas\Core\CoreAreaRegistration.cs" />
+    <Compile Include="Areas\Core\Models\propertyAddUI_vm.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DownloadMobAppController.cs" />
     <Compile Include="Controllers\EmailSubscriptionController.cs" />
@@ -767,6 +768,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Core\CommonManager.js" />
     <Content Include="Scripts\Core\EmailSubscriptionManager.js" />
+    <Content Include="Scripts\Core\properityManager.js" />
     <Content Include="Scripts\Core\Translation\TranslationManager.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -874,7 +876,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Core\Models\" />
     <Folder Include="Areas\Core\Views\Shared\" />
     <Folder Include="Languages\Default\en\" />
     <Folder Include="Views\EmailSubscription\" />

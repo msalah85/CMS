@@ -15,5 +15,12 @@ namespace Business.Services
                 return "Properties_List";
             }
         }
+
+        protected override string Insert_SP {
+            get {
+                return "Sp_Properties_Save";
+            }
+        }
+
     }
 }

@@ -2,7 +2,7 @@
     _selfAccountManager = this;
 
     // Methods.
-    AccountManager.prototype.CreateNewAccount = function () {
+    AccountManager.prototype.CreateNewAccount = function (area) {
         // validate all Required Fields.
         var Username = $("#txtNewAccName").val();
         var Password = $("#txtNewAccPassword").val();
@@ -25,9 +25,12 @@
             "Email": $("#txtNewAccEMail").val()
         }
 
-        _CommonManager.SendRequest("/user/Register", UserViewModel, function (result) {
+        var URI = "/user/Register";
+        if (area == "Core")
+            URI = "/user/Register";
+        _CommonManager.SendRequest(URI, UserViewModel, function (result) {
             // sucess callback.
-            
+
             $("#modal3").hide();
             $("#modal1").hide();
             $("#lblCreateNewAccMsg").html("");
@@ -40,7 +43,7 @@
     }
 
 
-    AccountManager.prototype.LogInWithMail = function () {
+    AccountManager.prototype.LogInWithMail = function (area) {
         // Validate Model.
         var Username = $("#txtLogInEmail").val();
         var Password = $("#txtLogInPassword").val();
@@ -55,7 +58,11 @@
             "Password": $("#txtLogInPassword").val()
         }
         /// api / UsersService / LogIn
-        _CommonManager.SendRequest("/user/LogIn", _LogInViewModel, function (result) {
+        var URI = "/user/LogIn";
+        if (area == "Core")
+            URI = "/user/LogIn";
+
+        _CommonManager.SendRequest(URI, _LogInViewModel, function (result) {
             // sucess callback.
             $("#modal2").hide();
             $("#modal1").hide();
@@ -68,20 +75,21 @@
         });
     }
 
-    AccountManager.prototype.LogOut = function () {
-        _CommonManager.GetAPI("user/LogOut", function () {
+    AccountManager.prototype.LogOut = function (area) {
+        var URI = "user/LogOut";
+        if (area == "Core")
+            URI = "../user/LogOut";
+        _CommonManager.GetAPI(URI, function () {
             window.parent.SuccessLogIn();
             // console.log("user signed out successfully");
         });
     }
 
-
-    AccountManager.prototype.RecoverPassword = function () {
+    AccountManager.prototype.RecoverPassword = function (area) {
         debugger;
         var Email = $("#txtRecoverEmail").val();
 
-        if (Email == "")
-        {
+        if (Email == "") {
             $("#lblRecoverMessage").html(_TranslationManager.GetTranslatedText(TranslationModule.MaskanWeb, 63, "Please enter your email address"));
             return;
         }
@@ -92,10 +100,12 @@
             return;
         }
 
-        _CommonManager.GetAPI("user/RecoverPassoerd/?Email=" + Email, function (result) {
+        var URI = "user/RecoverPassoerd/?Email=" + Email;
+        if (area == "Core")
+            URI = "../user/RecoverPassoerd/?Email=" + Email;
+        _CommonManager.GetAPI(URI, function (result) {
             debugger;
-            if (result == "This email does not exsit in our database")
-            {
+            if (result == "This email does not exsit in our database") {
                 $("#lblRecoverMessage").html(_TranslationManager.GetTranslatedText(TranslationModule.MaskanWeb, 79, "This email does not exsit in our database"));
                 return;
             }

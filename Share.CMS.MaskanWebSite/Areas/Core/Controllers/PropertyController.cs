@@ -3,8 +3,10 @@ using Business.Extenions;
 using Business.Globalization;
 using Business.Services;
 using Business.Services.Models;
+using Business.Services.propertyAdd;
 using Business.SessionImpl;
 using Newtonsoft.Json;
+using Share.CMS.MaskanWebSite.Areas.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -21,7 +23,102 @@ namespace Share.CMS.MaskanWebSite.Areas.Core.Controllers
         {
             // Set Language Information.
             ManageUserLanguage(GetActiveLanguage());
-            return View();
+
+            // Fill UI Model.
+            propertyAddUI_vm UIModel = new propertyAddUI_vm();
+            UIModel.ProjectTypes = ProjectTypes();
+            UIModel.PropertyTypes = PropertyTypes();
+            UIModel.RegionsNames = Regions_Names();
+            UIModel.AreaTypes = AreaTypes();
+            UIModel.PriceTypes = PriceTypes();
+            UIModel.FurnitureTypes = FurnitureTypes();
+            UIModel.ContactPersons = ContactPersons();
+            UIModel.FeaturesNames = FeaturesNames();
+            UIModel.OwnerShipTypes = OwnershipsNames();
+
+            return View(UIModel);
+        }
+
+
+        // Get Form data.
+        // - Project Types. 
+        public List<ProjectTypes_VM> ProjectTypes()
+        {
+            ProjectTypesService Service = new ProjectTypesService();
+            List<ProjectTypes_VM> ProjTypes = Service.Find(new PagingParams { key = null, pageNum = "1", pageSize = "10" });
+            return ProjTypes;
+        }
+
+
+        // - Prop Types. 
+        public List<ProjectTypes_VM> PropertyTypes()
+        {
+            PropertyTypesService Service = new PropertyTypesService();
+            List<ProjectTypes_VM> PropertyTypes = Service.Find(new PagingParams { key = null, pageNum = "1", pageSize = "10" });
+            return PropertyTypes;
+        }
+
+
+        // Regions names
+        public List<ProjectTypes_VM> Regions_Names()
+        {
+            RegionsNamesService Service = new RegionsNamesService();
+            List<ProjectTypes_VM> Regions_Names = Service.Find(new PagingParams { key = null, pageNum = "1", pageSize = "10" });
+            return Regions_Names;
+        }
+
+
+        // Area Types.
+        public List<ProjectTypes_VM> AreaTypes()
+        {
+            AreaTypesService Service = new AreaTypesService();
+            List<ProjectTypes_VM> AreaTypes = Service.Find(new PagingParams { key = null, pageNum = "1", pageSize = "10" });
+            return AreaTypes;
+        }
+
+        // price types.
+        public List<ProjectTypes_VM> PriceTypes()
+        {
+            PriceTypesService Service = new PriceTypesService();
+            List<ProjectTypes_VM> PriceTypes = Service.Find(new PagingParams { key = null, pageNum = "1", pageSize = "10" });
+            return PriceTypes;
+        }
+
+
+
+        // price types.
+        public List<ProjectTypes_VM> FurnitureTypes()
+        {
+            FurnitureTypesService Service = new FurnitureTypesService();
+            List<ProjectTypes_VM> FurnitureTypes = Service.Find(new PagingParams { key = null, pageNum = "1", pageSize = "10" });
+            return FurnitureTypes;
+        }
+
+
+        // Contact Persons.
+        public List<ProjectTypes_VM> ContactPersons()
+        {
+            ContactPersonService Service = new ContactPersonService();
+            List<ProjectTypes_VM> ContactPersons = Service.Find(new PagingParams { key = null, pageNum = "1", pageSize = "10" });
+            return ContactPersons;
+        }
+
+
+        // Contact Persons.
+        public List<ProjectTypes_VM> FeaturesNames()
+        {
+            FeaturesService Service = new FeaturesService();
+            List<ProjectTypes_VM> FeaturesNames = Service.Find(new PagingParams { key = null, pageNum = "1", pageSize = "10" });
+            return FeaturesNames;
+        }
+
+
+        // Ownership Serivce
+        public List<ProjectTypes_VM> OwnershipsNames()
+        {
+            OwnerShipService Service = new OwnerShipService();
+            List<ProjectTypes_VM> Ownerships = Service.Find(new PagingParams { key = null, pageNum = "1", pageSize = "10" });
+            return Ownerships;
         }
 
 
@@ -81,6 +178,46 @@ namespace Share.CMS.MaskanWebSite.Areas.Core.Controllers
             {
                 Session["ds_Language_WL"] = null;
             }
+        }
+
+
+        [HttpPost]
+        public int InsertProperty(propertyViewModel propertyViewModel)
+        {
+            UserViewModel user = (UserViewModel)Session[SessionEnum.User_Info.ToString()]; // User session.
+            propertyService service = new propertyService();
+            propertyViewModel Model = new propertyViewModel
+            {
+                Active = true,
+                AddedByUserID = Convert.ToInt32(user.UserID),
+                AdditionalRooms = propertyViewModel.AdditionalRooms,
+                Area = propertyViewModel.Area,
+                AreaTypeID = propertyViewModel.AreaTypeID,
+                Balconies = propertyViewModel.Balconies,
+                Bathrooms = propertyViewModel.Bathrooms,
+                BedRooms = propertyViewModel.BedRooms,
+                CityID = propertyViewModel.CityID,
+                ContactPersonID = 1,
+                CountryID = propertyViewModel.CountryID,
+                CreationDate = Convert.ToDateTime(propertyViewModel.CreationDate),
+                Description = propertyViewModel.Description,
+                Floor = propertyViewModel.Floor,
+                FurnitureTypeID = propertyViewModel.FurnitureTypeID,
+                LocationLang = propertyViewModel.LocationLang,
+                LocationLat = propertyViewModel.LocationLat,
+                OwnershipTypeID = propertyViewModel.OwnershipTypeID,
+                Price = propertyViewModel.Price,
+                PriceTypeID = propertyViewModel.PriceTypeID,
+                ProjectTypeID = propertyViewModel.ProjectTypeID,
+                PropertyID = propertyViewModel.PropertyID,
+                PropertyTitle = propertyViewModel.PropertyTitle,
+                PropertyTypeID = propertyViewModel.PropertyTypeID,
+                ResidanceID = propertyViewModel.ResidanceID,
+                StreetID = propertyViewModel.StreetID
+            };
+
+            int result = service.Insert(Model);
+            return result;
         }
 
     }

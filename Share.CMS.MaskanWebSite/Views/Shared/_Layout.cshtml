@@ -55,7 +55,7 @@
     @{
         var controller = ViewContext.RouteData.Values["Controller"].ToString();
         var action = ViewContext.RouteData.Values["Action"].ToString();
-        //var area = ViewContext.RouteData.Values["area"].ToString();
+        var area = HttpContext.Current.Request.RequestContext.RouteData.DataTokens["area"];
     }
 
 
@@ -185,7 +185,7 @@
                             @{
                                 if (user != null)
                                 {
-                                    <li><a href="#" onclick="_AccountManager.LogOut()"><i class="material-icons left">input</i>@_GlobalizationManager.GetTranslatedText("Log Out", Enum_LangModule.MaskanWeb, "76")</a></li>
+                                    <li><a href="#" onclick="_AccountManager.LogOut('@area')"><i class="material-icons left">input</i>@_GlobalizationManager.GetTranslatedText("Log Out", Enum_LangModule.MaskanWeb, "76")</a></li>
                                 }
                                 else
                                 {
@@ -417,7 +417,7 @@
                                         <a href="#" id="btnRecoverPass" style="color: #ff8d0d">@_GlobalizationManager.GetTranslatedText("Recover your password", Enum_LangModule.MaskanWeb, "30")</a>
                                     </div>
                                     <div class="col m12 s12">
-                                        <a href="#" onclick="_AccountManager.LogInWithMail()" class="waves-effect waves-light btn login">@_GlobalizationManager.GetTranslatedText("LogIn", Enum_LangModule.MaskanWeb, "1")</a>
+                                        <a href="#" onclick="_AccountManager.LogInWithMail('@area')" class="waves-effect waves-light btn login">@_GlobalizationManager.GetTranslatedText("LogIn", Enum_LangModule.MaskanWeb, "1")</a>
                                     </div>
                                 </form>
                             </div>
@@ -465,7 +465,7 @@
                                         <input type="password" id="txtNewAccPassword" class="form-control" placeholder="@_GlobalizationManager.GetTranslatedText("Password", Enum_LangModule.MaskanWeb, "29")">
                                     </div>
                                     <div class="col m12 s12">
-                                        <a href="#" onclick="_AccountManager.CreateNewAccount()" class="waves-effect waves-light btn login">@_GlobalizationManager.GetTranslatedText("Register", Enum_LangModule.MaskanWeb, "31")</a>
+                                        <a href="#" onclick="_AccountManager.CreateNewAccount('@area')" class="waves-effect waves-light btn login">@_GlobalizationManager.GetTranslatedText("Register", Enum_LangModule.MaskanWeb, "31")</a>
                                     </div>
                                 </form>
                             </div>
@@ -505,11 +505,13 @@
                                         <input type="text" id="txtRecoverEmail" class="form-control" placeholder="@_GlobalizationManager.GetTranslatedText("Email", Enum_LangModule.MaskanWeb, "28")">
                                     </div>
                                     <div class="col m12 s12">
-                                        <a href="#" id="btnRecoverPassword" onclick="_AccountManager.RecoverPassword()" class="waves-effect waves-light btn login">@_GlobalizationManager.GetTranslatedText("Recover", Enum_LangModule.MaskanWeb, "70")</a>
+                                        <a href="#" id="btnRecoverPassword" onclick="_AccountManager.RecoverPassword('@area')"
+                                           class="waves-effect waves-light btn login">
+                                        @_GlobalizationManager.GetTranslatedText("Recover", Enum_LangModule.MaskanWeb, "70")</a>
                                     </div>
                                 </form>
                             </div>
-                            
+
                         </div>
                     </div>
                     <label id="lblRecoverMessage"></label>
@@ -590,7 +592,8 @@
                                         <input type="text" class="form-control" placeholder="@_GlobalizationManager.GetTranslatedText("Repeat your password", Enum_LangModule.MaskanWeb, "74")">
                                     </div>
                                     <div class="col m12 s12">
-                                        <a href="#" class="waves-effect waves-light btn login">@_GlobalizationManager.GetTranslatedText("Recover", Enum_LangModule.MaskanWeb, "70")</a>
+                                        <a href="#" class="waves-effect waves-light btn login">
+                                        @_GlobalizationManager.GetTranslatedText("Recover", Enum_LangModule.MaskanWeb, "70")</a>
                                     </div>
                                 </form>
                             </div>
@@ -625,12 +628,19 @@
 
         function SuccessLogIn() {
             debugger;
-            var uri = "@Url.Action("Index", "Home")";
+            var uri = "@Url.Action(action, controller,new {Area=area })";
             window.location.href = uri;
             setTimeout(function () {
                 $.notify(_TranslationManager.GetTranslatedText(TranslationModule.MaskanWeb, 85, "Welcome to you in Maskan.com"), "success");
             }, 3000);
         }
+
+        function SuccessLogOut() {
+            debugger;
+            var uri = "@Url.Action("Index","Home")";
+            window.location.href = uri;
+        }
+
 
         var _AccountManager;
         var _CommonManager;
