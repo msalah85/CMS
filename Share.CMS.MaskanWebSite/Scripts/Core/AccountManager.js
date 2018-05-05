@@ -76,9 +76,9 @@
     }
 
     AccountManager.prototype.LogOut = function (area) {
-        var URI = "user/LogOut";
-        if (area == "Core")
-            URI = "../user/LogOut";
+        //var URI = "user/LogOut";
+        //if (area == "Core")
+        var URI = "../user/LogOut";
         _CommonManager.GetAPI(URI, function () {
             window.parent.SuccessLogIn();
             // console.log("user signed out successfully");
