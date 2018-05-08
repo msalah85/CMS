@@ -19,5 +19,7 @@ namespace Business.Services.Models
 
         public string SortDirection { get; set; }
 
+        
+
     }
 }
