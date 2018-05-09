@@ -8,6 +8,6 @@ namespace Business.Services.Models
 {
     public class propertyGetParams : IBaseSearch
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
     }
 }

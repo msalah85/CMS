@@ -9,25 +9,25 @@ namespace Business.Services.Models
     public class propertyViewModel
     {
         [NonSqlParameter]
-        public int PropertyID { get; set; }
+        public string PropertyID { get; set; }
 
         public DateTime CreationDate { get; set; }
 
-        public int CountryID { get; set; }
+        public string CountryID { get; set; }
 
-        public int CityID { get; set; }
+        public string CityID { get; set; }
 
-        public int ResidanceID { get; set; }
+        public string ResidanceID { get; set; }
 
-        public int StreetID { get; set; }
+        public string StreetID { get; set; }
 
         public string LocationLat { get; set; }
 
         public string LocationLang { get; set; }
 
-        public int ContactPersonID { get; set; }
+        public string ContactPersonID { get; set; }
 
-        public int AddedByUserID { get; set; }
+        public string AddedByUserID { get; set; }
 
         public bool Active { get; set; }
 
@@ -37,29 +37,29 @@ namespace Business.Services.Models
 
         public string Area { get; set; }
 
-        public int AreaTypeID { get; set; }
+        public string AreaTypeID { get; set; }
 
         public decimal Price { get; set; }
 
-        public int PriceTypeID { get; set; }
+        public string PriceTypeID { get; set; }
 
-        public int BedRooms { get; set; }
+        public string BedRooms { get; set; }
 
-        public int AdditionalRooms { get; set; }
+        public string AdditionalRooms { get; set; }
 
-        public int Bathrooms { get; set; }
+        public string Bathrooms { get; set; }
 
-        public int Balconies { get; set; }
+        public string Balconies { get; set; }
 
-        public int Floor { get; set; }
+        public string Floor { get; set; }
 
-        public int FurnitureTypeID { get; set; }
+        public string FurnitureTypeID { get; set; }
 
-        public int PropertyTypeID { get; set; }
+        public string PropertyTypeID { get; set; }
 
-        public int ProjectTypeID { get; set; }
+        public string ProjectTypeID { get; set; }
 
-        public int OwnershipTypeID { get; set; }
+        public string OwnershipTypeID { get; set; }
 
 
     }

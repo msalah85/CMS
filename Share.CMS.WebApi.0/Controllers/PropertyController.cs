@@ -20,7 +20,7 @@ namespace Share.CMS.WebApi._0.Controllers
                 Property_Get_Service _propertyService = new Property_Get_Service();
                 var _paramters = new propertyGetParams()
                 {
-                    Id=Id
+                    Id=Convert.ToInt32(Id)
                 };
 
                 List<propertyViewModel> Properties_List = new List<propertyViewModel>();
