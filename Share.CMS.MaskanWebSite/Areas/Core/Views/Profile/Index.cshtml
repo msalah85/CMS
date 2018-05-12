@@ -1,0 +1,144 @@
+﻿@using Business.Globalization
+@using Business.SessionImpl
+@using Business.Enums
+@using Business.Services.Models
+@using Business.Extenions
+
+@{
+    bool isRight = false;
+    GlobalizationManager _GlobalizationManager = SessionHandler.Instance.Get<GlobalizationManager>(SessionEnum.Language_Info);
+    if (_GlobalizationManager.IsUserLang_RTL)
+    {
+        isRight = true;
+    }
+    ViewBag.Title = @_GlobalizationManager.GetTranslatedText("Edit Profile", Enum_LangModule.MaskanWeb, "114");
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    UserViewModel user = (UserViewModel)Session[SessionEnum.User_Info.ToString()]; // User session.
+}
+
+<script>
+    function ValidateImge(element) {
+        var fileExtension = ['jpeg', 'jpg', 'png', 'gif', 'bmp'];
+        if ($.inArray($(element).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+            alert("Only formats are allowed : " + fileExtension.join(', '));
+            $(element).val('');
+        }
+    }
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#ProfileImage').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $(function () {
+
+        $("#ProfileFile").change(function () {
+            readURL(this);
+        });
+
+        $('#ProfileImage').click(function () { $('#ProfileFile').trigger('click'); });
+    })
+</script>
+
+<div class="EditProfile text-center " style="background-color: #fff; padding:20px;margin: 40px">
+
+    <div class="container">
+        @{
+            if (ViewBag.SuccessMsg != null)
+            {
+                if (ViewBag.SuccessMsg == "Please, fill all required fileds")
+                {
+                    <div class="alert alert-danger">
+                        <b>@_GlobalizationManager.GetTranslatedText("Please, fill all required fileds", Enum_LangModule.MaskanWeb, "120")</b>
+                    </div>
+                }
+                else
+                {
+                    <div class="alert alert-success">
+                        <b>@_GlobalizationManager.GetTranslatedText("Your profile data saved successfully", Enum_LangModule.MaskanWeb, "119")</b>
+                    </div>
+                }
+            }
+        }
+
+        <div class="title " style="margin-bottom: 50px;">
+            <h5> @_GlobalizationManager.GetTranslatedText("Edit profile", Enum_LangModule.MaskanWeb, "116")  </h5>
+        </div>
+        @using (Html.BeginForm("SaveProfile", "Profile", FormMethod.Post,
+                                                                                              new { enctype = "multipart/form-data" }))
+        {
+            <div style="width: 30%; margin: 0 auto">
+
+
+
+                <div class="row">
+
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-8">
+                        <div style="width:150px;height:150px;margin-bottom:5px;">
+                            <input type="file" id="ProfileFile" onchange="ValidateImge(this);" name="file" />
+
+                            @{
+            if (user != null)
+            {
+                if (String.IsNullOrEmpty(user.Image))
+                {
+                    <img width="150" id="ProfileImage" height="150" src="/content/masknvr1/img/user-default.png" class="circle" />
+                }
+                else
+                {
+                    <img width="150" id="ProfileImage" height="150" src="/Images/profile/@user.UserID@user.Image" class="circle" />
+                }
+            }
+            else
+            {
+                <img width="150" id="ProfileImage" height="150" src="/content/masknvr1/img/user-default.png" class="circle" />
+            }
+                            }
+
+                        </div>
+                    </div>
+
+                    <div class="col m12">
+                        <div class="form-group inner-addon @((isRight)?"left-addon":"right-addon")">
+                            <i class="fa fa-edit"></i>
+                            <input type="text" name="UserFullName" class="form-control" value="@user.UserFullName" placeholder="@_GlobalizationManager.GetTranslatedText("Full Name", Enum_LangModule.MaskanWeb, "118")">
+                        </div>
+                    </div>
+                    <div class="col m12">
+                        <div class="form-group inner-addon @((isRight)?"left-addon":"right-addon")">
+                            <i class="fa fa-edit"></i>
+                            <input type="text" name="Email" class="form-control" value="@user.Email" placeholder="@_GlobalizationManager.GetTranslatedText("Email", Enum_LangModule.MaskanWeb, "28")">
+                        </div>
+                    </div>
+                    <div class="col m12">
+                        <div class="form-group inner-addon @((isRight)?"left-addon":"right-addon")">
+                            <i class="fa fa-edit"></i>
+                            <input type="text" name="Address" class="form-control" value="@user.Address" placeholder="@_GlobalizationManager.GetTranslatedText("Address", Enum_LangModule.MaskanWeb, "117")">
+                        </div>
+                    </div>
+                    <div class="col m12">
+                        <div class="form-group inner-addon @((isRight)?"left-addon":"right-addon")">
+                            <i class="fa fa-edit"></i>
+                            <input type="text" name="Password" class="form-control" value="@EncryptDecryptString.Decrypt(user.Password, "Taj$$Key")" placeholder="@_GlobalizationManager.GetTranslatedText("Password", Enum_LangModule.MaskanWeb, "29")">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col m12 ">
+                            <button type="submit"
+                                    class="waves-effect waves-light orange btn text-center"
+                                    style="border-radius: 10px;margin-bottom: 20px">
+                                @_GlobalizationManager.GetTranslatedText("Edit", Enum_LangModule.MaskanWeb, "115")
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

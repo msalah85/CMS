@@ -178,6 +178,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Core\Controllers\ProfileController.cs" />
     <Compile Include="Areas\Core\Controllers\PropertyController.cs" />
     <Compile Include="Areas\Core\CoreAreaRegistration.cs" />
     <Compile Include="Areas\Core\Models\propertyAddUI_vm.cs" />
@@ -192,6 +193,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\SaveImageOnserver.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\HomeVM_UI.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -764,6 +766,7 @@
     <Content Include="Content\sys\assets\js\typeahead.jquery.min.js.map" />
     <Content Include="Content\sys\assets\js\x-editable\ace-editable.min.js.map" />
     <Content Include="Content\sys\assets\js\x-editable\bootstrap-editable.min.js.map" />
+    <Content Include="Areas\Core\Views\Profile\Index.cshtml" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Core\CommonManager.js" />
@@ -877,6 +880,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Core\Views\Shared\" />
+    <Folder Include="Images\Profile\" />
     <Folder Include="Languages\Default\en\" />
     <Folder Include="Views\EmailSubscription\" />
     <Folder Include="Views\UsersService\" />

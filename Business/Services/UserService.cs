@@ -16,6 +16,14 @@ namespace Business.Services
             }
         }
 
+        protected override string Update_SP
+        {
+            get
+            {
+                return "Users_Save";
+            }
+        }
+
         protected override string Insert_SP
         {
             get

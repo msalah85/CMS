@@ -189,7 +189,7 @@ namespace Share.CMS.MaskanWebSite.Areas.Core.Controllers
             propertyViewModel Model = new propertyViewModel
             {
                 Active = true,
-                AddedByUserID = Convert.ToInt32(user.UserID),
+                AddedByUserID = user.UserID.ToString(),
                 AdditionalRooms = propertyViewModel.AdditionalRooms,
                 Area = propertyViewModel.Area,
                 AreaTypeID = propertyViewModel.AreaTypeID,
@@ -197,7 +197,7 @@ namespace Share.CMS.MaskanWebSite.Areas.Core.Controllers
                 Bathrooms = propertyViewModel.Bathrooms,
                 BedRooms = propertyViewModel.BedRooms,
                 CityID = propertyViewModel.CityID,
-                ContactPersonID = 1,
+                ContactPersonID = "1",
                 CountryID = propertyViewModel.CountryID,
                 CreationDate = Convert.ToDateTime(propertyViewModel.CreationDate),
                 Description = propertyViewModel.Description,

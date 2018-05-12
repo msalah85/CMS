@@ -32,6 +32,6 @@ namespace Business.Services.Models
         public string Country { get; set; }
 
         //public int? Result { get; set; }
-
+        public string Image { get; set; }
     }
 }
