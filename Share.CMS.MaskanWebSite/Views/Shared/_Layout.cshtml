@@ -21,6 +21,7 @@
     <link type="text/css" rel="stylesheet" href="/content/masknvr1/css/bootstrap.css" media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="/content/masknvr1/css/style.css" media="screen,projection" />
 
+
     @RenderSection("scripts", required: false)
 
     @using Business.Globalization
@@ -62,6 +63,63 @@
 </head>
 
 <body>
+    @* FaceBook Login App Init *@
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '245991672642989',
+                cookie: true,
+                xfbml: true,
+                version: 'v2.5'
+            });
+            FB.AppEvents.logPageView();
+            FB.getLoginStatus(function (response) {
+                console.log(response);
+            });
+
+        };
+
+        (function (d, s, id) {
+            debugger;
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        function checkLoginState() {
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+            });
+        }
+
+        function FbLogin() {
+            debugger;
+            FB.login(function (response) {
+                console.log(response);
+                getInfo();
+            }, { scope: 'email' });
+        }
+
+
+        // getting basic user info
+        function getInfo() {
+            FB.api('/me', 'GET', {
+                fields: 'first_name,email,last_name,name,gender,address,id,picture.width(150).height(150)'
+            }, function (response) {
+                console.log(response);//Check the response in console
+                // document.getElementById('status').innerHTML = "<img src='" + response.picture.data.url + "'>";
+            });
+        }
+
+        function FBLogout() {
+            FB.logout(function () { });
+        }
+
+    </script>
+
+
 
     @{
         if (action != "index" && controller != "Home")
@@ -80,14 +138,14 @@
                                 <li><a href="#" onclick="ChangeLanguage()">@_GlobalizationManager.GetTranslatedText("عربي", Enum_LangModule.MaskanWeb, "32")</a></li>
 
                                 @{
-            if (user != null)
-            {
-                <li><a href="#" onclick="_AccountManager.LogOut()"><i class="material-icons left">input</i>@_GlobalizationManager.GetTranslatedText("Log Out", Enum_LangModule.MaskanWeb, "76")</a></li>
-            }
-            else
-            {
-                <li><a href="#modal1" id="btnLoginShowModal"><i class="material-icons right">input</i>@_GlobalizationManager.GetTranslatedText("LogIn", Enum_LangModule.MaskanWeb, "1")</a></li>
-            }
+                                    if (user != null)
+                                    {
+                                        <li><a href="#" onclick="_AccountManager.LogOut()"><i class="material-icons left">input</i>@_GlobalizationManager.GetTranslatedText("Log Out", Enum_LangModule.MaskanWeb, "76")</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="#modal1" id="btnLoginShowModal"><i class="material-icons right">input</i>@_GlobalizationManager.GetTranslatedText("LogIn", Enum_LangModule.MaskanWeb, "1")</a></li>
+                                    }
                                 }
 
 
@@ -124,27 +182,27 @@
                         <div class="userView">
 
                             @{
-            if (user != null)
-            {
-                if (String.IsNullOrEmpty(user.Image))
-                {
-                    <a href="#login">
-                        <img class="circle" src="/content/masknvr1/img/user-default.png">
-                    </a>
-                }
-                else
-                {
-                    <a href="#login">
-                        <img class="circle" src="/Images/profile/@user.UserID@user.Image">
-                    </a>
-                }
-            }
-            else
-            {
-                <a href="#login">
-                    <img class="circle" src="/content/masknvr1/img/user-default.png">
-                </a>
-            }
+                                if (user != null)
+                                {
+                                    if (String.IsNullOrEmpty(user.Image))
+                                    {
+                                        <a href="#login">
+                                            <img class="circle" src="/content/masknvr1/img/user-default.png">
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="#login">
+                                            <img class="circle" src="/Images/profile/@user.UserID@user.Image">
+                                        </a>
+                                    }
+                                }
+                                else
+                                {
+                                    <a href="#login">
+                                        <img class="circle" src="/content/masknvr1/img/user-default.png">
+                                    </a>
+                                }
                             }
 
                             <a href="#login">
@@ -152,10 +210,10 @@
 
                                 @{
 
-            if (user != null)
-            {
-                <span>@user.Username</span>
-            }
+                                    if (user != null)
+                                    {
+                                        <span>@user.Username</span>
+                                    }
                                 }
 
                             </a>
@@ -163,11 +221,11 @@
                     </li>
 
                     @{
-            if (user != null)
-            {
-                <li><a href="@Url.Action("Index", "Profile", new { area = "Core" })">@_GlobalizationManager.GetTranslatedText("Profile", Enum_LangModule.MaskanWeb, "113")</a></li>
-                        <li><a href="#journey">@_GlobalizationManager.GetTranslatedText("My Adventure with Maskan", Enum_LangModule.MaskanWeb, "7")</a></li>
-            }
+                        if (user != null)
+                        {
+                            <li><a href="@Url.Action("Index", "Profile", new { area = "Core" })">@_GlobalizationManager.GetTranslatedText("Profile", Enum_LangModule.MaskanWeb, "113")</a></li>
+                            <li><a href="#journey">@_GlobalizationManager.GetTranslatedText("My Adventure with Maskan", Enum_LangModule.MaskanWeb, "7")</a></li>
+                        }
                     }
 
                     <li><a href="/default#news-list">@_GlobalizationManager.GetTranslatedText("Latest News", Enum_LangModule.MaskanWeb, "12")</a></li>
@@ -183,7 +241,7 @@
                 </ul>
 
             </div>
-        }
+                        }
     }
 
 
@@ -206,14 +264,14 @@
                             <li><a href="#" onclick="ChangeLanguage()">@_GlobalizationManager.GetTranslatedText("عربي", Enum_LangModule.MaskanWeb, "32")</a></li>
 
                             @{
-            if (user != null)
-            {
-                <li><a href="#" onclick="_AccountManager.LogOut('@area')"><i class="material-icons left">input</i>@_GlobalizationManager.GetTranslatedText("Log Out", Enum_LangModule.MaskanWeb, "76")</a></li>
-            }
-            else
-            {
-                <li><a href="#modal1" id="btnLoginShowModal"><i class="material-icons right">input</i>@_GlobalizationManager.GetTranslatedText("LogIn", Enum_LangModule.MaskanWeb, "1")</a></li>
-            }
+                                if (user != null)
+                                {
+                                    <li><a href="#" onclick="_AccountManager.LogOut('@area')"><i class="material-icons left">input</i>@_GlobalizationManager.GetTranslatedText("Log Out", Enum_LangModule.MaskanWeb, "76")</a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="#modal1" id="btnLoginShowModal"><i class="material-icons right">input</i>@_GlobalizationManager.GetTranslatedText("LogIn", Enum_LangModule.MaskanWeb, "1")</a></li>
+                                }
                             }
 
                             <li class="ListProperty"><a href="@Url.Action("Index", "Property", new { area = "Core" })"><i class="material-icons right">home</i>@_GlobalizationManager.GetTranslatedText("Add your properity", Enum_LangModule.MaskanWeb, "2")</a></li>
@@ -245,28 +303,28 @@
                         <div class="userView">
 
                             @{
-            if (user != null)
-            {
-                if (String.IsNullOrEmpty(user.Image))
-                {
-                    <a href="#login">
-                        <img class="circle" src="/content/masknvr1/img/user-default.png">
-                    </a>
-                }
-                else
-                {
-                    <a href="#login">
-                        <img class="circle" src="/Images/profile/@user.UserID@user.Image">
-                    </a>
+                                if (user != null)
+                                {
+                                    if (String.IsNullOrEmpty(user.Image))
+                                    {
+                                        <a href="#login">
+                                            <img class="circle" src="/content/masknvr1/img/user-default.png">
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="#login">
+                                            <img class="circle" src="/Images/profile/@user.UserID@user.Image">
+                                        </a>
 
-                }
-            }
-            else
-            {
-                <a href="#login">
-                    <img class="circle" src="/content/masknvr1/img/user-default.png">
-                </a>
-            }
+                                    }
+                                }
+                                else
+                                {
+                                    <a href="#login">
+                                        <img class="circle" src="/content/masknvr1/img/user-default.png">
+                                    </a>
+                                }
                             }
 
 
@@ -275,21 +333,21 @@
                                 @_GlobalizationManager.GetTranslatedText("Welcome", Enum_LangModule.MaskanWeb, "6")
                                 @{
 
-            if (user != null)
-            {
-                <span>@user.Username</span>
-            }
+                                    if (user != null)
+                                    {
+                                        <span>@user.Username</span>
+                                    }
                                 }
                             </a>
                         </div>
                     </li>
 
                     @{
-            if (user != null)
-            {
-                <li><a href="@Url.Action("Index", "Profile", new { area = "Core" })">@_GlobalizationManager.GetTranslatedText("Profile", Enum_LangModule.MaskanWeb, "113")</a></li>
-                        <li><a href="#journey">@_GlobalizationManager.GetTranslatedText("My Adventure with Maskan", Enum_LangModule.MaskanWeb, "7")</a></li>
-            }
+                        if (user != null)
+                        {
+                            <li><a href="@Url.Action("Index", "Profile", new { area = "Core" })">@_GlobalizationManager.GetTranslatedText("Profile", Enum_LangModule.MaskanWeb, "113")</a></li>
+                            <li><a href="#journey">@_GlobalizationManager.GetTranslatedText("My Adventure with Maskan", Enum_LangModule.MaskanWeb, "7")</a></li>
+                        }
                     }
 
                     <li><a href="/default#news-list">@_GlobalizationManager.GetTranslatedText("Latest News", Enum_LangModule.MaskanWeb, "12")</a></li>
@@ -305,7 +363,7 @@
                 </ul>
 
             </div>
-        }
+                        }
 
     }
 
@@ -404,9 +462,22 @@
                         </div>
                         <div class="col m12 s12">
                             <div class="text-center center-block">
+
+                                @*<div class="fb-login-button"
+                                    data-max-rows="1"
+                                    data-size="large"
+                                    data-button-type="continue_with"
+                                    data-show-faces="false"
+                                    data-auto-logout-link="false"
+                                    data-use-continue-as="false"></div>*@
+
+                                @*<fb:login-button scope="public_profile,email"
+                                                     onlogin="checkLoginState();">
+                                    </fb:login-button>*@
+
                                 <a href="#"><i class="fa fa-google-plus-square fa-3x social" style="color: #dd4c3b"></i></a>
                                 <a href="#"><i class="fa fa-twitter-square fa-3x social" style="color: #00aced"></i></a>
-                                <a href="#"><i class="fa fa-facebook-square fa-3x social" style="color: #3b5997"></i></a>
+                                <a href="#" onclick="FbLogin()" id="btnFBLogin"><i class="fa fa-facebook-square fa-3x social" style="color: #3b5997"></i></a>
                             </div>
                         </div>
                         <div class="col m12 s12">
@@ -687,6 +758,7 @@
 
         function SuccessLogOut() {
             debugger;
+            FBLogout();
             var uri = "@Url.Action("Index","Home")";
             window.location.href = uri;
         }
@@ -728,6 +800,12 @@
 
         });
     </script>
+
+
+
+
+
+
 
 </body>
 </html>
