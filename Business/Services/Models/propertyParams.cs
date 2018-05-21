@@ -19,7 +19,7 @@ namespace Business.Services.Models
 
         public string SortDirection { get; set; }
 
-        
+        public string UserID { get; set; }
 
     }
 }

@@ -83,23 +83,27 @@
                         <div style="width:150px;height:150px;margin-bottom:5px;">
                             <input type="file" id="ProfileFile" onchange="ValidateImge(this);" name="file" />
 
-                            @{
-            if (user != null)
-            {
-                if (String.IsNullOrEmpty(user.Image))
-                {
-                    <img width="150" id="ProfileImage" height="150" src="/content/masknvr1/img/user-default.png" class="circle" />
+                @{
+               if (user != null)
+               {
+                       if (user.AouthType == "facebook" && !String.IsNullOrEmpty(user.Image))
+                       {
+                           <img width="150" id="ProfileImage" height="150" src="@user.Image" class="circle" />
+                       }
+                       else if (String.IsNullOrEmpty(user.Image))
+                        {
+                         <img width="150" id="ProfileImage" height="150" src="/content/masknvr1/img/user-default.png" class="circle" />
+                       }
+                       else
+                       {
+                           <img width="150" id="ProfileImage" height="150" src="/Images/profile/@user.UserID@user.Image" class="circle" />
+                       }
+                   }
+                  else
+                  {
+                      <img width="150" id="ProfileImage" height="150" src="/content/masknvr1/img/user-default.png" class="circle" />
+                  }
                 }
-                else
-                {
-                    <img width="150" id="ProfileImage" height="150" src="/Images/profile/@user.UserID@user.Image" class="circle" />
-                }
-            }
-            else
-            {
-                <img width="150" id="ProfileImage" height="150" src="/content/masknvr1/img/user-default.png" class="circle" />
-            }
-                            }
 
                         </div>
                     </div>

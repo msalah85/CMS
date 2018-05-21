@@ -1,5 +1,4 @@
-﻿
-@using Business.Globalization
+﻿@using Business.Globalization
 @using Business.SessionImpl
 @using Business.Enums
 @using Business.Services.Models
@@ -24,7 +23,11 @@
         isRight = true;
     }
 }
-
+<style>
+    .Images {
+        display: inline-flex;
+    }
+</style>
 @if (isRight)
 {
     <style>
@@ -65,12 +68,68 @@ else
 <link href="~/Content/sys/assets/css/bootstrap-datepicker3.min.css" rel="stylesheet" />
 <script src="~/Content/sys/assets/js/date-time/bootstrap-datepicker.js"></script>
 <script>
+
+    function render(input) {
+        $("#fileUploaderBox").show();
+        if (input.files && input.files[0]) {
+            $(input.files).each(function () {
+                var reader = new FileReader();
+                reader.readAsDataURL(this);
+                reader.onload = function (e) {
+                    $("#fileUploaderBox").append("<img class='thumb' width='200' style='margin-left:7px;' height='200' src='" + e.target.result + "'>");
+                }
+            });
+        }
+    }
+
+    function handleFileSelect(evt) {
+        var files = evt.target.files; // FileList object
+
+        // Loop through the FileList and render image files as thumbnails.
+        for (var i = 0, f; f = files[i]; i++) {
+
+            // Only process image files.
+            if (!f.type.match('image.*')) {
+                continue;
+            }
+
+            var reader = new FileReader();
+
+            // Closure to capture the file information.
+            reader.onload = (function (theFile) {
+                return function (e) {
+                    // Render thumbnail.
+                    var span = document.createElement('span');
+                    span.innerHTML = ['<img class="thumb" src="', e.target.result,
+                        '" title="', escape(theFile.name), '"/>'].join('');
+                    document.getElementById('fileUploaderBox').insertBefore(span, null);
+                };
+            })(f);
+
+            // Read in the image file as a data URL.
+            reader.readAsDataURL(f);
+        }
+    }
+
     var _properityManager;
-    $(function () {
+    $(document).ready(function () {
+
+        $("#file").change(function () {
+            render(this);
+        });
+
+        $("#ShowFileChooser").click(function (e) {
+
+            $('#file').trigger('click');
+
+        });
+
         _properityManager = new properityManager();
         $(".select2").select2();
         $(".date-picker").datepicker();
+
     });
+
 </script>
 
 <div class="AddPropert " style="background-color: #fff; padding:20px;margin: 40px">
@@ -82,11 +141,11 @@ else
                 @_GlobalizationManager.GetTranslatedText("Your must login first before you add a properity", Enum_LangModule.MaskanWeb, "109")
             </div>
         }
-       
-            <div class="alert alert-info" style="display:none" id="divMessage">
-                
-            </div>
-       
+
+        <div class="alert alert-info" style="display:none" id="divMessage">
+
+        </div>
+
         <div class="title" id="titleAddProp">
             <h5>@_GlobalizationManager.GetTranslatedText("Add your properity", Enum_LangModule.MaskanWeb, "2")</h5>
         </div>
@@ -288,6 +347,28 @@ else
                             </select>
                         </div>
                     </div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="ContactPersonID">@_GlobalizationManager.GetTranslatedText("Images", Enum_LangModule.MaskanWeb, "121") <span class="text-danger">*</span></label>
+                        <div class="col-sm-3">
+
+                            <input type="file" id="file" name="file" class="inputfile inputfile-8" data-multiple-caption="{count} files selected" multiple />
+                            <label id="ShowFileChooser" for="file-5"><i class="fa fa-plus" style="display: block;font-size: 30px;"></i> <span>Image</span></label>
+
+
+
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="box Images" id="fileUploaderBox" style="display:none">
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
                 </div>
                 <div class="col-xs-6">
                     @*<div class="form-group">
@@ -331,6 +412,10 @@ else
                             </select>
                         </div>
                     </div>
+
+
+
+
                 </div>
 
                 <br />

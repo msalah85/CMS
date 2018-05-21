@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -33,5 +34,8 @@ namespace Business.Services.Models
 
         //public int? Result { get; set; }
         public string Image { get; set; }
+
+        public string AouthType { get; set; }
+
     }
 }

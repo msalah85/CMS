@@ -182,16 +182,21 @@
     <Compile Include="Areas\Core\Controllers\PropertyController.cs" />
     <Compile Include="Areas\Core\CoreAreaRegistration.cs" />
     <Compile Include="Areas\Core\Models\propertyAddUI_vm.cs" />
+    <Compile Include="Areas\Core\Models\UserProperties_UI.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DownloadMobAppController.cs" />
     <Compile Include="Controllers\EmailSubscriptionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PropertyController.cs" />
     <Compile Include="Controllers\ResetPasswordController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UsersServiceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="handlers\UploadHandler.ashx.cs">
+      <DependentUpon>UploadHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="Helpers\SaveImageOnserver.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -631,6 +636,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Property\319.jpeg" />
+    <Content Include="Images\Property\320.jpeg" />
+    <Content Include="Images\Property\321.png" />
+    <Content Include="Images\Property\322.png" />
     <Content Include="Scripts\Core\AccountManager.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -767,6 +776,8 @@
     <Content Include="Content\sys\assets\js\x-editable\ace-editable.min.js.map" />
     <Content Include="Content\sys\assets\js\x-editable\bootstrap-editable.min.js.map" />
     <Content Include="Areas\Core\Views\Profile\Index.cshtml" />
+    <Content Include="handlers\UploadHandler.ashx" />
+    <Content Include="Areas\Core\Views\Property\YourProperties.cshtml" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Core\CommonManager.js" />

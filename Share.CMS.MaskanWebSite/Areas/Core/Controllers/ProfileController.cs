@@ -69,6 +69,7 @@ namespace Share.CMS.MaskanWebSite.Areas.Core.Controllers
             }
 
             int ResultDB = service.Update(Usermodel);
+            // Update user sesstion.
             Session[SessionEnum.User_Info.ToString()] = Usermodel;
 
             ViewBag.SuccessMsg = "Your data saved successfully";

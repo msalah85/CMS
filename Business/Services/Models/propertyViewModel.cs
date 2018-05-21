@@ -8,7 +8,6 @@ namespace Business.Services.Models
 {
     public class propertyViewModel
     {
-        [NonSqlParameter]
         public string PropertyID { get; set; }
 
         public DateTime CreationDate { get; set; }
@@ -60,6 +59,16 @@ namespace Business.Services.Models
         public string ProjectTypeID { get; set; }
 
         public string OwnershipTypeID { get; set; }
+
+        public string MainPicture { get; set; }
+
+        public string MediaID { get; set; }
+
+        public string PriceTypeName { get; set; }
+
+        public string FurnitureTypeName { get; set; }
+
+        public string OwnershipTypeName { get; set; }
 
 
     }

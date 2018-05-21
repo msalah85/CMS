@@ -1,0 +1,176 @@
+﻿@using Business.Globalization
+@using Business.SessionImpl
+@using Business.Enums
+@using Business.Services.Models
+@using Business.Extenions
+
+@{
+    bool isRight = false;
+    GlobalizationManager _GlobalizationManager = SessionHandler.Instance.Get<GlobalizationManager>(SessionEnum.Language_Info);
+    if (_GlobalizationManager.IsUserLang_RTL)
+    {
+        isRight = true;
+    }
+    ViewBag.Title = _GlobalizationManager.GetTranslatedText("Your Properities", Enum_LangModule.MaskanWeb, "47");
+    UserViewModel user = (UserViewModel)Session[SessionEnum.User_Info.ToString()]; // User session.
+}
+
+@{
+    ViewBag.Title = "YourProperties";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Share.CMS.MaskanWebSite.Areas.Core.Models.UserProperties_UI
+
+
+ <style>
+     body {
+         background-color: #fbfbfb;
+     }
+        .dropdown.dropdown-lg .dropdown-menu {
+            margin-top: -1px;
+            padding: 6px 20px;
+        }
+        .input-group-btn .btn-group {
+            display: flex !important;
+        }
+        .btn-group .btn {
+            border-radius: 0;
+            margin-left: -1px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: transparent;
+
+            box-shadow: none;
+        }
+        .btn-group .btn:last-child {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+        .btn-group .form-horizontal .btn[type="submit"] {
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+        .form-horizontal .form-group {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .form-group .form-control:last-child {
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        .collection .collection-item{
+            padding: 10px;
+        }
+        .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default{
+            background-color: transparent;
+        }
+
+        .btn-default:active:hover, .btn-default.active:hover, .open > .dropdown-toggle.btn-default:hover, .btn-default:active:focus, .btn-default.active:focus, .open > .dropdown-toggle.btn-default:focus, .btn-default:active.focus, .btn-default.active.focus, .open > .dropdown-toggle.btn-default.focus{
+            background-color: transparent;
+
+        }
+</style>
+
+    <div class="buildings text-center" style="margin-top: 50px;">
+    <div class="buildingsDetails">
+        <div class="container">
+            <h5 class="text-center"> قائمة عقاراتك </h5>
+            <br /><br />
+
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div class="buildingLeftPart">
+                        @if (Model.UserProperties.Count > 0)
+                        {
+                            foreach (var item in Model.UserProperties)
+                            {
+                                <div class="buildingCard">
+                                    <div class="row">
+                                        <div class="col m4 l4">
+                                            <div class='buldImg'>
+                                                <!-- image -->
+                                                <img src='../../Images/Property/@item.MediaID@item.MainPicture' class="img-responsive" alt="" title="build" />
+                                                <!-- description div -->
+                                                <div class='description'>
+                                                    <!-- description content -->
+                                                    <h6 class='description_content'>@item.PropertyTitle</h6>
+                                                    <fieldset class="rating">
+                                                        <input type="radio" id="star25" name="rating" value="5" />
+                                                        <label class="full" for="star25" title="5 start"></label>
+
+                                                        <input type="radio" id="star24" name="rating" value="4" />
+                                                        <label class="full" for="star24" title="4 stars "></label>
+                                                        <input type="radio" id="star23" name="rating" value="3" />
+                                                        <label class="full" for="star23" title="3 stars"></label>
+
+                                                        <input type="radio" id="star22" name="rating" value="2" />
+                                                        <label class="full" for="star22" title="2 stars"></label>
+
+                                                        <input type="radio" id="star21" name="rating" value="1" />
+                                                        <label class="full" for="star21" title="bad  1 star"></label>
+
+                                                    </fieldset>
+                                                    <a href="#" class="fav active"><i class="material-icons ">favorite_border</i> </a>
+                                                    <!-- end description content -->
+                                                </div>
+                                                <!-- end description div -->
+                                            </div>
+                                        </div>
+                                        <div class="col m8 l8">
+                                            <div class="BuildRight">
+                                                <h5> @item.PropertyTitle </h5>
+                                                <h5> @item.Description</h5>
+                                                <div class="row">
+                                                    <ul class="first ">
+                                                        <li>
+                                                            <h5> @item.Price </h5>
+                                                        </li>
+                                                        <li>
+                                                            <h5> @item.PriceTypeName  </h5>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="row">
+                                                    <ul class="second ">
+                                                        <li>
+                                                            <h6> @item.OwnershipTypeName  </h6>
+                                                        </li>
+                                                        <li>
+                                                            <h6> @item.FurnitureTypeName   </h6>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="buildingsBtn">
+                                                    <div class="row">
+                                                        <div class="col m4  ">
+                                                            <a class="waves-effect waves-light btn" style="background-color: #818287">المزيد </a>
+                                                        </div>
+                                                        <div class="col m4 ">
+                                                            <a class="waves-effect waves-light orange btn">طلب الآن </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="alert alert-danger">
+                                <b>@_GlobalizationManager.GetTranslatedText("There is no properities for you until now", Enum_LangModule.MaskanWeb, "120")</b>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

@@ -100,6 +100,7 @@
     <Compile Include="AutoMapper\SqlParametersGenerator.cs" />
     <Compile Include="BaseSearch\IBaseSearch.cs" />
     <Compile Include="DAL\StartUp.cs" />
+    <Compile Include="Enums\AouthTypes.cs" />
     <Compile Include="Enums\Enum_LangModule.cs" />
     <Compile Include="Enums\SessionEnum.cs" />
     <Compile Include="Extenions\CompareData.cs" />
@@ -119,12 +120,14 @@
     <Compile Include="Services\EmailSubscriptionService.cs" />
     <Compile Include="Services\LanguageService.cs" />
     <Compile Include="Services\LocalizationService.cs" />
+    <Compile Include="Services\MediaFilesService.cs" />
     <Compile Include="Services\Models\Application_Info.cs" />
     <Compile Include="Services\Models\EmailSubscriptionParams.cs" />
     <Compile Include="Services\Models\EmailSubscription_VM.cs" />
     <Compile Include="Services\Models\LanguageParams.cs" />
     <Compile Include="Services\Models\LanguagesViewModel.cs" />
     <Compile Include="Services\Models\LogInParams.cs" />
+    <Compile Include="Services\Models\MediaFiles_VM.cs" />
     <Compile Include="Services\Models\PagingParams.cs" />
     <Compile Include="Services\Models\ProjectTypes_VM.cs" />
     <Compile Include="Services\Models\propertyGetParams.cs" />
@@ -145,6 +148,7 @@
     <Compile Include="Services\ResetPasswordService.cs" />
     <Compile Include="Services\Models\UserViewModel.cs" />
     <Compile Include="Services\propertyService.cs" />
+    <Compile Include="Services\UserpropertyService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="SessionImpl\DeploySession.cs" />
     <Compile Include="SessionImpl\DevSession.cs" />

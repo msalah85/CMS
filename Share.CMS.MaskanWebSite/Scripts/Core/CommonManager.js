@@ -20,7 +20,23 @@
     }
 
 
-    CommonManager.prototype.GetAPI = function (url , _callback) {
+
+    CommonManager.prototype.SendRequestSave = function (url, data, _callback) {
+        $.ajax({
+            url: ".." + url,
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: 'application/json; charset=utf-8',
+            success: function (result) {
+                _callback(result);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    CommonManager.prototype.GetAPI = function (url, _callback) {
         $.ajax({
             url: url,
             type: 'GET',

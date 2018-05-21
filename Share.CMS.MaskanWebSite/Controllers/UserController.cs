@@ -52,7 +52,10 @@ namespace Share.CMS.MaskanWebSite.Controllers
             try
             {
                 UserService _userService = new UserService();
-                string _pass = EncryptDecryptString.Encrypt(model.Password, "Taj$$Key");
+                string _pass = string.Empty;
+                if (!String.IsNullOrEmpty(model.Password))
+                     _pass = EncryptDecryptString.Encrypt(model.Password, "Taj$$Key");
+
                 var _paramters = new UserViewModel()
                 {
                     Username = model.Username,
@@ -61,13 +64,20 @@ namespace Share.CMS.MaskanWebSite.Controllers
                     Email = model.Email,
                     Phone = model.Phone,
                     Address = model.Address,
-                    Country = model.Country
+                    Country = model.Country,
+                    AouthType = model.AouthType,
+                    Image = model.Image
                 };
                 _paramters.UserID = null;
                 _paramters.IsActive = null;
                 _paramters.IsDeleted = null;
 
                 int Result = _userService.Insert(_paramters);
+
+                if (Result == -1 && model.AouthType == "facebook")
+                {
+                    Result = 1;
+                }
 
                 // set Current session.
                 Session[SessionEnum.User_Info.ToString()] = new UserViewModel();

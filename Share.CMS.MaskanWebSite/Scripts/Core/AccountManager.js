@@ -2,35 +2,51 @@
     _selfAccountManager = this;
 
     // Methods.
-    AccountManager.prototype.CreateNewAccount = function (area) {
-        // validate all Required Fields.
-        var Username = $("#txtNewAccName").val();
-        var Password = $("#txtNewAccPassword").val();
-        var Email = $("#txtNewAccEMail").val();
+    AccountManager.prototype.CreateNewAccount = function (area, AouthType, model) {
+        debugger;
 
-        if (Username == "" || Password == "" || Email == "") {
-            $("#lblCreateNewAccMsg").html(_TranslationManager.GetTranslatedText(TranslationModule.MaskanWeb, 75, "Please fill all fields"));
-            return;
-        }
+        if (AouthType == "custom") {
+            // validate all Required Fields.
+            var Username = $("#txtNewAccName").val();
+            var Password = $("#txtNewAccPassword").val();
+            var Email = $("#txtNewAccEMail").val();
 
-        // Validation Email Address.
-        if (!_CommonManager.isEmail(Email)) {
-            $("#lblCreateNewAccMsg").html(_TranslationManager.GetTranslatedText(TranslationModule.MaskanWeb, 64, "Please enter a valid email address"));
-            return;
+            if (Username == "" || Password == "" || Email == "") {
+                $("#lblCreateNewAccMsg").html(_TranslationManager.GetTranslatedText(TranslationModule.MaskanWeb, 75, "Please fill all fields"));
+                return;
+            }
+
+            // Validation Email Address.
+            if (!_CommonManager.isEmail(Email)) {
+                $("#lblCreateNewAccMsg").html(_TranslationManager.GetTranslatedText(TranslationModule.MaskanWeb, 64, "Please enter a valid email address"));
+                return;
+            }
         }
 
         var UserViewModel = {
             "Username": $("#txtNewAccName").val(),
             "Password": $("#txtNewAccPassword").val(),
-            "Email": $("#txtNewAccEMail").val()
+            "Email": $("#txtNewAccEMail").val(),
+            "AouthType": AouthType
         }
+
+        if (AouthType != "custom") {
+            UserViewModel.Username = model.name;
+            UserViewModel.Email = model.email;
+            UserViewModel.Image = model.picture.data.url;
+        }
+
+        //UserViewModel.Username = "Ibrahim Ayman";
+        //UserViewModel.Email = "eng.ibrahim.cer@hotmail.com";
+        //UserViewModel.Image = "https://lookaside.facebook.com/platform/profilepic/?asid=1772420106149447&height=150&width=150&ext=1526525542&hash=AeSYalQPP-71JJ5F";
+        //UserViewModel.AouthType = "facebook";
 
         var URI = "/user/Register";
         if (area == "Core")
             URI = "/user/Register";
         _CommonManager.SendRequest(URI, UserViewModel, function (result) {
             // sucess callback.
-
+            console.log("result of regsiter : " + result);
             $("#modal3").hide();
             $("#modal1").hide();
             $("#lblCreateNewAccMsg").html("");

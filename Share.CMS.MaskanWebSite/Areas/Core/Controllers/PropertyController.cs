@@ -7,9 +7,11 @@ using Business.Services.propertyAdd;
 using Business.SessionImpl;
 using Newtonsoft.Json;
 using Share.CMS.MaskanWebSite.Areas.Core.Models;
+using Share.CMS.MaskanWebSite.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -39,6 +41,22 @@ namespace Share.CMS.MaskanWebSite.Areas.Core.Controllers
             return View(UIModel);
         }
 
+
+
+
+        public ActionResult YourProperties()
+        {
+            // Set Language Information.
+            ManageUserLanguage(GetActiveLanguage());
+            UserProperties_UI Model = new UserProperties_UI();
+
+            UserViewModel user = (UserViewModel)Session[SessionEnum.User_Info.ToString()]; // User session.
+            UserpropertyService Service = new UserpropertyService();
+            List<propertyViewModel> Props = Service.Find(new propertyParams() { UserID = user.UserID.ToString(), DisplayLength = 50, SortColumn = "", SortDirection = "", SearchParam = "" });
+            Model.UserProperties = Props;
+
+            return View(Model);
+        }
 
         // Get Form data.
         // - Project Types. 
@@ -182,7 +200,7 @@ namespace Share.CMS.MaskanWebSite.Areas.Core.Controllers
 
 
         [HttpPost]
-        public int InsertProperty(propertyViewModel propertyViewModel)
+        public int InsertProperty(propertyViewModel propertyViewModel, HttpPostedFileBase file)
         {
             UserViewModel user = (UserViewModel)Session[SessionEnum.User_Info.ToString()]; // User session.
             propertyService service = new propertyService();
@@ -215,8 +233,8 @@ namespace Share.CMS.MaskanWebSite.Areas.Core.Controllers
                 ResidanceID = propertyViewModel.ResidanceID,
                 StreetID = propertyViewModel.StreetID
             };
-
-            int result = service.Insert(Model);
+            int InsertedIncId = 0;
+            int result = service.InsertWithResult(Model, out InsertedIncId);
             return result;
         }
 

@@ -29,15 +29,30 @@
             "StreetID": $("#StreetID").val()
         };
         debugger;
-        _CommonManager.SendRequest("/Property/InsertProperty", propertyViewModel , function (result) {
-            if (result < 0)
-            {
+        _CommonManager.SendRequest("/Property/InsertProperty", propertyViewModel, function (result) {
+            debugger;
+            if (result < 0) {
                 $("#divMessage").text(_TranslationManager.GetTranslatedText(TranslationModule.MaskanWeb, 112, "An error occured while adding your property"));
                 $("#divMessage").show();
                 $.notify(_TranslationManager.GetTranslatedText(TranslationModule.MaskanWeb, 112, "An error occured while adding your property"), "error");
             }
-            else
-            {
+            else {
+                var MediaFiles_VM = [];
+                var files = $("#file")[0].files;
+                if (files.length > 0) {
+                    var formdata = new FormData();
+                    for (var i = 0; i < files.length; i++) {
+                        //formdata.append(files[i].name, files[i]);
+                        MediaFiles_VM.push({
+                            "PropertyID": result,
+                            "MediaUrl": files[i].name.substring(files[i].name.lastIndexOf('.')),
+                            "Inserted_Inc_Id": 0
+                        });
+                    }
+                }
+
+                Self_properity.SaveImages(MediaFiles_VM);
+
                 Self_properity.ClearControls();
                 $("#divMessage").text(_TranslationManager.GetTranslatedText(TranslationModule.MaskanWeb, 111, "Your property added successfully"));
                 $("#divMessage").show();
@@ -50,6 +65,19 @@
         });
     }
 
+
+    properityManager.prototype.SaveImages = function (MediaFiles_VM) {
+        // Calling API.
+        _CommonManager.SendRequestSave("/api/Property/SaveImages", MediaFiles_VM, function (result) {
+            debugger;
+            console.log(result);
+            // Upload Images on Server.
+            window.parent.UploadImgOnServer(result, "#file");
+
+        }, function (error) {
+            console.log("Error");
+        });
+    }
 
     properityManager.prototype.ClearControls = function () {
         $("#AdditionalRooms").val(''); $("#PropertyTitle").val('');
